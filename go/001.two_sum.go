@@ -1,4 +1,4 @@
-package twosum
+package main
 
 import "sort"
 
