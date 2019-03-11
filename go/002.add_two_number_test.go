@@ -6,6 +6,11 @@ import (
 	"testing"
 )
 
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 func (n *ListNode) String() string {
 	buf := strings.Builder{}
 	for {
