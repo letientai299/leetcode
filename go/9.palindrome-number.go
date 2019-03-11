@@ -1,3 +1,5 @@
+package main
+
 /*
  * @lc app=leetcode id=9 lang=golang
  *
@@ -45,5 +47,29 @@
  *
  */
 func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
 
+	headbase := 1
+	for {
+		if headbase > x {
+			headbase = headbase / 10
+			break
+		}
+
+		headbase *= 10
+	}
+
+	for x > 0 {
+		head := (x / headbase) % 10
+		tail := x % 10
+		if head != tail {
+			return false
+		}
+
+		x = (x - head*headbase) / 10
+		headbase /= 100
+	}
+	return true
 }
