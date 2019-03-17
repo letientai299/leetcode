@@ -12,6 +12,15 @@ type TreeNode struct {
 	Right *TreeNode `json:"right"`
 }
 
+func (t *TreeNode) inOrder() []int {
+	if t == nil {
+		return nil
+	}
+
+	result := append(t.Left.inOrder(), t.Val)
+	return append(result, t.Right.inOrder()...)
+}
+
 func treeFromJson(str string) *TreeNode {
 	decoder := json.NewDecoder(strings.NewReader(str))
 	tr := new(TreeNode)
