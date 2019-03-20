@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_isPalindrome(t *testing.T) {
+func Test_isPalindrome_i(t *testing.T) {
 	tests := []struct {
 		in   int
 		want bool
@@ -41,7 +41,7 @@ func Test_isPalindrome(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(strconv.Itoa(tt.in), func(t *testing.T) {
-			if got := isPalindrome(tt.in); got != tt.want {
+			if got := isPalindrome_i(tt.in); got != tt.want {
 				t.Errorf("isPalindrome() = %v, want %v", got, tt.want)
 			}
 		})

@@ -46,7 +46,7 @@ package main
  * Coud you solve it without converting the integer to a string?
  *
  */
-func isPalindrome(x int) bool {
+func isPalindrome_i(x int) bool {
 	if x < 0 {
 		return false
 	}
