@@ -2,7 +2,7 @@ package main
 
 import "sort"
 
-func twoSum(nums []int, target int) []int {
+func twoSum_1(nums []int, target int) []int {
 	m := make(map[int]int)
 	for i, x := range nums {
 		if yIndex, ok := m[target-x]; ok {
