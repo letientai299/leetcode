@@ -36,7 +36,7 @@
   for {{if (or .Subtests (not .IsNaked))}} _, tc := {{end}} range tests {
   tt := tc
   testName := fmt.Sprintf(
-  "{{range $i := .Parameters}}{{if $i}}%v{{else}}, %v{{end}}{{end}}",
+  "{{range $i, $e := .Parameters}}{{if eq $i 0}}%v{{else}}, %v{{end}}{{end}}",
   {{range $i, $el := .Parameters}}{{if $i}}, {{end}}{{if not .IsWriter}}tt.{{end}}{{Param .}}{{if .Type.IsVariadic}}...{{end}}{{end}},
     );
 
