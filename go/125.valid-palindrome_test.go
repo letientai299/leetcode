@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_isPalindrome(t *testing.T) {
+func Test_isPalindrome_1(t *testing.T) {
 	tests := []struct {
 		s    string
 		want bool
@@ -20,7 +20,7 @@ func Test_isPalindrome(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.s, func(t *testing.T) {
-			if got := isPalindrome(tt.s); got != tt.want {
+			if got := isPalindrome_1(tt.s); got != tt.want {
 				t.Errorf("isPalindrome() = %v, want %v", got, tt.want)
 			}
 		})

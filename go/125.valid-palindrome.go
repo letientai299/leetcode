@@ -78,7 +78,7 @@ var alphanums = map[byte]struct{}{
 	'z': {},
 }
 
-func isPalindrome(s string) bool {
+func isPalindrome_1(s string) bool {
 	s = strings.ToLower(s)
 	l, r := 0, len(s)-1
 	for l < r {
