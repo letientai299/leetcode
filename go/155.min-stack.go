@@ -53,7 +53,7 @@ type MinStack struct {
 }
 
 /** initialize your data structure here. */
-func Constructor() MinStack {
+func MsConstructor() MinStack {
 	return MinStack{
 		data: make([]int, 10),
 		cap:  10,

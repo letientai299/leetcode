@@ -6,7 +6,7 @@ import (
 )
 
 func TestMinStack(t *testing.T) {
-	ms := Constructor()
+	ms := MsConstructor()
 	ms.Push(-2)
 	ms.Push(0)
 	ms.Push(-3)

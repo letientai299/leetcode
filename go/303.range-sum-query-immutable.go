@@ -34,7 +34,7 @@ package main
 *
  */
 type NumArray struct {
-	ns *[]int
+	ns []int
 }
 
 func Constructor(nums []int) NumArray {
@@ -47,7 +47,7 @@ func Constructor(nums []int) NumArray {
 	}
 
 	return NumArray{
-		ns: &nums,
+		ns: nums,
 	}
 }
 
