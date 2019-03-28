@@ -30,15 +30,15 @@ func Test_reverseBits(t *testing.T) {
 		t.Run(b, func(t *testing.T) {
 			got := reverseBits(tt.num)
 			res := fmt.Sprintf("%032b", got)
-			assert.Equal(t, reverseString(b), res)
+			assert.Equal(t, reverseStr(b), res)
 		})
 	}
 }
 
-func reverseString(someString string) string {
+func reverseStr(someString string) string {
 	runeString := []rune(someString)
 	var reverseString string
-	for i := len(runeString) - 1; i >= 0; i -- {
+	for i := len(runeString) - 1; i >= 0; i-- {
 		reverseString += string(runeString[i])
 	}
 	return reverseString
