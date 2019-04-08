@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
 /*
 * @lc app=leetcode id=447 lang=golang
 *
@@ -38,41 +33,25 @@ import (
 *
 *
  */
+
+func calPointDistance(p1, p2 []int) int {
+
+	x := p2[0] - p1[0]
+	y := p2[1] - p1[1]
+	return x*x + y*y
+}
+
 func numberOfBoomerangs(points [][]int) int {
-	count := 0
-	for i, a := range points {
-		for j, b := range points {
-			if i >= j {
-				continue
+	var count int
+	for i, p := range points {
+		distance := make(map[int]int, len(points))
+		for j, p1 := range points {
+			if i != j {
+				distance[calPointDistance(p1, p)]++
 			}
-
-			x0 := 0.5 * float64(a[0]+b[0])
-			y0 := 0.5 * float64(a[1]+b[1])
-			v := float64(b[1] - a[1])
-			w := float64(a[0] - b[0])
-
-			f := func(x, y float64) bool {
-				if v == 0 {
-					return x == x0
-				}
-
-				if w == 0 {
-					return y == y0
-				}
-				return 0.0000000001 > math.Abs(w*(x-x0) - v*(y-y0))
-			}
-
-			for k, c := range points {
-				if k == j || k == i {
-					continue
-				}
-
-				if f(float64(c[0]), float64(c[1])) {
-					fmt.Printf("(%d, %d, %d)\n", k, i, j)
-					fmt.Printf("(%d, %d, %d)\n", k, j, i)
-					count += 2
-				}
-			}
+		}
+		for _, v := range distance {
+			count = count + v*(v-1)
 		}
 	}
 	return count
