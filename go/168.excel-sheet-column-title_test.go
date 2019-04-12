@@ -19,6 +19,18 @@ func Test_convertToTitle(t *testing.T) {
 		{
 			701, "ZY",
 		},
+		{
+			1234, "AUL",
+		},
+		{
+			2627, "CWA",
+		},
+		{
+			2626, "CVZ",
+		},
+		{
+			26*27*26 + 26, "ZZZ",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.want, func(t *testing.T) {
@@ -28,7 +40,7 @@ func Test_convertToTitle(t *testing.T) {
 		})
 	}
 
-	for i := 1; i <= 100; i++ {
+	for i := 100; i <= 500; i++ {
 		fmt.Printf("%8d | %8s\n", i, convertToTitle(i))
 	}
 }
