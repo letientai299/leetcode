@@ -34,8 +34,31 @@
 # Explanation: The square root of 8 is 2.82842..., and since 
 # the decimal part is truncated, 2 is returned.
 # 
-# 
 #
+#
+import math
+
+
 class Solution:
     def mySqrt(self, x: int) -> int:
-        
+        return math.floor(math.sqrt(x))
+
+
+if __name__ == '__main__':
+    tests = [
+        (0, 0),
+        (1, 1),
+        (2, 1),
+        (3, 1),
+        (4, 2),
+        (5, 2),
+        (6, 2),
+        (7, 2),
+        (8, 2),
+        (9, 3),
+    ]
+    for tc in tests:
+        actual = Solution().mySqrt(tc[0])
+        expected = tc[1]
+        if actual != expected:
+            print(f"mySqrt({tc[0]}) == {actual} != {expected}")
