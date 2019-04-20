@@ -28,6 +28,39 @@
 # the divide and conquer approach, which is more subtle.
 # 
 #
+from typing import List
+
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        
+        if not nums:
+            return 0
+
+        cur = nums[0]
+        maxSub = nums[0]
+        for x in nums[1:]:
+            if cur > 0:
+                cur += x
+            else:
+                cur = x
+
+            if maxSub < cur:
+                maxSub = cur
+
+        return maxSub
+
+
+if __name__ == '__main__':
+    tests = [
+        ([], 0),
+        ([1], 1),
+        ([1, 2], 3),
+        ([1, -2], 1),
+        ([4, -1, 2, 1], 6),
+        ([-2, 1, -3, 4, -1, 2, 1, -5, 4], 6)
+    ]
+    for tc in tests:
+        actual = Solution().maxSubArray(tc[0])
+        expected = tc[1]
+        if actual != expected:
+            print(f"maxSubArray({tc[0]}) == {actual} != {expected}")
