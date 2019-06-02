@@ -40,28 +40,37 @@ package main
  *     Right *TreeNode
  * }
  */
-func convertBST(root *TreeNode) *TreeNode {
-	nodes := make(map[int]*TreeNode)
-	var cache []int
-	var travel func(t *TreeNode)
 
-	travel = func(t *TreeNode) {
-		if t == nil {
+func convertBST(root *TreeNode) *TreeNode {
+	var leftLeaf func(root *TreeNode) *TreeNode
+	var plus func(root *TreeNode, n int)
+
+	leftLeaf = func(root *TreeNode) *TreeNode {
+		if root.Left == nil {
+			return root
+		}
+
+		return leftLeaf(root.Left)
+	}
+
+	plus = func(root *TreeNode, n int) {
+		if root == nil {
 			return
 		}
 
-		travel(t.Left)
-		cache = append(cache, t.Val)
-		nodes[t.Val] = t
-		travel(t.Right)
+		root.Val += n
+		plus(root.Left, n)
+		plus(root.Right, n)
+	}
+	if root == nil {
+		return nil
 	}
 
-	travel(root)
-
-	sum := 0
-	for i := len(cache) - 1; i >= 0; i-- {
-		nodes[cache[i]].Val += sum
-		sum += cache[i]
+	right := convertBST(root.Right)
+	if right != nil {
+		root.Val += leftLeaf(right).Val
 	}
+	left := convertBST(root.Left)
+	plus(left, root.Val)
 	return root
 }
