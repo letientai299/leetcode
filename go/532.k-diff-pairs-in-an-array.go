@@ -56,30 +56,29 @@ package main
  *
  *
  */
+
 func findPairs(nums []int, k int) int {
 	if k < 0 {
 		return 0
 	}
 
-	values := make(map[int]bool)
+	myMap := make(map[int]int)
+
+	for i := 0; i < len(nums); i++ {
+		myMap[nums[i]]++
+	}
+
 	count := 0
-	for _, n := range nums {
-		values[n+k] = true
-	}
 
-	if k == 0 {
-		v := len(values)
-		n := len(nums) - v
-		if v < n {
-			return v
-		}
-		return n
-	}
-
-	for _, n := range nums {
-		if values[n] {
-			count++
-			delete(values, n)
+	for k1, v1 := range myMap {
+		if k == 0 {
+			if v1 >= 2 {
+				count++
+			}
+		} else {
+			if _, ok := myMap[k1+k]; ok {
+				count++
+			}
 		}
 	}
 

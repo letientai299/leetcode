@@ -11,6 +11,7 @@ func Test_findPairs(t *testing.T) {
 		k    int
 		want int
 	}{
+		{nums: []int{1, 1, 1, 2, 1}, k: 0, want: 1},
 		{nums: []int{1, 1, 1, 2, 1}, k: 1, want: 1},
 		{nums: []int{1, 2, 3, 4, 5}, k: 1, want: 4},
 		{nums: []int{1, 2, 3, 4, 5}, k: 0, want: 0},
