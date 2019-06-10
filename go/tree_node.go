@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"math"
+	"strconv"
 	"strings"
 )
 
@@ -13,6 +15,11 @@ type TreeNode struct {
 	Val   int       `json:"val"`
 	Left  *TreeNode `json:"left"`
 	Right *TreeNode `json:"right"`
+}
+
+func (t *TreeNode) String() string {
+	s := fmt.Sprint(t.levelOrder())
+	return strings.ReplaceAll(s, strconv.Itoa(NA), "-")
 }
 
 func (t *TreeNode) inOrder() []int {
