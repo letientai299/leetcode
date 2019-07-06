@@ -110,3 +110,16 @@ func treeFromLevelOrder(values ...int) *TreeNode {
 
 	return root
 }
+
+func (t *TreeNode) Clone() *TreeNode {
+	if t == nil {
+		return nil
+	}
+
+	clone := new(TreeNode)
+	clone.Val = t.Val
+
+	clone.Left = t.Left.Clone()
+	clone.Right = t.Right.Clone()
+	return clone
+}
