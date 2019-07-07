@@ -36,7 +36,7 @@
  * }
  */
 
-public class Solution2
+public partial class Solution
 {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
     {

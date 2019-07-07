@@ -31,11 +31,25 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 
-public class Solution1
+public partial class Solution
 {
-    public int[] TwoSum(int[] nums, int target)
+    public int[] TwoSum(int[] nums, int k)
     {
+        var m = new Dictionary<int, int>();
+        for (var i = 0; i < nums.Length; i++)
+        {
+            var x = nums[i];
+            if (m.ContainsKey(k - x))
+            {
+                return new[] {i, m[k-x]};
+            }
+
+            m[x] = i;
+        }
+
         return new int[] { };
     }
 }
