@@ -19,7 +19,7 @@ type TreeNode struct {
 
 func (t *TreeNode) String() string {
 	s := fmt.Sprint(t.levelOrder())
-	return strings.ReplaceAll(s, strconv.Itoa(NA), "-")
+	return strings.ReplaceAll(s, strconv.Itoa(NA), "_")
 }
 
 func (t *TreeNode) inOrder() []int {
