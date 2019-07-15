@@ -26,7 +26,7 @@ func Test_findLUSlength(t *testing.T) {
 		{
 			a:    "aba",
 			b:    "abc",
-			want: 2,
+			want: 3,
 		},
 
 		{
@@ -49,3 +49,4 @@ func Test_findLUSlength(t *testing.T) {
 		})
 	}
 }
+

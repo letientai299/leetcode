@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_intersect(t *testing.T) {
@@ -13,6 +14,11 @@ func Test_intersect(t *testing.T) {
 		want  []int
 	}{
 		{},
+		{
+			nums1: []int{1, 1, 2},
+			nums2: []int{1, 2, 3},
+			want:  []int{1, 2},
+		},
 	}
 	for _, tc := range tests {
 		tt := tc
@@ -21,9 +27,8 @@ func Test_intersect(t *testing.T) {
 			tt.nums1, tt.nums2,
 		)
 		t.Run(testName, func(t *testing.T) {
-			if got := intersect(tt.nums1, tt.nums2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("intersect(%v, %v) = %v, want %v", tt.nums1, tt.nums2, got, tt.want)
-			}
+			got := intersect(tt.nums1, tt.nums2)
+			assert.ElementsMatch(t, got, tt.want, "intersect(%v, %v) = %v, want %v", tt.nums1, tt.nums2, got, tt.want)
 		})
 	}
 }

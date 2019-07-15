@@ -44,6 +44,3 @@ func _reverseStr(someString string) string {
 	return reverseString
 }
 
-func TestFda(t *testing.T) {
-	fmt.Printf("%032b", 0^(1<<2))
-}

@@ -52,13 +52,9 @@ func Test_getIntersectionNode(t *testing.T) {
 
 			want.Next = middle
 			want = middle
-			fmt.Printf("a (before): %v\n", tt.a)
-			fmt.Printf("b (before): %v\n", tt.b)
 			if got := getIntersectionNode(tt.a, tt.b); got != want {
 				t.Errorf("getIntersectionNode() = %v, want %v", got, want)
 			}
-			fmt.Printf("a (after): %v\n", tt.a)
-			fmt.Printf("b (after): %v\n", tt.b)
 		})
 	}
 }
