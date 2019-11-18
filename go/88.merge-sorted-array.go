@@ -36,7 +36,7 @@ package main
  *
  *
  */
-func merge(nums1 []int, m int, nums2 []int, n int) {
+func merge88(nums1 []int, m int, nums2 []int, n int) {
 	i := m + n - 1
 	x, y := m-1, n-1
 	for i >= 0 {

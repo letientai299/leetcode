@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_merge(t *testing.T) {
+func Test_merge88(t *testing.T) {
 	tests := []struct {
 		nums1 []int
 		nums2 []int
@@ -25,7 +25,7 @@ func Test_merge(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			merge(tt.nums1, len(tt.nums1)-tt.n, tt.nums2, tt.n)
+			merge88(tt.nums1, len(tt.nums1)-tt.n, tt.nums2, tt.n)
 
 			for i := range tt.nums1 {
 				if i == len(tt.nums1)-1 {
