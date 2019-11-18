@@ -36,7 +36,7 @@ package main
 *
 *
  */
-func longestPalindrome(s string) int {
+func longestPalindrome409(s string) int {
 	distribution := make(map[int32]int, 26*2)
 	for _, c := range s {
 		distribution[c]++
