@@ -37,7 +37,7 @@ type NumArray struct {
 	ns []int
 }
 
-func Constructor(nums []int) NumArray {
+func Constructor_303(nums []int) NumArray {
 	if len(nums) == 0 {
 		return NumArray{}
 	}
