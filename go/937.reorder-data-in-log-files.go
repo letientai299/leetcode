@@ -3,7 +3,6 @@ package main
 import (
 	"sort"
 	"strings"
-	"unicode"
 )
 
 /*
@@ -59,36 +58,38 @@ import (
  *
  */
 func reorderLogFiles(logs []string) []string {
-	digits := make([]string, 0, len(logs))
-	res := make([]string, 0, len(logs))
-
-	// log line index and location of first space in log
-	m := make(map[string]int)
-
-	for _, line := range logs {
-		x := strings.Index(line, " ")
-		i := x
-		for ; i < len(line); i++ {
-			if line[i] == ' ' {
+	isDigit := func(s string) bool {
+		for _, x := range s {
+			if x == ' ' {
 				continue
 			}
 
-			if unicode.IsLetter(rune(line[i])) {
-				m[line] = x
-				res = append(res, line)
-				break
+			if 'a' <= x && x <= 'z' {
+				return false
 			}
 		}
-
-		if i >= len(line) {
-			digits = append(digits, line)
-		}
+		return true
 	}
 
-	sort.Slice(res, func(i, j int) bool {
-		a, b := res[i], res[j]
-		id1, s1 := a[:m[a]], a[m[a]+1:]
-		id2, s2 := b[:m[b]], b[m[b]+1:]
+	sort.SliceStable(logs, func(i, j int) bool {
+		a, b := logs[i], logs[j]
+		x, y := strings.Index(a, " "), strings.Index(b, " ")
+		id1, s1 := a[:x], a[x+1:]
+		d1 := isDigit(s1)
+		id2, s2 := b[:y], b[y+1:]
+		d2 := isDigit(s2)
+
+		if d1 && d2 {
+			return false
+		}
+
+		if d1 && !d2 {
+			return false
+		}
+
+		if !d1 && d2 {
+			return true
+		}
 
 		if s1 == s2 {
 			return id1 < id2
@@ -96,6 +97,5 @@ func reorderLogFiles(logs []string) []string {
 
 		return s1 < s2
 	})
-	res = append(res, digits...)
-	return res
+	return logs
 }
