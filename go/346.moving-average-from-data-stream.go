@@ -34,7 +34,7 @@ type MovingAverage struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor(size int) MovingAverage {
+func MovingAverageConstructor(size int) MovingAverage {
 	return MovingAverage{
 		size: size,
 		win:  make([]int, size),
