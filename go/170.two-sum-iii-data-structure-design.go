@@ -42,7 +42,7 @@ type TwoSum struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() TwoSum {
+func TwoSum_Constructor() TwoSum {
 	return TwoSum{m: make(map[int]int)}
 }
 
