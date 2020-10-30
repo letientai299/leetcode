@@ -5,24 +5,23 @@ import (
 	"testing"
 )
 
-func Test_rotateString(t *testing.T) {
+func Test_maxDepth_104(t *testing.T) {
 	tests := []struct {
-		A    string
-		B    string
-		want bool
+		root *TreeNode
+		want int
 	}{
 		{},
 	}
 	for _, tc := range tests {
 		tt := tc
 		testName := fmt.Sprintf(
-			"%v, %v",
-			tt.A, tt.B,
+			"%v",
+			tt.root,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := rotateString(tt.A, tt.B)
+			got := maxDepth_104(tt.root)
 			if got != tt.want {
-				t.Errorf("rotateString(%v, %v) = %v, want %v", tt.A, tt.B, got, tt.want)
+				t.Errorf("maxDepth(%v) = %v, want %v", tt.root, got, tt.want)
 			}
 		})
 	}

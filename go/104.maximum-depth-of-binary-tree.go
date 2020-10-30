@@ -42,13 +42,13 @@ package main
  *     Right *TreeNode
  * }
  */
-func maxDepth(root *TreeNode) int {
+func maxDepth_104(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
 
-	left := maxDepth(root.Left)
-	right := maxDepth(root.Right)
+	left := maxDepth_104(root.Left)
+	right := maxDepth_104(root.Right)
 	if left > right {
 		return left + 1
 	}
