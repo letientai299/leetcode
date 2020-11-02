@@ -52,7 +52,7 @@ type Logger struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() Logger {
+func ConstructorLogger() Logger {
 	return Logger{
 		m: make(map[string]int),
 	}
