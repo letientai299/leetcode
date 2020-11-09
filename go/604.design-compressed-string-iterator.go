@@ -72,7 +72,7 @@ type StringIterator struct {
 	pc  int32
 }
 
-func Constructor(compressedString string) StringIterator {
+func Constructor_StringIterator(compressedString string) StringIterator {
 	si := StringIterator{}
 	for _, c := range compressedString {
 		if c >= '0' && c <= '9' {
