@@ -55,7 +55,7 @@ type MyHashSet struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyHashSet {
+func Constructor_MyHashSet() MyHashSet {
 	stores := make([][]int, 16)
 	for i := range stores {
 		stores[i] = make([]int, 0, 4)
