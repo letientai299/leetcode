@@ -70,7 +70,7 @@ type KthLargest struct {
 	k   int
 }
 
-func Constructor(k int, nums []int) KthLargest {
+func Constructor_kth(k int, nums []int) KthLargest {
 	sort.Ints(nums)
 	c := KthLargest{
 		arr: make([]int, 0, len(nums)*4),
