@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_distributeCandies(t *testing.T) {
+func Test_distributeCandies_575(t *testing.T) {
 	tests := []struct {
 		candies []int
 		want    int
@@ -27,7 +27,7 @@ func Test_distributeCandies(t *testing.T) {
 			tt.candies,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := distributeCandies(tt.candies)
+			got := distributeCandies_575(tt.candies)
 			if got != tt.want {
 				t.Errorf("distributeCandies(%v) = %v, want %v", tt.candies, got, tt.want)
 			}

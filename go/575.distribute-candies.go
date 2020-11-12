@@ -50,7 +50,7 @@ package main
  *
  *
  */
-func distributeCandies(candies []int) int {
+func distributeCandies_575(candies []int) int {
 	types := make(map[int]struct{}, len(candies))
 	for _, v := range candies {
 		types[v] = struct{}{}
