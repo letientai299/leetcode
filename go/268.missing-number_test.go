@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_missingNumber(t *testing.T) {
+func Test_missingNumber_268(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -23,7 +23,7 @@ func Test_missingNumber(t *testing.T) {
 			tt.nums,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := missingNumber(tt.nums)
+			got := missingNumber_268(tt.nums)
 			if got != tt.want {
 				t.Errorf("missingNumber(%v) = %v, want %v", tt.nums, got, tt.want)
 			}

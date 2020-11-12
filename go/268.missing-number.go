@@ -34,7 +34,7 @@ package main
 * Your algorithm should run in linear runtime complexity. Could you implement
 * it using only constant extra space complexity?
  */
-func missingNumber(nums []int) int {
+func missingNumber_268(nums []int) int {
 	// n := len(nums)
 
 	// bitset := make([]uint32, n/32+1)
