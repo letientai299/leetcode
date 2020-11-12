@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_removeDuplicates(t *testing.T) {
+func Test_removeDuplicates_26(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -19,7 +19,7 @@ func Test_removeDuplicates(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.nums), func(t *testing.T) {
-			got := removeDuplicates(tt.nums)
+			got := removeDuplicates_26(tt.nums)
 			fmt.Println(tt.nums[:got])
 			if got != tt.want {
 				t.Errorf("removeDuplicates() = %v, want %v", got, tt.want)
