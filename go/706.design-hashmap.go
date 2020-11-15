@@ -62,7 +62,7 @@ type keyVal struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyHashMap {
+func Constructor_MyHashMap() MyHashMap {
 	stores := make([][]keyVal, 9)
 	for i := range stores {
 		stores[i] = make([]keyVal, 0, 3)
