@@ -10,7 +10,7 @@ type OrderedStream struct {
 	p   int
 }
 
-func Constructor(n int) OrderedStream {
+func Constructor_OrderedStream(n int) OrderedStream {
 	return OrderedStream{
 		p: 1,
 	}
@@ -31,8 +31,7 @@ func (o *OrderedStream) Insert(id int, value string) []string {
 		y++
 	}
 	res := o.ss[x : y+1]
-	o.p = o.ids[y]+1
+	o.p = o.ids[y] + 1
 
 	return res
 }
-
