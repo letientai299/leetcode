@@ -67,7 +67,7 @@ type RecentCounter struct {
 	buf []int
 }
 
-func Constructor() RecentCounter {
+func Constructor_RecentCounter() RecentCounter {
 	return RecentCounter{buf: make([]int, 0, 3000)}
 }
 
