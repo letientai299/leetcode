@@ -58,7 +58,7 @@ package main
  * }
  */
 
-func maxDepth(root *Node) int {
+func maxDepth_559(root *Node) int {
 	var dep func(n *Node, d int) int
 
 	dep = func(n *Node, d int) int {
