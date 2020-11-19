@@ -86,13 +86,13 @@ func romanToInt(s string) int {
 	}
 
 	symbols := map[uint8]int{
-		uint8("I"[0]): 1,
-		uint8("V"[0]): 5,
-		uint8("X"[0]): 10,
-		uint8("L"[0]): 50,
-		uint8("C"[0]): 100,
-		uint8("D"[0]): 500,
-		uint8("M"[0]): 1000,
+		"I"[0]: 1,
+		"V"[0]: 5,
+		"X"[0]: 10,
+		"L"[0]: 50,
+		"C"[0]: 100,
+		"D"[0]: 500,
+		"M"[0]: 1000,
 	}
 	res := 0
 	sign := 1

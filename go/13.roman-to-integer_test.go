@@ -20,6 +20,7 @@ func Test_romanToInt(t *testing.T) {
 		{"XI", 11},
 		{"LVIII", 58},
 		{"MCMXCIV", 1994},
+		{"CMXCIV", 994},
 	}
 	for _, tt := range tests {
 		t.Run(tt.in, func(t *testing.T) {
