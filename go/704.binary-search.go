@@ -46,7 +46,7 @@ package main
  *
  *
  */
-func search(nums []int, target int) int {
+func search_704(nums []int, target int) int {
 	left, right := 0, len(nums)
 	for left < right {
 		mid := (left + right) / 2

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_search(t *testing.T) {
+func Test_search_704(t *testing.T) {
 	tests := []struct {
 		nums   []int
 		target int
@@ -62,7 +62,7 @@ func Test_search(t *testing.T) {
 			tt.nums, tt.target,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := search(tt.nums, tt.target)
+			got := search_704(tt.nums, tt.target)
 			if got != tt.want {
 				t.Errorf("search(%v, %v) = %v, want %v", tt.nums, tt.target, got, tt.want)
 			}
