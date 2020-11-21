@@ -12,6 +12,11 @@ func Test_nextPermutation(t *testing.T) {
 		want []int
 	}{
 		{
+			nums: []int{1, 2, 1},
+			want: []int{2, 1, 1},
+		},
+
+		{
 			nums: []int{2, 2, 7, 5, 4, 3, 2, 2, 1},
 			want: []int{2, 3, 1, 2, 2, 2, 4, 5, 7},
 		},
