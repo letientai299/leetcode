@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_rotate(t *testing.T) {
+func Test_rotate_189(t *testing.T) {
 	tests := []struct {
 		nums []int
 		k    int
@@ -84,7 +84,7 @@ func Test_rotate(t *testing.T) {
 		)
 		t.Run(testName, func(t *testing.T) {
 			fmt.Printf("Before: %v\n", tt.nums)
-			rotate(tt.nums, tt.k)
+			rotate_189(tt.nums, tt.k)
 			fmt.Printf("After:  %v\n", tt.nums)
 			assert.Equal(t, tt.want, tt.nums)
 		})

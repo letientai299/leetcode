@@ -45,7 +45,7 @@ package main
  * Could you do it in-place with O(1) extra space?
  *
  */
-func rotate(nums []int, k int) {
+func rotate_189(nums []int, k int) {
 	n := len(nums)
 	if n == 0 {
 		return
