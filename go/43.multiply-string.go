@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // medium
 // https://leetcode.com/problems/multiply-strings/
 
@@ -54,10 +52,3 @@ func multiply(a string, b string) string {
 	return string(res)
 }
 
-func main() {
-	a := "83458444980473301653391263123714189145556713064321671729334"
-	b := "352453711277102176698291112646574931303642352789"
-	s := multiply(a, b)
-	// "29415238670783654472103906226157293286493505350400537875940839309550672787050391279690788022170682148012526"
-	fmt.Println(s)
-}
