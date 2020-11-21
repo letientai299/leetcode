@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
 // medium
 // https://leetcode.com/problems/powx-n/
 
