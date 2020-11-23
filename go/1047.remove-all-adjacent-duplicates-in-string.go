@@ -44,7 +44,7 @@ package main
  * S consists only of English lowercase letters.
  *
  */
-func removeDuplicates(s string) string {
+func removeDuplicates_1047(s string) string {
 	r := make([]byte, 0, len(s))
 	for _, x := range s {
 		c := byte(x)
