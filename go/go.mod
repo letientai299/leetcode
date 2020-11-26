@@ -1,6 +1,6 @@
 module leetcode
 
-go 1.12
+go 1.13
 
 require (
 	github.com/stretchr/objx v0.2.0 // indirect
