@@ -4,7 +4,7 @@ type ParkingSystem struct {
 	spaces [3]int
 }
 
-func Constructor(big int, medium int, small int) ParkingSystem {
+func Constructor_1603(big int, medium int, small int) ParkingSystem {
 	return ParkingSystem{
 		spaces: [3]int{big, medium, small},
 	}
