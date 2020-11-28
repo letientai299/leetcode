@@ -15,14 +15,3 @@ func canMeasureWater(x int, y int, z int) bool {
 	return z%c == 0
 }
 
-func gcd(a, b int) int {
-	if a == 0 {
-		return b
-	}
-
-	if a == 1 {
-		return 1
-	}
-
-	return gcd(b%a, a)
-}

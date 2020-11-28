@@ -9,3 +9,15 @@ func max(a int, arr ...int) int {
 
 	return a
 }
+
+func gcd(a, b int) int {
+	for a != 0 && a != 1 {
+		a, b = b%a, a
+	}
+
+	if a == 0 {
+		return b
+	}
+
+	return 1
+}
