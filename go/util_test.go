@@ -1,6 +1,12 @@
 package main
 
-import "testing"
+import (
+	"math/rand"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func Test_gcd(t *testing.T) {
 	tests := []struct {
@@ -49,4 +55,38 @@ func gcdRecursive(a, b int) int {
 	}
 
 	return gcd(b%a, a)
+}
+
+func Test_numPalindrome(t *testing.T) {
+	tests := []struct {
+		name string
+		n    int
+		want bool
+	}{
+		{n: 12, want: false},
+		{n: 10001, want: true},
+		{n: 12321, want: true},
+		{n: 121, want: true},
+		{n: 11, want: true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := numPalindrome(tt.n); got != tt.want {
+				t.Errorf("numPalindrome() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_fromDigits(t *testing.T) {
+	ds := digits(0)
+	assert.ElementsMatch(t, ds, []int{0})
+	rand.Seed(int64(time.Now().Nanosecond()))
+	for i := 0; i < 10; i++ {
+		n := rand.Int()
+		ds = digits(n)
+		if got := fromDigits(ds); got != n {
+			t.Errorf("fromDigits() = %v, want %v", got, n)
+		}
+	}
 }

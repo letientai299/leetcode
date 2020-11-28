@@ -38,3 +38,14 @@ func abs(a int) int {
 	}
 	return -a
 }
+
+func numPalindrome(n int) bool {
+	v := n
+	r := 0
+	for v > 0 {
+		r = 10*r + v%10
+		v /= 10
+	}
+	return r == n
+}
+

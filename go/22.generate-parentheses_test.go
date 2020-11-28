@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"testing"
 
@@ -39,12 +38,5 @@ func Test_generateParenthesis(t *testing.T) {
 				t.Errorf("generateParenthesis() = %v, want %v", got, tt.want)
 			}
 		})
-	}
-}
-
-func Test_generateParenthesis_2(t *testing.T) {
-	for i := 0; i < 20; i++ {
-		res := generateParenthesis(i)
-		fmt.Printf("%10d %10d\n", i, len(res))
 	}
 }

@@ -1,8 +1,9 @@
 package main
 
 import (
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_commonChars(t *testing.T) {
@@ -16,7 +17,7 @@ func Test_commonChars(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := commonChars(tt.a); !reflect.DeepEqual(got, tt.want) {
+			if got := commonChars(tt.a); !assert.ElementsMatch(t, got, tt.want) {
 				t.Errorf("commonChars() = %v, want %v", got, tt.want)
 			}
 		})

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"testing"
 
@@ -14,10 +13,10 @@ func Test_addBinary(t *testing.T) {
 		b int64
 		c int64
 	}{
-		{1, 2, 3,},
-		{1, 20, 21,},
-		{10, 20, 30,},
-		{255, 1, 256,},
+		{1, 2, 3},
+		{1, 20, 21},
+		{10, 20, 30},
+		{255, 1, 256},
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
@@ -28,8 +27,4 @@ func Test_addBinary(t *testing.T) {
 			assert.Equal(t, tt.c, c)
 		})
 	}
-}
-
-func TestName(t *testing.T) {
-	fmt.Println(addBinary("1111", "1111"))
 }

@@ -10,8 +10,6 @@ func Test_removePalindromeSub(t *testing.T) {
 		{s: "ababb", want: 2},
 		{s: "abb", want: 2},
 		{s: "abcbab", want: 2},
-		{s: "12301", want: 3},
-		{s: "1231", want: 2},
 		{s: "caba", want: 2},
 	}
 	for _, tt := range tests {

@@ -10,16 +10,15 @@ func Test_toGoatLatin(t *testing.T) {
 		want string
 	}{
 		{
-			s: "The quick brown fox jumped over the lazy dog",
+			s:    "The quick brown fox jumped over the lazy dog",
 			want: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa",
 		},
 		{
 			s:    "I speak Goat Latin",
 			want: "Imaa peaksmaaa oatGmaaaa atinLmaaaaa",
 		},
-		{s: "ab", want: "abma"},
-		{s: "ab.", want: "abma."},
-		{s: "ba.", want: "abma."},
+		{s: "ab", want: "abmaa"},
+		{s: "ba", want: "abmaa"},
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
