@@ -90,3 +90,22 @@ func Test_fromDigits(t *testing.T) {
 		}
 	}
 }
+
+func Test_primeFactor(t *testing.T) {
+	tests := []struct {
+		name string
+		n    int
+		want []int
+	}{
+		{n: 2, want: []int{2}},
+		{n: 12, want: []int{2, 3}},
+		{n: 2 * 3 * 5 * 7 * 11, want: []int{2, 3, 5, 7, 11}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := primeFactor(tt.n); !assert.ElementsMatch(t, got, tt.want) {
+				t.Errorf("primeFactor() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

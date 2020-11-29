@@ -1,9 +1,5 @@
 package main
 
-import (
-	"math"
-)
-
 /*
  * @lc app=leetcode id=866 lang=golang
  * https://leetcode.com/problems/prime-palindrome/description/
@@ -152,21 +148,3 @@ func nextPotentialPalindromeNum(ds []int) []int {
 	return ds
 }
 
-func isPrime(a int) bool {
-	n := a
-	if n%2 == 0 {
-		return false
-	}
-
-	if n == 3 || n == 5 || n == 7 || n == 11 {
-		return true
-	}
-
-	for i := 3; i <= int(math.Floor(math.Sqrt(float64(n)))); i += 2 {
-		if n%i == 0 {
-			return false
-		}
-	}
-
-	return true
-}
