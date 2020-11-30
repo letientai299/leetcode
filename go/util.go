@@ -93,3 +93,26 @@ func isPrime(a int) bool {
 
 	return true
 }
+
+func divisors(n int) []int {
+	if n <= 0 {
+		return []int{1}
+	}
+
+	var r []int
+	i := 1
+	for ; i < int(math.Floor(math.Sqrt(float64(n)))); i++ {
+		if n%i == 0 {
+			r = append(r, i, n/i)
+		}
+	}
+
+	if n%i == 0 {
+		r = append(r, i)
+		if n/i != i {
+			r = append(r, n/i)
+		}
+	}
+
+	return r
+}

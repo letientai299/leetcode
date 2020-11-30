@@ -109,3 +109,25 @@ func Test_primeFactor(t *testing.T) {
 		})
 	}
 }
+
+func Test_divisors(t *testing.T) {
+	tests := []struct {
+		name string
+		n    int
+		want []int
+	}{
+		{n: 0, want: []int{1}},
+		{n: 3, want: []int{1, 3}},
+		{n: 4, want: []int{1, 2, 4}},
+		{n: 9, want: []int{1, 3, 9}},
+		{n: 16, want: []int{1, 2, 4, 8, 16}},
+		{n: 21, want: []int{1, 21, 3, 7}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := divisors(tt.n); !assert.ElementsMatch(t, got, tt.want) {
+				t.Errorf("divisors() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
