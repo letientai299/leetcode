@@ -55,7 +55,7 @@ package main
  * Explanation: In this case, no transaction is done, i.e. max profit = 0.
  *
  */
-func maxProfit(prices []int) int {
+func maxProfit_122(prices []int) int {
 	n := len(prices)
 	if n <= 1 {
 		return 0

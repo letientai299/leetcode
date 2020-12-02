@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_maxProfit(t *testing.T) {
+func Test_maxProfit_122(t *testing.T) {
 	tests := []struct {
 		prices []int
 		want   int
@@ -49,7 +49,7 @@ func Test_maxProfit(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.prices), func(t *testing.T) {
-			if got := maxProfit(tt.prices); got != tt.want {
+			if got := maxProfit_122(tt.prices); got != tt.want {
 				t.Errorf("maxProfit_1() = %v, want %v", got, tt.want)
 			}
 		})
