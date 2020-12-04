@@ -49,33 +49,41 @@ func checkInclusion(s1 string, s2 string) bool {
 		return false
 	}
 
-	hash := func(s string) [26]byte {
-		m := [26]byte{}
-		for _, x := range s {
-			m[byte(x)-'a']++
-		}
-		return m
+	m := [26]int{}
+	for i := range s1 {
+		m[s1[i]-'a']--
+		m[s2[i]-'a']++
 	}
 
-	same := func(m1, m2 [26]byte) bool {
-		for k, v := range m1 {
-			if m2[k] != v {
-				return false
-			}
+	diff := 0
+	for _, v := range m {
+		if v != 0 {
+			diff++
 		}
-		return true
 	}
 
-	m1 := hash(s1)
-	m2 := hash(s2[:len(s1)])
-	if same(m1, m2) {
+	if diff == 0 {
 		return true
 	}
 
 	for i := 1; i <= len(s2)-len(s1); i++ {
-		m2[s2[i-1]-'a']--
-		m2[s2[i+len(s1)-1]-'a']++
-		if same(m1, m2) {
+		if m[s2[i-1]-'a'] == 0 {
+			diff++
+		}
+		m[s2[i-1]-'a']--
+		if m[s2[i-1]-'a'] == 0 {
+			diff--
+		}
+
+		if m[s2[i+len(s1)-1]-'a'] == 0 {
+			diff++
+		}
+		m[s2[i+len(s1)-1]-'a']++
+		if m[s2[i+len(s1)-1]-'a'] == 0 {
+			diff--
+		}
+
+		if diff == 0 {
 			return true
 		}
 	}

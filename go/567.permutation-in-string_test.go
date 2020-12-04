@@ -9,10 +9,10 @@ func Test_checkInclusion(t *testing.T) {
 		s2   string
 		want bool
 	}{
+		{s1: "ab", s2: "ccab", want: true},
 		{s1: "abb", s2: "bcababba", want: true},
 		{s1: "ab", s2: "bacc", want: true},
 		{s1: "ab", s2: "ccadb", want: false},
-		{s1: "ab", s2: "ccab", want: true},
 		{s1: "ab", s2: "ccba", want: true},
 		{s1: "ab", s2: "cba", want: true},
 		{s1: "ab", s2: "eidboaoo", want: false},
