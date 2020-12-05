@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -58,7 +57,3 @@ func combinationSum2(arr []int, n int) [][]int {
 	return res
 }
 
-func main() {
-	res := combinationSum2([]int{1, 2, 2, 2, 5}, 5)
-	fmt.Println(res)
-}
