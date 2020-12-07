@@ -69,7 +69,3 @@ func numTrees(n int) int {
 
 	return mem[n]
 }
-
-func main() {
-	numTrees(20)
-}
