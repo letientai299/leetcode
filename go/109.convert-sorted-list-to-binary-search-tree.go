@@ -76,29 +76,28 @@ package main
  * }
  */
 func sortedListToBST(head *ListNode) *TreeNode {
-	if head == nil {
-		return nil
+	tmp := head
+	n := 0
+	for head != nil {
+		n++
+		head = head.Next
 	}
 
-	if head.Next == nil {
-		t := &TreeNode{Val: head.Val}
+	var build func(s, e int) *TreeNode
+
+	build = func(s, e int) *TreeNode {
+		if s > e {
+			return nil
+		}
+
+		mid := (s + e) / 2
+		t := &TreeNode{}
+		t.Left = build(s, mid-1)
+		t.Val = tmp.Val
+		tmp = tmp.Next
+		t.Right = build(mid+1, e)
 		return t
 	}
 
-	p := head
-	slow, fast := head, head
-	for fast.Next != nil {
-		p = slow
-		slow = slow.Next
-		fast = fast.Next
-		if fast.Next != nil {
-			fast = fast.Next
-		}
-	}
-
-	t := &TreeNode{Val: slow.Val}
-	t.Right = sortedListToBST(slow.Next)
-	p.Next = nil
-	t.Left = sortedListToBST(head)
-	return t
+	return build(0, n-1)
 }
