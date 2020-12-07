@@ -71,7 +71,7 @@ type Node struct {
 	Next  *Node
 }
 
-func connect(root *Node) *Node {
+func connect116(root *Node) *Node {
 	head := root
 	for head != nil {
 		next := &Node{}
