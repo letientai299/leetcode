@@ -7,7 +7,7 @@ import (
 
 func Test_maxDepth_559(t *testing.T) {
 	tests := []struct {
-		root *Node
+		root *Node559
 		want int
 	}{
 		{},

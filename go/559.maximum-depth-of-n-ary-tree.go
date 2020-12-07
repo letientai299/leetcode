@@ -58,15 +58,15 @@ package main
  * }
  */
 
-func maxDepth_559(root *Node) int {
-	var dep func(n *Node, d int) int
+func maxDepth_559(root *Node559) int {
+	var dep func(n *Node559, d int) int
 
-	dep = func(n *Node, d int) int {
+	dep = func(n *Node559, d int) int {
 		if n == nil {
 			return d
 		}
 
-		m := d+1
+		m := d + 1
 		for _, sub := range n.Children {
 			subDep := dep(sub, d+1)
 			if subDep > m {
@@ -80,7 +80,7 @@ func maxDepth_559(root *Node) int {
 	return dep(root, 0)
 }
 
-type Node struct {
+type Node559 struct {
 	Val      int
-	Children []*Node
+	Children []*Node559
 }
