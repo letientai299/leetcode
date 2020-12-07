@@ -54,7 +54,7 @@ import (
  *
  */
 func restoreIpAddresses(s string) []string {
-	if len(s) < 4 {
+	if len(s) < 4 || len(s) > 12 {
 		return nil
 	}
 
@@ -83,7 +83,7 @@ func restoreIpAddresses(s string) []string {
 			}
 			buf = append(buf, cur)
 			ip := toIP(buf)
-			if len(ip) - len(s) != 3 {
+			if len(ip)-len(s) != 3 {
 				return
 			}
 
