@@ -61,12 +61,12 @@ package main
  * }
  */
 
-func preorder(root *Node) []int {
+func preorder(root *Node559) []int {
 	if root == nil {
 		return nil
 	}
 
-	stack := []*Node{root}
+	stack := []*Node559{root}
 	var res []int
 
 	for len(stack) != 0 {

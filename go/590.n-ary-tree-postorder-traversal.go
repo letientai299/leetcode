@@ -61,7 +61,7 @@ package main
  * }
  */
 
-func postorder(root *Node) []int {
+func postorder(root *Node559) []int {
 	if root == nil {
 		return nil
 	}
