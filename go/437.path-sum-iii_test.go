@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_pathSum(t *testing.T) {
+func Test_pathSum_427(t *testing.T) {
 	tests := []struct {
 		treeLevelOrder []int
 		sum            int
@@ -62,7 +62,7 @@ func Test_pathSum(t *testing.T) {
 			tt.treeLevelOrder, tt.sum,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := pathSum(root, tt.sum)
+			got := pathSum_437(root, tt.sum)
 			if got != tt.want {
 				t.Errorf("pathSum(%v, %v) = %v, want %v", tt.treeLevelOrder, tt.sum, got, tt.want)
 			}

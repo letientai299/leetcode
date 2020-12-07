@@ -51,7 +51,7 @@ package main
  *     Right *TreeNode
  * }
  */
-func pathSum(root *TreeNode, sum int) int {
+func pathSum_437(root *TreeNode, sum int) int {
 	var allPaths int
 	var scan func(*TreeNode)
 	var f func(*TreeNode, int)
