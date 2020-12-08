@@ -26,7 +26,7 @@ func (n *ListNode) String() string {
 }
 
 func newList(arr ...int) *ListNode {
-	if	len(arr) == 0 {
+	if len(arr) == 0 {
 		return nil
 	}
 
@@ -70,4 +70,24 @@ func (n *ListNode) toInt() int {
 		n = n.Next
 	}
 	return v
+}
+
+func newNodes(arr ...int) *Node {
+	if len(arr) == 0 {
+		return nil
+	}
+
+	r := new(Node)
+	n := r
+	for i, x := range arr {
+		if i == len(arr)-1 {
+			break
+		}
+		n.Val = x
+		n.Next = new(Node)
+		n = n.Next
+	}
+
+	n.Val = arr[len(arr)-1]
+	return r
 }
