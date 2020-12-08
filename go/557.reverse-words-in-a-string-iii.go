@@ -28,7 +28,7 @@ package main
  * any extra space in the string.
  *
  */
-func reverseWords(s string) string {
+func reverseWords557(s string) string {
 	buf := []byte(s)
 	rev := func(buf []byte, left, right int) {
 		n := right - left

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_reverseWords(t *testing.T) {
+func Test_reverseWords557(t *testing.T) {
 	tests := []struct {
 		s    string
 		want string
@@ -36,7 +36,7 @@ func Test_reverseWords(t *testing.T) {
 			tt.s,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := reverseWords(tt.s)
+			got := reverseWords557(tt.s)
 			if got != tt.want {
 				t.Errorf("reverseWords(%v) = %v, want %v", tt.s, got, tt.want)
 			}
