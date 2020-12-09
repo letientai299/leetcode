@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_hIndex(t *testing.T) {
+func Test_hIndex274(t *testing.T) {
 	tests := []struct {
 		name      string
 		citations []int
@@ -14,8 +14,8 @@ func Test_hIndex(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := hIndex(tt.citations); got != tt.want {
-				t.Errorf("hIndex() = %v, want %v", got, tt.want)
+			if got := hIndex274(tt.citations); got != tt.want {
+				t.Errorf("hIndex274() = %v, want %v", got, tt.want)
 			}
 		})
 	}

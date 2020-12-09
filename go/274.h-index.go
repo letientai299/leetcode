@@ -39,7 +39,7 @@ import "sort"
  *
  */
 
-func hIndex(citations []int) int {
+func hIndex274(citations []int) int {
 	sort.Ints(citations)
 	n := len(citations)
 	i := sort.Search(n, func(i int) bool {
