@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_majorityElement(t *testing.T) {
+func Test_majorityElement169(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -21,7 +21,7 @@ func Test_majorityElement(t *testing.T) {
 			tt.nums,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := majorityElement(tt.nums)
+			got := majorityElement169(tt.nums)
 			if got != tt.want {
 				t.Errorf("majorityElement(%v) = %v, want %v", tt.nums, got, tt.want)
 			}

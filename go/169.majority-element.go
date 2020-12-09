@@ -33,7 +33,7 @@ package main
  *
  *
  */
-func majorityElement(nums []int) int {
+func majorityElement169(nums []int) int {
 	major := 0
 	c := 0
 
