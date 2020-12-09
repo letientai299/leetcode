@@ -58,7 +58,7 @@ import "sort"
  *
  */
 
-func searchMatrix(mat [][]int, t int) bool {
+func searchMatrix74(mat [][]int, t int) bool {
 	m := len(mat)
 	if m == 0 {
 		return false

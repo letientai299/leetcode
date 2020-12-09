@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_searchMatrix(t *testing.T) {
+func Test_searchMatrix74(t *testing.T) {
 	tests := []struct {
 		name string
 		mat  [][]int
@@ -51,8 +51,8 @@ func Test_searchMatrix(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := searchMatrix(tt.mat, tt.t); got != tt.want {
-				t.Errorf("searchMatrix() = %v, want %v", got, tt.want)
+			if got := searchMatrix74(tt.mat, tt.t); got != tt.want {
+				t.Errorf("searchMatrix74() = %v, want %v", got, tt.want)
 			}
 		})
 	}
