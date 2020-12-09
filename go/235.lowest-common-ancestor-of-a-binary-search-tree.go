@@ -59,7 +59,7 @@ package main
  *     Right *ListNode
  * }
  */
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestorBST(root, p, q *TreeNode) *TreeNode {
 	for root != nil && root != p && root != q {
 		if root.Val < p.Val && root.Val < q.Val {
 			root = root.Right
