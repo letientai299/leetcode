@@ -224,7 +224,3 @@ func (t *TreeNode) Pretty() {
 	}
 }
 
-func main() {
-	t := treeFromLevelOrder(11, 20, 33, 4, NA, 5, 6)
-	t.Pretty()
-}
