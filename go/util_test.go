@@ -14,11 +14,11 @@ func Test_gcd(t *testing.T) {
 		b    int
 		want int
 	}{
-		{a: 4, b: 7, want: 1},
-		{a: 4, b: 8, want: 4},
 		{a: 3, b: 8, want: 1},
 		{a: 9, b: 12, want: 3},
 		{a: 12, b: 9, want: 3},
+		{a: 4, b: 7, want: 1},
+		{a: 4, b: 8, want: 4},
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
@@ -35,18 +35,33 @@ func Benchmark_gcd(b *testing.B) {
 		fn   func(a, b int) int
 	}{
 		{name: "gcd", fn: gcd},
-		{name: "gcdRecursive", fn: gcdRecursive},
+		{name: "gcdEuler", fn: gcdEuler},
+		{name: "gcdEulerRecursive", fn: gcdEulerRecursive},
 	}
 	for _, tt := range tests {
 		b.Run(tt.name, func(b *testing.B) {
 			b.ReportAllocs()
 			for i := 0; i < b.N; i++ {
 				tt.fn(2147483647, 24036583)
+				tt.fn(1239203, 21321824)
 			}
 		})
 	}
 }
-func gcdRecursive(a, b int) int {
+
+func gcdEuler(a, b int) int {
+	for a != 0 && a != 1 {
+		a, b = b%a, a
+	}
+
+	if a == 0 {
+		return b
+	}
+
+	return 1
+}
+
+func gcdEulerRecursive(a, b int) int {
 	if a == 1 {
 		return 1
 	}
@@ -127,6 +142,28 @@ func Test_divisors(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := divisors(tt.n); !assert.ElementsMatch(t, got, tt.want) {
 				t.Errorf("divisors() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_trailing0bit(t *testing.T) {
+	tests := []struct {
+		name string
+		x    uint
+		want uint
+	}{
+		{x: 11, want: 0},
+		{x: 0, want: 0},
+		{x: 1, want: 0},
+		{x: 2, want: 1},
+		{x: 3, want: 0},
+		{x: 4, want: 2},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := trailing0bit(tt.x); got != tt.want {
+				t.Errorf("trailing0bit() = %v, want %v", got, tt.want)
 			}
 		})
 	}

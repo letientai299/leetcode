@@ -22,16 +22,41 @@ func min(a int, arr ...int) int {
 	return a
 }
 
+// binary gcd
 func gcd(a, b int) int {
-	for a != 0 && a != 1 {
-		a, b = b%a, a
+	if a == b {
+		return a
 	}
 
 	if a == 0 {
 		return b
 	}
 
-	return 1
+	if b == 0 {
+		return a
+	}
+
+	u, v := uint(a), uint(b)
+	shift := trailing0bit(u | v)
+	u >>= trailing0bit(u)
+	for v != 0 {
+		v >>= trailing0bit(v)
+		if u > v {
+			u, v = v, u
+		}
+		v = v - u
+	}
+
+	return int(u << shift)
+}
+
+func trailing0bit(x uint) uint {
+	n := uint(0)
+	for x > 0 && x%2 == 0 {
+		n += 1 - (x % 2)
+		x /= 2
+	}
+	return n
 }
 
 func abs(a int) int {
