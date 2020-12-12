@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_singleNumber(t *testing.T) {
+func Test_singleNumber136(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -15,7 +15,7 @@ func Test_singleNumber(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.nums), func(t *testing.T) {
-			if got := singleNumber(tt.nums); got != tt.want {
+			if got := singleNumber136(tt.nums); got != tt.want {
 				t.Errorf("singleNumber() = %v, want %v", got, tt.want)
 			}
 		})
