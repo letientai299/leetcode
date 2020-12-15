@@ -16,7 +16,7 @@ func Test_singleNumber136(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(fmt.Sprint(tt.nums), func(t *testing.T) {
 			if got := singleNumber136(tt.nums); got != tt.want {
-				t.Errorf("singleNumber() = %v, want %v", got, tt.want)
+				t.Errorf("singleNumber260() = %v, want %v", got, tt.want)
 			}
 		})
 	}

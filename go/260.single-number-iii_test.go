@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_singleNumber(t *testing.T) {
+func Test_singleNumber260(t *testing.T) {
 	tests := []struct {
 		name string
 		nums []int
@@ -18,8 +18,8 @@ func Test_singleNumber(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := singleNumber(tt.nums); !assert.ElementsMatch(t, got, tt.want) {
-				t.Errorf("singleNumber() = %v, want %v", got, tt.want)
+			if got := singleNumber260(tt.nums); !assert.ElementsMatch(t, got, tt.want) {
+				t.Errorf("singleNumber260() = %v, want %v", got, tt.want)
 			}
 		})
 	}
