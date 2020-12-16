@@ -13,7 +13,7 @@ type Codec struct {
 	m sync.Map
 }
 
-func Constructor() Codec {
+func Constructor535() Codec {
 	return Codec{
 		m: sync.Map{},
 	}
