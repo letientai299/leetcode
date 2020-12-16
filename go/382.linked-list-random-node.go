@@ -67,14 +67,14 @@ import "math/rand"
  *     Next *ListNode
  * }
  */
-type Solution struct {
+type Solution382 struct {
 	m []int
 }
 
 /** @param head The linked list's head.
   Note that the head is guaranteed to be not null, so it contains at least one node. */
-func Constructor(head *ListNode) Solution {
-	s := Solution{}
+func Constructor382(head *ListNode) Solution382 {
+	s := Solution382{}
 	n := head
 	for n != nil {
 		s.m = append(s.m, n.Val)
@@ -84,7 +84,7 @@ func Constructor(head *ListNode) Solution {
 }
 
 /** Returns a random node's value. */
-func (s *Solution) GetRandom() int {
+func (s *Solution382) GetRandom() int {
 	i := rand.Int31() % int32(len(s.m))
 	return s.m[i]
 }
