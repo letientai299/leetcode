@@ -65,7 +65,7 @@ type Solution struct {
 	b   []int
 }
 
-func Constructor(nums []int) Solution {
+func Constructor384(nums []int) Solution {
 	b := make([]int, len(nums))
 	copy(b, nums)
 	return Solution{

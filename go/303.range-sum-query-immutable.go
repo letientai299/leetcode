@@ -33,33 +33,33 @@ package main
 *
 *
  */
-type NumArray struct {
+type NumArray303 struct {
 	ns []int
 }
 
-func Constructor_303(nums []int) NumArray {
+func Constructor_303(nums []int) NumArray303 {
 	if len(nums) == 0 {
-		return NumArray{}
+		return NumArray303{}
 	}
 
 	for i := 1; i < len(nums); i++ {
 		nums[i] = nums[i-1] + nums[i]
 	}
 
-	return NumArray{
+	return NumArray303{
 		ns: nums,
 	}
 }
 
-func (this *NumArray) SumRange(i int, j int) int {
-	if len(this.ns) == 0 {
+func (n *NumArray303) SumRange(i int, j int) int {
+	if len(n.ns) == 0 {
 		return 0
 	}
 	if i == 0 {
-		return this.ns[j]
+		return n.ns[j]
 	}
 
-	return this.ns[j] - this.ns[i-1]
+	return n.ns[j] - n.ns[i-1]
 }
 
 /**
