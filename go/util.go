@@ -2,6 +2,7 @@ package main
 
 import "math"
 
+// TODO (tai): can be faster, this is just 50%
 func max(a int, arr ...int) int {
 	for _, v := range arr {
 		if a < v {
