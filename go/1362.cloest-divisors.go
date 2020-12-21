@@ -4,6 +4,7 @@ import "math"
 
 // medium
 
+// TODO (tai): can be faster, this is just 50%
 func closestDivisors(num int) []int {
 	a, b := num+1, num+2
 	find := func(x int) []int {
