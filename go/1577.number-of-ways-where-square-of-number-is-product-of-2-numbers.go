@@ -7,12 +7,14 @@ func numTriplets(nums1 []int, nums2 []int) int {
 	m1 := make(map[int]int)
 	m2 := make(map[int]int)
 
-	for _, v := range nums1 {
-		m1[v]++
-	}
+	for i := 0; i < len(nums1) || i < len(nums2); i++ {
+		if i < len(nums1) {
+			m1[nums1[i]]++
+		}
 
-	for _, v := range nums2 {
-		m2[v]++
+		if i < len(nums2) {
+			m2[nums2[i]]++
+		}
 	}
 
 	var r int
