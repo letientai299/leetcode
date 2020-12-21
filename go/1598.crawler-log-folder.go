@@ -1,6 +1,6 @@
 package main
 
-func minOperations(logs []string) int {
+func minOperations1598(logs []string) int {
 	dep := 0
 	for _, s := range logs {
 		switch s {
