@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
  * @lc app=leetcode id=647 lang=golang
  *
@@ -142,6 +140,3 @@ func countSubstrings_slow(s string) int {
 	return cnt + n
 }
 
-func main() {
-	fmt.Println(countSubstrings_slow("abbabbba"))
-}
