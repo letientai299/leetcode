@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func Test_nextGreaterElement(t *testing.T) {
+func Test_nextGreaterElement496(t *testing.T) {
 	tests := []struct {
 		nums1 []int
 		nums2 []int
@@ -46,7 +46,7 @@ func Test_nextGreaterElement(t *testing.T) {
 		t.Run(testName, func(t *testing.T) {
 			in := make([]int, len(tt.nums1))
 			copy(in, tt.nums1)
-			if got := nextGreaterElement(in, tt.nums2); !reflect.DeepEqual(got, tt.want) {
+			if got := nextGreaterElement496(in, tt.nums2); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("nextGreaterElement(%v, %v) = %v, want %v", tt.nums1, tt.nums2, got, tt.want)
 			}
 		})

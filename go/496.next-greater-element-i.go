@@ -58,7 +58,7 @@ package main
  *
  *
  */
-func nextGreaterElement(nums1 []int, nums2 []int) []int {
+func nextGreaterElement496(nums1 []int, nums2 []int) []int {
 	var stack []int
 	m := make(map[int]int)
 	for _, n := range nums2 {
