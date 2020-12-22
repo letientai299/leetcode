@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_findDuplicate(t *testing.T) {
+func Test_findDuplicate287(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -38,7 +38,7 @@ func Test_findDuplicate(t *testing.T) {
 			tt.nums,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := findDuplicate(tt.nums)
+			got := findDuplicate287(tt.nums)
 			if got != tt.want {
 				t.Errorf("findDuplicate(%v) = %v, want %v", tt.nums, got, tt.want)
 			}

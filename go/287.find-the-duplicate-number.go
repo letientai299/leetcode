@@ -41,7 +41,7 @@ package main
  *
  *
  */
-func findDuplicate(nums []int) int {
+func findDuplicate287(nums []int) int {
 	dup := 0
 	for i := range nums {
 		x := nums[i]
