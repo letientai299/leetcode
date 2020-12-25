@@ -65,11 +65,12 @@ package main
  */
 
 type Node struct {
-	Val    int
-	Left   *Node
-	Right  *Node
-	Next   *Node
-	Random *Node
+	Val       int
+	Left      *Node
+	Right     *Node
+	Next      *Node
+	Random    *Node
+	Neighbors []*Node
 }
 
 func connect116(root *Node) *Node {
