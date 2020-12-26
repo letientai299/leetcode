@@ -3,7 +3,7 @@ package main
 // medium
 // https://leetcode.com/problems/partition-list/
 
-func partition(head *ListNode, x int) *ListNode {
+func partition86(head *ListNode, x int) *ListNode {
 	a := &ListNode{Next: head}
 	b := &ListNode{}
 	r := b

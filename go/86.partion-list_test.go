@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_partition(t *testing.T) {
+func Test_partition86(t *testing.T) {
 	tests := []struct {
 		head *ListNode
 		x    int
@@ -31,7 +31,7 @@ func Test_partition(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := partition(tt.head, tt.x); !reflect.DeepEqual(got, tt.want) {
+			if got := partition86(tt.head, tt.x); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("partition() = %v, want %v", got, tt.want)
 			}
 		})
