@@ -49,7 +49,7 @@ in:  1 5 3 6
  *     Right *TreeNode
  * }
  */
-func buildTree(preorder []int, inorder []int) *TreeNode {
+func buildTree105(preorder []int, inorder []int) *TreeNode {
 	var build func(lp, rp, li, ri int) *TreeNode
 
 	build = func(lp, rp, li, ri int) *TreeNode {
