@@ -62,7 +62,7 @@ type PeekingIterator struct {
 	vHasNext bool
 }
 
-func Constructor(iter Iterator) *PeekingIterator {
+func Constructor284(iter Iterator) *PeekingIterator {
 	pi := PeekingIterator{
 		iter:     iter,
 		vHasNext: iter.hasNext(),
