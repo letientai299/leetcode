@@ -91,7 +91,7 @@ type BSTIterator struct {
 	cur  int
 }
 
-func Constructor(root *TreeNode) BSTIterator {
+func Constructor173(root *TreeNode) BSTIterator {
 	return BSTIterator{
 		root: root,
 		list: inorderTraversal(root),
