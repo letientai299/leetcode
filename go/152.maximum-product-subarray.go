@@ -32,7 +32,7 @@ package main
  * Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
  *
  */
-func maxProduct(nums []int) int {
+func maxProduct152(nums []int) int {
 	n := len(nums)
 	if n == 0 {
 		return 0
