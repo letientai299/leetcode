@@ -43,7 +43,7 @@ package main
  *
  *
  */
-func rob(nums []int) int {
+func rob198(nums []int) int {
 	n := len(nums)
 	if n == 0 {
 		return 0

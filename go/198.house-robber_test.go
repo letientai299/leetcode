@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_rob(t *testing.T) {
+func Test_rob198(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -24,7 +24,7 @@ func Test_rob(t *testing.T) {
 			tt.nums,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := rob(tt.nums)
+			got := rob198(tt.nums)
 			if got != tt.want {
 				t.Errorf("rob(%v) = %v, want %v", tt.nums, got, tt.want)
 			}
