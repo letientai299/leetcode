@@ -52,7 +52,7 @@ type NumMatrix struct {
 	mat [][]int
 }
 
-func Constructor(matrix [][]int) NumMatrix {
+func Constructor304(matrix [][]int) NumMatrix {
 	m := len(matrix)
 	if m == 0 {
 		return NumMatrix{}
