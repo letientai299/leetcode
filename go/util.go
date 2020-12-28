@@ -1,6 +1,14 @@
 package main
 
-import "math"
+import (
+	"math"
+	"math/rand"
+	"time"
+)
+
+func init() {
+	rand.Seed(int64(time.Now().Nanosecond()))
+}
 
 func max(a int, arr ...int) int {
 	for _, v := range arr {
@@ -148,4 +156,101 @@ func sum(arr ...int) int {
 		s += v
 	}
 	return s
+}
+
+func quickSelect(nums []int, k int) int {
+	n := len(nums)
+	if n == 1 {
+		return nums[0]
+	}
+
+	pivot := nums[int(rand.Uint32()%uint32(n))]
+	c := 0
+	l, r := 0, n-1
+	for l <= r {
+		for l <= r && nums[l] <= pivot {
+			if nums[l] == pivot {
+				c++
+			}
+			l++
+		}
+
+		for r >= l && nums[r] > pivot {
+			r--
+		}
+
+		if l < r {
+			nums[l], nums[r] = nums[r], nums[l]
+			l++
+			r--
+		}
+	}
+
+	if l >= k && k > l-c {
+		return pivot
+	}
+
+	if l-c >= k {
+		return quickSelect(nums[:l], k)
+	}
+
+	return quickSelect(nums[l:], k-l)
+}
+
+func quickSelectFunc(n, k int,
+	f func(i int) interface{},
+	comp func(a, b interface{}) int,
+	swap func(i, j int),
+) interface{} {
+	if n == 1 {
+		return f(0)
+	}
+
+	pi := int(rand.Uint32() % uint32(n))
+	pivot := f(pi)
+
+	c := 0
+	l, r := 0, n-1
+	for l <= r {
+		for l <= r {
+			a := f(l)
+			cmp := comp(a, pivot)
+			if cmp > 0 {
+				break
+			}
+			if cmp == 0 {
+				c++
+			}
+			l++
+		}
+
+		for b := f(r); r >= l && comp(b, pivot) > 0; {
+			r--
+			b = f(r)
+		}
+
+		if l < r {
+			swap(l, r)
+			l++
+			r--
+		}
+	}
+
+	if l >= k && k > l-c {
+		return pivot
+	}
+
+	if l-c >= k {
+		return quickSelectFunc(l, k,
+			func(i int) interface{} { return f(i) },
+			comp,
+			swap,
+		)
+	}
+
+	return quickSelectFunc(n-l, k-l,
+		func(i int) interface{} { return f(i + l) },
+		comp,
+		swap,
+	)
 }

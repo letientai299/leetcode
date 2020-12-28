@@ -168,3 +168,48 @@ func Test_trailing0bit(t *testing.T) {
 		})
 	}
 }
+
+func Test_quickSelect(t *testing.T) {
+	tests := []struct {
+		nums []int
+		k    int
+		want int
+	}{
+		{nums: []int{1, 3, 2}, k: 2, want: 2},
+		{nums: []int{1, 2, 3, 4, 5}, k: 2, want: 2},
+		{nums: []int{1, 2, 3, 4, 5}, k: 4, want: 4},
+		{nums: []int{1, 2, 3, 4, 5}, k: 5, want: 5},
+		{nums: []int{1, 2, 3, 4, 5}, k: 1, want: 1},
+		{nums: []int{1, 2, 3, 4, 5, 6}, k: 1, want: 1},
+		{nums: []int{1, 2, 3, 4, 5, 6}, k: 3, want: 3},
+	}
+
+	for _, tt := range tests {
+		t.Run("", func(t *testing.T) {
+			qs := quickSelect(tt.nums, tt.k)
+			if qs != tt.want {
+				t.Errorf("quickSelect() = %v, want %v", qs, tt.want)
+				return
+			}
+
+			find := func(i int) interface{} { return tt.nums[i] }
+			swap := func(i, j int) { tt.nums[i], tt.nums[j] = tt.nums[j], tt.nums[i] }
+			comp := func(a, b interface{}) int {
+				x := a.(int)
+				y := b.(int)
+				if x == y {
+					return 0
+				}
+
+				if x < y {
+					return -1
+				}
+				return 1
+			}
+			qsf := quickSelectFunc(len(tt.nums), tt.k, find, comp, swap)
+			if qsf != tt.want {
+				t.Errorf("quickSelectFunc() = %v, want %v", qsf, tt.want)
+			}
+		})
+	}
+}
