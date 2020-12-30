@@ -5,23 +5,27 @@ import (
 )
 
 func threeSum(nums []int) [][]int {
+	return threeSumGeneral(nums, 0)
+}
+
+func threeSumGeneral(nums []int, target int) [][]int {
 	sort.Ints(nums)
 	n := len(nums)
 	var res [][]int
 	for i := 0; i < n; {
 		a := nums[i]
-		if a > 0 {
-			break // remaining number if positive, no need to check further
+		if a > target {
+			break // remaining number is larger than target, no need to check further
 		}
 
 		for j, k := i+1, n-1; j < k; {
 			b := nums[j]
 			c := nums[k]
-			if a+b+c > 0 {
+			if a+b+c > target {
 				k--
 				continue
 			}
-			if a+b+c < 0 {
+			if a+b+c < target {
 				j++
 				continue
 			}
