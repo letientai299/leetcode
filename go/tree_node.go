@@ -224,9 +224,29 @@ func (t *TreeNode) Pretty() {
 	}
 }
 
-func (t *TreeNode) print() {
+func (t *TreeNode) print(fs ...func(string)) {
+	var f func(string)
+	if len(fs) != 0 {
+		f = fs[0]
+	} else {
+		f = func(s string) { fmt.Println(s) }
+	}
+
 	ss := printTree(t)
+	var sb strings.Builder
 	for _, s := range ss {
-		fmt.Println(strings.Join(s, "_"))
+		sb.Reset()
+		for _, c := range s {
+			if c == "" {
+				sb.WriteString("__")
+			} else {
+				if len(c) < 2 {
+					sb.WriteString("_")
+				}
+				sb.WriteString(c)
+			}
+		}
+
+		f(sb.String())
 	}
 }
