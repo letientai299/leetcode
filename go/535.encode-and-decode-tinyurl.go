@@ -9,18 +9,18 @@ import (
 
 const shortURLPrefix = "http://tinyurl.com/"
 
-type Codec struct {
+type Codec535 struct {
 	m sync.Map
 }
 
-func Constructor535() Codec {
-	return Codec{
+func Constructor535() Codec535 {
+	return Codec535{
 		m: sync.Map{},
 	}
 }
 
 // Encodes a URL to a shortened URL.
-func (c *Codec) encode(longUrl string) string {
+func (c *Codec535) encode(longUrl string) string {
 	n := crc32.ChecksumIEEE([]byte(longUrl))
 	if _, ok := c.m.Load(n); !ok {
 		c.m.Store(n, longUrl)
@@ -29,7 +29,7 @@ func (c *Codec) encode(longUrl string) string {
 }
 
 // Decodes a shortened URL to its original URL.
-func (c *Codec) decode(shortUrl string) string {
+func (c *Codec535) decode(shortUrl string) string {
 	id := strings.TrimPrefix(shortUrl, shortURLPrefix)
 	n, _ := strconv.ParseUint(id, 16, 32)
 	v, ok := c.m.Load(uint32(n))

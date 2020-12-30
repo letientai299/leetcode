@@ -67,7 +67,7 @@ type Solution struct {
 	flipped map[int]int
 }
 
-func Constructor(row int, col int) Solution {
+func Constructor519(row int, col int) Solution {
 	s := Solution{
 		col: col,
 		row: row,
