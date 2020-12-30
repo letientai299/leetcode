@@ -224,3 +224,9 @@ func (t *TreeNode) Pretty() {
 	}
 }
 
+func (t *TreeNode) print() {
+	ss := printTree(t)
+	for _, s := range ss {
+		fmt.Println(strings.Join(s, "_"))
+	}
+}
