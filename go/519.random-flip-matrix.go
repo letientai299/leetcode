@@ -60,15 +60,15 @@ import (
  * aren't any.
  *
  */
-type Solution struct {
+type Solution519 struct {
 	row     int
 	col     int
 	remain  int
 	flipped map[int]int
 }
 
-func Constructor519(row int, col int) Solution {
-	s := Solution{
+func Constructor519(row int, col int) Solution519 {
+	s := Solution519{
 		col: col,
 		row: row,
 	}
@@ -76,7 +76,7 @@ func Constructor519(row int, col int) Solution {
 	return s
 }
 
-func (s *Solution) Flip() []int {
+func (s *Solution519) Flip() []int {
 	r := int(rand.Int31()) % s.remain
 	s.remain--
 	sel := r
@@ -91,7 +91,7 @@ func (s *Solution) Flip() []int {
 	return []int{sel / s.col, sel % s.col}
 }
 
-func (s *Solution) Reset() {
+func (s *Solution519) Reset() {
 	s.remain = s.row * s.col
 	s.flipped = make(map[int]int)
 }

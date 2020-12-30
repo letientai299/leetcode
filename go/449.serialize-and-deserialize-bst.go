@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -60,7 +59,7 @@ import (
 
 type Codec struct{}
 
-func Constructor() Codec {
+func Constructor449() Codec {
 	return Codec{}
 }
 
@@ -91,8 +90,8 @@ func (c *Codec) serialize(root *TreeNode) string {
 	}
 
 	s := sb.String()
-	i := len(s)-1
-	for i>=0&& (s[i] == ',' || s[i] == '#') {
+	i := len(s) - 1
+	for i >= 0 && (s[i] == ',' || s[i] == '#') {
 		i--
 	}
 	return s[:i+1]
@@ -159,14 +158,4 @@ func (c *Codec) deserialize(data string) *TreeNode {
 	}
 
 	return root
-}
-
-func main() {
-	tree := treeFromLevelOrder(5, 3, 6, 2, 4, NA, NA, 1)
-	fmt.Println(tree)
-	c := Constructor()
-	s := c.serialize(tree)
-	fmt.Println(s)
-	t := c.deserialize(s)
-	fmt.Println(t)
 }
