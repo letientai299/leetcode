@@ -60,7 +60,7 @@ package main
  *     Next *ListNode
  * }
  */
-func deleteNode(node *ListNode) {
+func deleteNode237(node *ListNode) {
 	next := node.Next
 	for next.Next != nil {
 		node.Val = next.Val

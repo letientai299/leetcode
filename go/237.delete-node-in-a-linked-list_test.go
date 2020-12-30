@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_deleteNode(t *testing.T) {
+func Test_deleteNode237(t *testing.T) {
 	tests := []struct {
 		node *ListNode
 		want *ListNode
@@ -28,7 +28,7 @@ func Test_deleteNode(t *testing.T) {
 			tt.node,
 		)
 		t.Run(testName, func(t *testing.T) {
-			deleteNode(tt.node)
+			deleteNode237(tt.node)
 			assert.Equal(t, tt.node, tt.want)
 		})
 	}
