@@ -60,27 +60,27 @@ import "math/rand"
  *
  *
  */
-type Solution struct {
+type Solution384 struct {
 	arr []int
 	b   []int
 }
 
-func Constructor384(nums []int) Solution {
+func Constructor384(nums []int) Solution384 {
 	b := make([]int, len(nums))
 	copy(b, nums)
-	return Solution{
+	return Solution384{
 		arr: nums,
 		b:   b,
 	}
 }
 
 /** Resets the array to its original configuration and return it. */
-func (s *Solution) Reset() []int {
+func (s *Solution384) Reset() []int {
 	return s.arr
 }
 
 /** Returns a random shuffling of the array. */
-func (s *Solution) Shuffle() []int {
+func (s *Solution384) Shuffle() []int {
 	rand.Shuffle(len(s.arr), func(i, j int) {
 		s.b[i], s.b[j] = s.b[j], s.b[i]
 	})

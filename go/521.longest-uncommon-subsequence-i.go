@@ -51,7 +51,7 @@ package main
  *
  *
  */
-func findLUSlength(a string, b string) int {
+func findLUSlength521(a string, b string) int {
 	if len(a) > len(b) {
 		return len(a)
 	}

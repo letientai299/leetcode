@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_findLUSlength(t *testing.T) {
+func Test_findLUSlength521(t *testing.T) {
 	tests := []struct {
 		a    string
 		b    string
@@ -42,7 +42,7 @@ func Test_findLUSlength(t *testing.T) {
 			tt.a, tt.b,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := findLUSlength(tt.a, tt.b)
+			got := findLUSlength521(tt.a, tt.b)
 			if got != tt.want {
 				t.Errorf("findLUSlength(%v, %v) = %v, want %v", tt.a, tt.b, got, tt.want)
 			}
