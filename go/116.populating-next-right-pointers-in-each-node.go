@@ -71,6 +71,7 @@ type Node struct {
 	Next      *Node
 	Random    *Node
 	Neighbors []*Node
+	Children  []*Node
 }
 
 func connect116(root *Node) *Node {
