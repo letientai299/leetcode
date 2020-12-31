@@ -42,7 +42,7 @@ type Solution struct {
 	m map[int][]int
 }
 
-func Constructor(nums []int) Solution {
+func Constructor398(nums []int) Solution {
 	m := make(map[int][]int)
 	if len(nums) == 0 {
 		return Solution{m: m}
