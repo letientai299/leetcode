@@ -79,7 +79,7 @@ type RandomizedSet struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() RandomizedSet {
+func Constructor380() RandomizedSet {
 	return RandomizedSet{
 		m: make(map[int]int, 64),
 	}

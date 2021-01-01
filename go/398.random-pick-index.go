@@ -38,14 +38,14 @@ import "math/rand"
  *
  *
  */
-type Solution struct {
+type Solution398 struct {
 	m map[int][]int
 }
 
-func Constructor398(nums []int) Solution {
+func Constructor398(nums []int) Solution398 {
 	m := make(map[int][]int)
 	if len(nums) == 0 {
-		return Solution{m: m}
+		return Solution398{m: m}
 	}
 
 	pre := nums[0]
@@ -62,10 +62,10 @@ func Constructor398(nums []int) Solution {
 
 	m[pre] = append(m[pre], len(nums)-1)
 
-	return Solution{m: m}
+	return Solution398{m: m}
 }
 
-func (s *Solution) Pick(target int) int {
+func (s *Solution398) Pick(target int) int {
 	if a, ok := s.m[target]; ok {
 		i := rand.Int() % (a[1] - a[0] + 1)
 		return i + a[0]
@@ -73,9 +73,3 @@ func (s *Solution) Pick(target int) int {
 		return -1
 	}
 }
-
-/**
- * Your Solution object will be instantiated and called as such:
- * obj := Constructor(nums);
- * param_1 := obj.Pick(target);
- */
