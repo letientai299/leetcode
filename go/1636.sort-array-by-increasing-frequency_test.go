@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_frequencySort(t *testing.T) {
+func Test_frequencySort1636(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want []int
@@ -17,7 +17,7 @@ func Test_frequencySort(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := frequencySort(tt.nums); !reflect.DeepEqual(got, tt.want) {
+			if got := frequencySort1636(tt.nums); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("frequencySort() = %v, want %v", got, tt.want)
 			}
 		})

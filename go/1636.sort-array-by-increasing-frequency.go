@@ -2,7 +2,7 @@ package main
 
 import "sort"
 
-func frequencySort(nums []int) []int {
+func frequencySort1636(nums []int) []int {
 	m := make(map[int]int)
 	for _, x := range nums {
 		m[x]++
