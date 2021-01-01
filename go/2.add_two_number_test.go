@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_addTwoNumbers(t *testing.T) {
+func Test_addTwoNumbers2(t *testing.T) {
 	tests := []struct {
 		x, y int
 	}{
@@ -35,7 +35,7 @@ func Test_addTwoNumbers(t *testing.T) {
 			fmt.Printf("%13d | %s\n", l1.toInt(), l1)
 			l2 := newListByDigit(tt.y)
 			fmt.Printf("%13d | %s\n", l2.toInt(), l2)
-			got := addTwoNumbers(l1, l2)
+			got := addTwoNumbers2(l1, l2)
 			actual := got.toInt()
 			fmt.Printf("%5d ~ %5d | %s\n", z, actual, got)
 			if actual != z {
