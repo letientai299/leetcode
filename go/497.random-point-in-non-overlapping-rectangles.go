@@ -75,14 +75,14 @@ import (
  *
  */
 
-type Solution struct {
+type Solution497 struct {
 	rects   [][]int
 	weights []int
 	all     int
 }
 
-func Constructor(rects [][]int) Solution {
-	s := Solution{
+func Constructor497(rects [][]int) Solution497 {
+	s := Solution497{
 		rects:   rects,
 		weights: make([]int, 0, len(rects)),
 	}
@@ -95,7 +95,7 @@ func Constructor(rects [][]int) Solution {
 	return s
 }
 
-func (s *Solution) Pick() []int {
+func (s *Solution497) Pick() []int {
 	w := rand.Intn(s.all) + 1
 	i := sort.SearchInts(s.weights, w)
 	if i > 0 {
@@ -104,10 +104,9 @@ func (s *Solution) Pick() []int {
 	return s.pickRect(i, w)
 }
 
-func (s *Solution) pickRect(i int, w int) []int {
+func (s *Solution497) pickRect(i int, w int) []int {
 	r := s.rects[i]
 	w--
 	dx := r[2] - r[0] + 1
 	return []int{w%dx + r[0], w/dx + r[1]}
 }
-
