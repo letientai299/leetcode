@@ -72,6 +72,12 @@ type Node struct {
 	Random    *Node
 	Neighbors []*Node
 	Children  []*Node
+
+	IsLeaf      bool
+	TopLeft     *Node
+	TopRight    *Node
+	BottomLeft  *Node
+	BottomRight *Node
 }
 
 func connect116(root *Node) *Node {
