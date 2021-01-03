@@ -27,7 +27,7 @@ func Test_intersect(t *testing.T) {
 			tt.nums1, tt.nums2,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := intersect(tt.nums1, tt.nums2)
+			got := intersect350(tt.nums1, tt.nums2)
 			assert.ElementsMatch(t, got, tt.want, "intersect(%v, %v) = %v, want %v", tt.nums1, tt.nums2, got, tt.want)
 		})
 	}
