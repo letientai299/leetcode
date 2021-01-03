@@ -36,7 +36,7 @@ func (t *trieNode) insert(w string) {
 }
 
 func (t trieNode) findPrefix(w string) (string, bool) {
-	return t.findPrefixBuf(w, nil)
+	return t.findPrefixBuf(w, make([]byte, 0, len(w)))
 }
 
 func (t trieNode) findPrefixBuf(w string, buf []byte) (string, bool) {

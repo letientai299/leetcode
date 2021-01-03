@@ -90,7 +90,7 @@ type Solution struct {
 	all int
 }
 
-func Constructor(w []int) Solution {
+func Constructor628(w []int) Solution {
 	all := 0
 	for i, v := range w {
 		all += v
