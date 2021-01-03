@@ -42,7 +42,7 @@ package main
  *
  *
  */
-func topKFrequent(nums []int, k int) []int {
+func topKFrequent347(nums []int, k int) []int {
 	m := make(map[int]int)
 	top := 0
 	for _, v := range nums {
