@@ -50,7 +50,7 @@ package main
  *
  *
  */
-func intersect(nums1 []int, nums2 []int) []int {
+func intersect350(nums1 []int, nums2 []int) []int {
 	distinct := make(map[int]int, len(nums1))
 	for _, n := range nums1 {
 		distinct[n] ++
