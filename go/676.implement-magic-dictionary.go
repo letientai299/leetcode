@@ -70,7 +70,7 @@ type MagicDictionary struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MagicDictionary {
+func Constructor676() MagicDictionary {
 	return MagicDictionary{}
 }
 
