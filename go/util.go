@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -274,4 +277,70 @@ func (h *IntHeap) Pop() interface{} {
 	x := old[n-1]
 	*h = old[0 : n-1]
 	return x
+}
+
+func printMat(mat [][]int) {
+	m := len(mat)
+	if m == 0 {
+		fmt.Println("[]")
+		return
+	}
+
+	n := len(mat[0])
+	if n == 0 {
+		for i := range mat {
+			fmt.Printf("%d | []\n", i)
+		}
+		return
+	}
+
+	longY := len(strconv.Itoa(m))
+	longX := len(strconv.Itoa(n))
+	matss := make([][]string, 0, m)
+
+	for _, row := range mat {
+		ss := make([]string, 0, n)
+		for _, v := range row {
+			s := strconv.Itoa(v)
+			ss = append(ss, s)
+			if len(s) > longX {
+				longX = len(s)
+			}
+		}
+		matss = append(matss, ss)
+	}
+
+	var sb strings.Builder
+	sb.WriteString(strings.Repeat(" ", longY+3))
+	formatX := fmt.Sprintf("%%%dd", longX)
+	sb.WriteString(fmt.Sprintf(formatX, 0))
+	for i := 1; i < n; i++ {
+		sb.WriteString(" ")
+		sb.WriteString(fmt.Sprintf(formatX, i))
+	}
+	sb.WriteString("\n")
+
+	sb.WriteString(strings.Repeat(" ", longY+1))
+	sb.WriteString("+ ")
+	sb.WriteString(strings.Repeat("-", longX))
+	for i := 1; i < n; i++ {
+		sb.WriteString(" ")
+		sb.WriteString(strings.Repeat("-", longX))
+	}
+	sb.WriteString("\n")
+
+	formatY := fmt.Sprintf("%%%dd", longY)
+	for i, ss := range matss {
+		sb.WriteString(fmt.Sprintf(formatY, i))
+		sb.WriteString(" | ")
+		sb.WriteString(strings.Repeat(" ", longX-len(ss[0])))
+		sb.WriteString(ss[0])
+		for _, v := range ss[1:] {
+			sb.WriteString(strings.Repeat(" ", longX-len(v)+1))
+			sb.WriteString(v)
+		}
+		sb.WriteString("\n")
+	}
+
+	fmt.Println(sb.String())
 }
