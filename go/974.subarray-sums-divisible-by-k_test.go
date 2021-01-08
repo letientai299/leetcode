@@ -10,6 +10,7 @@ func Test_subarraysDivByK(t *testing.T) {
 		want int
 	}{
 		{a: []int{4, 5, 0, -2, -3, 1}, k: 5, want: 7},
+		{a: []int{1, 2, 2, 3, 4}, k: 4, want: 4},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
