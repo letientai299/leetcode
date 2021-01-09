@@ -9,10 +9,12 @@ func numOfMinutes(n int, headID int, manager []int, informTime []int) int {
 	if n <= 1 {
 		return 0
 	}
-	m := make(map[int][]int)
+	m := make([][]int, n+1)
 	for i, v := range manager {
+		v = (v + n + 1) % (n + 1)
 		m[v] = append(m[v], i)
 	}
+
 	var inform func(x int) int
 	inform = func(x int) int {
 		if len(m[x]) == 0 {
