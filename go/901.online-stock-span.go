@@ -67,7 +67,7 @@ type StockSpanner struct {
 	val []int
 }
 
-func Constructor() StockSpanner {
+func Constructor901() StockSpanner {
 	return StockSpanner{}
 }
 
