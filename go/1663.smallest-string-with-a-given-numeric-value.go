@@ -1,7 +1,7 @@
 package main
 
 // medium
-// -o goland1 1663. Smallest String With A Given Numeric Value
+// 1663. Smallest String With A Given Numeric Value
 func getSmallestString(n int, k int) string {
 	k -= n
 	bs := make([]byte, n)

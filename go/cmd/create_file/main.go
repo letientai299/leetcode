@@ -104,7 +104,7 @@ func (a *application) create(ss []string) (string, error) {
 	fmt.Fprintln(f, "package main")
 	fmt.Fprintln(f)
 	fmt.Fprintln(f, "// medium")
-	fmt.Fprintf(f, "// %s\n", strings.Join(os.Args[1:], " "))
+	fmt.Fprintf(f, "// %s\n", strings.Join(ss, " "))
 	_ = f.Close()
 	fmt.Println(s)
 	return s, nil

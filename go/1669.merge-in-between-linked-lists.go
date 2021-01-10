@@ -1,7 +1,7 @@
 package main
 
 // medium
-// -o goland1 1669. Merge In Between Linked Lists
+// 1669. Merge In Between Linked Lists
 
 /**
  * Definition for singly-linked list.

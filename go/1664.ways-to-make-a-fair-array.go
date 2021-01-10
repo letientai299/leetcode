@@ -1,7 +1,7 @@
 package main
 
 // medium
-// -o goland1 1664. Ways to Make a Fair Array
+// 1664. Ways to Make a Fair Array
 
 func waysToMakeFair(nums []int) int {
 	n := len(nums)
