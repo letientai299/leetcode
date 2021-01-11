@@ -45,8 +45,8 @@ func isAnagram(s string, t string) bool {
 
 	m := make([]int, 26)
 	for i, x := range s {
-		m[x-'a'] ++
-		m[t[i]-'a'] --
+		m[x-'a']++
+		m[t[i]-'a']--
 	}
 
 	for _, i := range m {

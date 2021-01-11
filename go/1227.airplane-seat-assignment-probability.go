@@ -18,8 +18,8 @@ package main
  * passengers will:
  *
  *
- * Take their own seat if it is still available, 
- * Pick other seats randomly when they find their seat occupied 
+ * Take their own seat if it is still available,
+ * Pick other seats randomly when they find their seat occupied
  *
  *
  * What is the probability that the n-th person can get his own seat?

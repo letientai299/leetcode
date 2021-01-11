@@ -13,7 +13,7 @@ func Test_findMaxAverage(t *testing.T) {
 	}{
 		{
 			nums: []int{1, 12, -5, -6, 50, 3},
-			k: 4,
+			k:    4,
 			want: 12.75,
 		},
 	}

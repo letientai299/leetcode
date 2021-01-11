@@ -12,4 +12,3 @@ func daysBetweenDates(date1 string, date2 string) int {
 	}
 	return int(a.Sub(b).Hours() / 24)
 }
-

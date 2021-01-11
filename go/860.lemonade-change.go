@@ -13,7 +13,7 @@ package main
  * Total Submissions: 119.8K
  * Testcase Example:  '[5,5,5,10,20]'
  *
- * At a lemonade stand, each lemonade costs $5. 
+ * At a lemonade stand, each lemonade costs $5.
  *
  * Customers are standing in a queue to buy from you, and order one at a time
  * (in the order specified by bills).

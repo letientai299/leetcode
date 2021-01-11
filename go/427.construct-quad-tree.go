@@ -26,7 +26,7 @@ package main
  *
  *
  * val: True if the node represents a grid of 1's or False if the node
- * represents a grid of 0's. 
+ * represents a grid of 0's.
  * isLeaf: True if the node is leaf node on the tree or False if the node has
  * the four children.
  *

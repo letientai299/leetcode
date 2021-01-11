@@ -18,14 +18,14 @@ func luckyNumbers(mat [][]int) []int {
 	for _, r := range rowMins {
 		v := r[0]
 		c := r[1]
-		yes:= true
+		yes := true
 		for i := 0; i < len(mat); i++ {
 			if mat[i][c] > v {
-				yes= false
+				yes = false
 				break
 			}
 		}
-		if yes{
+		if yes {
 			res = append(res, v)
 		}
 	}

@@ -22,5 +22,5 @@ func search_33(nums []int, t int) int {
 	if v == len(nums) || tmp[v] != t {
 		return -1
 	}
-	return (v + i+1) % (len(nums))
+	return (v + i + 1) % (len(nums))
 }

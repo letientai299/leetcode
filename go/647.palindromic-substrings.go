@@ -139,4 +139,3 @@ func countSubstrings_slow(s string) int {
 
 	return cnt + n
 }
-

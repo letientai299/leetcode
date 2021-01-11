@@ -62,7 +62,7 @@ func countBinarySubstrings(s string) int {
 		if cur != prev {
 			break
 		}
-		count[prev] ++
+		count[prev]++
 	}
 
 	prev = 1 - 1&prev
@@ -79,7 +79,7 @@ func countBinarySubstrings(s string) int {
 	for ; i < len(s); i++ {
 		cur := s[i] - '0'
 		if cur == prev {
-			count[prev] ++
+			count[prev]++
 			continue
 		}
 

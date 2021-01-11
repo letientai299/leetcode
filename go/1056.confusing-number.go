@@ -89,9 +89,9 @@ func confusingNumber(n int) bool {
 			return false
 		}
 		if d == 6 {
-			d=9
+			d = 9
 		} else if d == 9 {
-			d=6
+			d = 6
 		}
 
 		n /= 10

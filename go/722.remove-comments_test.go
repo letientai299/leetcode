@@ -22,7 +22,6 @@ func Test_removeComments(t *testing.T) {
 			},
 		},
 
-
 		{
 			source: []string{
 				"a//*b//*c",

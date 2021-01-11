@@ -16,7 +16,7 @@ func Test_treeFromLevelOrder(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			tree := treeFromLevelOrder(tt.values...);
+			tree := treeFromLevelOrder(tt.values...)
 			levelOderAgain := tree.levelOrder()
 
 			if !reflect.DeepEqual(levelOderAgain, tt.values) {

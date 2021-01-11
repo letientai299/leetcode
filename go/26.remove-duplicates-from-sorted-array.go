@@ -74,7 +74,7 @@ func removeDuplicates_26(nums []int) int {
 		}
 		nums[res] = nums[i]
 		i++
-		res ++
+		res++
 	}
 	return res
 }

@@ -21,4 +21,3 @@ func Test_minMoves2(t *testing.T) {
 		})
 	}
 }
-

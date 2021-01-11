@@ -52,7 +52,6 @@ func Test_maxCount(t *testing.T) {
 			},
 			want: 2,
 		},
-
 	}
 	for _, tc := range tests {
 		tt := tc

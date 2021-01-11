@@ -12,11 +12,11 @@ func Test_maxSubArray(t *testing.T) {
 			want: 6,
 		},
 		{[]int{6}, 6},
-		{[]int{6,-1}, 6},
-		{[]int{6,1}, 7},
+		{[]int{6, -1}, 6},
+		{[]int{6, 1}, 7},
 		{[]int{}, 0},
-		{[]int{3,2,1,-7,4,5,-2}, 9},
-		{[]int{3,2,1,-2,4,5,-2}, 13},
+		{[]int{3, 2, 1, -7, 4, 5, -2}, 9},
+		{[]int{3, 2, 1, -2, 4, 5, -2}, 13},
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {

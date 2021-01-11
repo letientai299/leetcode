@@ -21,4 +21,3 @@ func thousandSeparator(n int) string {
 	}
 	return string(buf)
 }
-

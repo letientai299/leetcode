@@ -64,7 +64,7 @@ func topKFrequent(words []string, k int) []string {
 		if cnt[s] == 0 {
 			uniq = append(uniq, s)
 		}
-		cnt[s] ++
+		cnt[s]++
 	}
 
 	sort.Slice(uniq, func(i, j int) bool {

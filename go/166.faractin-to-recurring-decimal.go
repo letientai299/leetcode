@@ -33,7 +33,7 @@ func fractionToDecimal(N int, D int) string {
 		if ns[n] == 0 {
 			c := byte(n/d + '0')
 			buf = append(buf, c)
-			ns[n] = len(buf)-1
+			ns[n] = len(buf) - 1
 			n %= d
 			n *= 10
 			continue

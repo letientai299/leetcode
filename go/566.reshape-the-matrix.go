@@ -100,26 +100,26 @@ func matrixReshape(nums [][]int, r int, c int) [][]int {
 	}
 
 	/*
-	// This solution use less memory, but take more time, perhaps each
-	// allocation take more time than before
-	var res [][]int
-	var remain []int
+		// This solution use less memory, but take more time, perhaps each
+		// allocation take more time than before
+		var res [][]int
+		var remain []int
 
-	for _, row := range nums {
-		remain = append(remain, row...)
-		if c > len(remain) {
-			continue // keep appending
+		for _, row := range nums {
+			remain = append(remain, row...)
+			if c > len(remain) {
+				continue // keep appending
+			}
+			for len(remain) > c {
+				next := remain[:c]
+				remain = remain[c:]
+				res = append(res, next)
+			}
 		}
-		for len(remain) > c {
-			next := remain[:c]
-			remain = remain[c:]
-			res = append(res, next)
-		}
-	}
 
-	if len(remain) != 0 {
-		res = append(res, remain)
-	}
+		if len(remain) != 0 {
+			res = append(res, remain)
+		}
 	*/
 	return res
 }

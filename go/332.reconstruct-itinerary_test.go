@@ -25,7 +25,6 @@ func Test_findItinerary(t *testing.T) {
 			want: []string{"JFK", "AAA", "JFK", "CCC", "JFK", "BBB"},
 		},
 
-
 		{
 			tickets: [][]string{
 				{"JFK", "KUL"}, {"JFK", "NRT"}, {"NRT", "JFK"},

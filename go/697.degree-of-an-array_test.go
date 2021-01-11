@@ -12,10 +12,10 @@ func Test_findShortestSubArray(t *testing.T) {
 	}{
 		{nil, 0},
 		{[]int{}, 0},
-		{[]int{1,2}, 1},
-		{[]int{1,1}, 2},
+		{[]int{1, 2}, 1},
+		{[]int{1, 1}, 2},
 		{[]int{1}, 1},
-		{[]int{1,2,2,1}, 2},
+		{[]int{1, 2, 2, 1}, 2},
 	}
 	for _, tc := range tests {
 		tt := tc

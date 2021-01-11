@@ -16,8 +16,7 @@ func Test_minPathSum(t *testing.T) {
 		},
 
 		{
-			grid:
-			[][]int{
+			grid: [][]int{
 				{1, 3, 1},
 				{1, 5, 1},
 				{4, 2, 1},

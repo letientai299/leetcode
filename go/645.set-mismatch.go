@@ -53,7 +53,7 @@ func findErrorNums(nums []int) []int {
 			r[0] = n
 		}
 	}
-	for i, _ := range (m) {
+	for i, _ := range m {
 		if m[i] == 0 {
 			r[1] = i + 1
 			break

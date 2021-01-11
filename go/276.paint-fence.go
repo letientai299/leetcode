@@ -60,7 +60,7 @@ func numWays(n int, k int) int {
 		// i-3 | i-2 | i-1  | ... |
 		// dp0 | dp1 | dp2 |
 		v := (k-1)*dp2 + // i has different color with i-1
-			+ (k-1)*dp1 // i has different color with i-2
+			+(k-1)*dp1 // i has different color with i-2
 		dp1, dp2 = dp2, v
 	}
 

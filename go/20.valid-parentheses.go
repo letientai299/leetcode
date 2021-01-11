@@ -67,7 +67,7 @@ func isValid(s string) bool {
 
 	for _, c := range s {
 		if c == '(' || c == '{' || c == '[' {
-			stack [top] = c
+			stack[top] = c
 			top++
 			continue
 		}

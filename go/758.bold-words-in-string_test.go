@@ -6,7 +6,7 @@ func Test_boldWords(t *testing.T) {
 	tests := []struct {
 		words []string
 		s     string
-		want string
+		want  string
 	}{
 		{
 			words: []string{"ab", "bc"}, s: "aabcd", want: "a<b>abc</b>d",

@@ -27,7 +27,6 @@ func Test_numTriplets(t *testing.T) {
 			want:  2,
 		},
 
-
 		{
 			nums1: []int{1, 1},
 			nums2: []int{1},

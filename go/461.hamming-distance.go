@@ -41,10 +41,10 @@ package main
 func hammingDistance(x int, y int) int {
 	v := x ^ y
 	c := 0
-	c = v - ((v >> 1) & 0x55555555);
-	c = ((c >> 2) & 0x33333333) + (c & 0x33333333);
-	c = ((c >> 4) + c) & 0x0F0F0F0F;
-	c = ((c >> 8) + c) & 0x00FF00FF;
-	c = ((c >> 16) + c) & 0x0000FFFF;
+	c = v - ((v >> 1) & 0x55555555)
+	c = ((c >> 2) & 0x33333333) + (c & 0x33333333)
+	c = ((c >> 4) + c) & 0x0F0F0F0F
+	c = ((c >> 8) + c) & 0x00FF00FF
+	c = ((c >> 16) + c) & 0x0000FFFF
 	return c
 }

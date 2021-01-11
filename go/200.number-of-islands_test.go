@@ -11,8 +11,7 @@ type numIslandTestCase struct {
 func getNumIslandTests() []numIslandTestCase {
 	return []numIslandTestCase{
 		{
-			grid:
-			[]string{
+			grid: []string{
 				"10110010111101011110",
 				"01001010111111011011",
 				"10010101011011100110",
@@ -38,8 +37,7 @@ func getNumIslandTests() []numIslandTestCase {
 		},
 
 		{
-			grid:
-			[]string{
+			grid: []string{
 				"111111111",
 				"100000001",
 				"101010101",
@@ -52,10 +50,8 @@ func getNumIslandTests() []numIslandTestCase {
 			want: 2,
 		},
 
-
 		{
-			grid:
-			[]string{
+			grid: []string{
 				"10111",
 				"10101",
 				"11101",
@@ -64,8 +60,7 @@ func getNumIslandTests() []numIslandTestCase {
 		},
 
 		{
-			grid:
-			[]string{
+			grid: []string{
 				"10001",
 				"01000",
 				"00101",
@@ -75,8 +70,7 @@ func getNumIslandTests() []numIslandTestCase {
 		},
 
 		{
-			grid:
-			[]string{
+			grid: []string{
 				"11000",
 				"11000",
 				"00100",

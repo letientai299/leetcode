@@ -34,8 +34,7 @@ func Test_canArrange(t *testing.T) {
 		},
 
 		{
-			arr:
-			[]int{3, 5, 1, 2, 3, 4},
+			arr:  []int{3, 5, 1, 2, 3, 4},
 			k:    10,
 			want: false,
 		},

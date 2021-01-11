@@ -13,14 +13,14 @@ func Test_shortestDistance(t *testing.T) {
 		want  int
 	}{
 		{
-			words: [] string{"a", "b", "c", "a"},
+			words: []string{"a", "b", "c", "a"},
 			word1: "a",
 			word2: "b",
 			want:  1,
 		},
 
 		{
-			words: [] string{"b", "b", "c", "a"},
+			words: []string{"b", "b", "c", "a"},
 			word1: "a",
 			word2: "b",
 			want:  2,

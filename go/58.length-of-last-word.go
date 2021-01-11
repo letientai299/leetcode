@@ -45,7 +45,7 @@ func lengthOfLastWord(s string) int {
 		i++
 	}
 
-	if lastChar!=sp {
+	if lastChar != sp {
 		end = i
 	}
 

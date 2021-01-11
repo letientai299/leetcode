@@ -24,8 +24,7 @@ func Test_containsPattern(t *testing.T) {
 		},
 
 		{
-			arr:
-			[]int{1, 2, 1, 2, 1, 3},
+			arr:  []int{1, 2, 1, 2, 1, 3},
 			m:    2,
 			k:    3,
 			want: false,

@@ -22,7 +22,7 @@ package main
  * 1 <= x <= 9: move forward x units
  *
  *
- * Some of the grid squares are obstacles. 
+ * Some of the grid squares are obstacles.
  *
  * The i-th obstacle is at grid point (obstacles[i][0], obstacles[i][1])
  *

@@ -7,12 +7,12 @@ func Test_isPalindrome_1(t *testing.T) {
 		s    string
 		want bool
 	}{
-		{"", true,},
-		{"1", true,},
-		{"11", true,},
-		{"121", true,},
-		{"    ", true,},
-		{"3232131", false,},
+		{"", true},
+		{"1", true},
+		{"11", true},
+		{"121", true},
+		{"    ", true},
+		{"3232131", false},
 		{"A man, a plan, a canal: Panama", true},
 		{"!A man, a plan, a canal: Panama", true},
 		{"123A man, a plan, a canal : Panama 321", true},

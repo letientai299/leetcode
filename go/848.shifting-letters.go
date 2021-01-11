@@ -16,7 +16,7 @@ package main
  * We have a string S of lowercase letters, and an integer array shifts.
  *
  * Call the shift of a letter, the next letter in the alphabet, (wrapping
- * around so that 'z' becomes 'a'). 
+ * around so that 'z' becomes 'a').
  *
  * For example, shift('a') = 'b', shift('t') = 'u', and shift('z') = 'a'.
  *

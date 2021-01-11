@@ -39,7 +39,7 @@ import "bytes"
  *
  *
  * Return the final sentence representing the conversion from S to Goat
- * Latin. 
+ * Latin.
  *
  *
  *

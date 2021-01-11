@@ -25,9 +25,9 @@ import (
  * Note:
  *
  *
- * An integer point is a point that has integer coordinates. 
+ * An integer point is a point that has integer coordinates.
  * A point on the perimeter of a rectangle is included in the space covered by
- * the rectangles. 
+ * the rectangles.
  * ith rectangle = rects[i] = [x1,y1,x2,y2], where [x1, y1] are the integer
  * coordinates of the bottom-left corner, and [x2, y2] are the integer
  * coordinates of the top-right corner.

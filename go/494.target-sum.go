@@ -73,9 +73,8 @@ func findTargetSumWays(nums []int, k int) int {
 	d := all - k
 
 	if d == 0 {
-		return 1<<zeroes
+		return 1 << zeroes
 	}
-
 
 	if d%2 != 0 || d < 0 {
 		return 0

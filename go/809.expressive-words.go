@@ -30,7 +30,7 @@ package main
  * "hellooo" -> "helllllooo" = S.
  *
  * Given a list of query words, return the number of words that are
- * stretchy. 
+ * stretchy.
  *
  *
  *

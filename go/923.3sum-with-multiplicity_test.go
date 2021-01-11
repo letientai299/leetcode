@@ -10,15 +10,15 @@ func Test_threeSumMulti(t *testing.T) {
 		want   int
 	}{
 		{
-			nums: []int{1, 1, 2, 2, 3, 3, 4, 4, 5, 5},
+			nums:   []int{1, 1, 2, 2, 3, 3, 4, 4, 5, 5},
 			target: 9,
-			want: 20,
+			want:   20,
 		},
 
 		{
-			nums: []int{1, 1, 2, 2, 3, 3, 4, 4, 5, 5},
+			nums:   []int{1, 1, 2, 2, 3, 3, 4, 4, 5, 5},
 			target: 8,
-			want: 20,
+			want:   20,
 		},
 	}
 	for _, tt := range tests {

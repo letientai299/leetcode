@@ -18,7 +18,7 @@ func Test_findLengthOfLCIS(t *testing.T) {
 		{[]int{3, 2, 1, 0}, 1},
 		{[]int{1, 1, 1, 1}, 1},
 		{[]int{1, 2, 1, 1, 1}, 2},
-		{[]int{1,3,5,4,7}, 3},
+		{[]int{1, 3, 5, 4, 7}, 3},
 	}
 	for _, tc := range tests {
 		tt := tc

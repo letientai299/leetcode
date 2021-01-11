@@ -8,7 +8,7 @@ import (
 func Test_reverseString(t *testing.T) {
 	tests := []struct {
 		in  []byte
-		out [] byte
+		out []byte
 	}{
 		{
 			in:  []byte{'h', 'e', 'l', 'l', 'o'},

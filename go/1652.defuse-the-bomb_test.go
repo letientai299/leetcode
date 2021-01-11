@@ -18,22 +18,19 @@ func Test_decrypt(t *testing.T) {
 		},
 
 		{
-			code:
-			[]int{2, 4, 9, 3},
+			code: []int{2, 4, 9, 3},
 			k:    -2,
 			want: []int{12, 5, 6, 13},
 		},
 
 		{
-			code:
-			[]int{1, 2, 3, 4},
+			code: []int{1, 2, 3, 4},
 			k:    0,
 			want: []int{0, 0, 0, 0},
 		},
 
 		{
-			code:
-			[]int{5, 7, 1, 4},
+			code: []int{5, 7, 1, 4},
 			k:    3,
 			want: []int{12, 10, 16, 13},
 		},

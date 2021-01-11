@@ -36,7 +36,6 @@ func Test_search_704(t *testing.T) {
 			want:   -1,
 		},
 
-
 		{
 			nums:   []int{0, 1, 2},
 			target: 0,

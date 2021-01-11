@@ -19,7 +19,6 @@ func Test_combine(t *testing.T) {
 			{2, 3, 4},
 		}},
 
-
 		{n: 4, k: 1, want: [][]int{
 			{1},
 			{2},

@@ -20,5 +20,5 @@ func average(salary []int) float64 {
 		s += x
 	}
 	s -= min + max
-	return float64(s) / float64(n - 2)
+	return float64(s) / float64(n-2)
 }

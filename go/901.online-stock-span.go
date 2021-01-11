@@ -83,4 +83,3 @@ func (sp *StockSpanner) Next(price int) int {
 	sp.val = append(sp.val, span)
 	return span
 }
-

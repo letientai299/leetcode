@@ -54,7 +54,7 @@ package main
  * 0 <= graph[i][j] <= graph.length - 1
  * graph[i][j] != i
  * All the values of graph[i] are unique.
- * The graph is guaranteed to be undirected. 
+ * The graph is guaranteed to be undirected.
  *
  *
  */

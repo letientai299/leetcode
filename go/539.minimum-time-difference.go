@@ -86,7 +86,7 @@ func findMinDifference(timePoints []string) int {
 	}
 
 	if m <= half {
-		return  m
+		return m
 	}
 
 	return m % half

@@ -136,7 +136,6 @@ func compareVersion(v1 string, v2 string) int {
 		}
 	}
 
-
 	for ; i < len(ns2); i++ {
 		if ns2[i] > 0 {
 			return -1

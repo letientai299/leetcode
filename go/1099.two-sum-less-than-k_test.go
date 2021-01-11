@@ -4,19 +4,19 @@ import "testing"
 
 func Test_twoSumLessThanK(t *testing.T) {
 	tests := []struct {
-		a []int
-		k int
+		a    []int
+		k    int
 		want int
 	}{
 		{
-			a: []int{34,23,1,24,75,33,54, 8},
-			k : 60,
+			a:    []int{34, 23, 1, 24, 75, 33, 54, 8},
+			k:    60,
 			want: 58,
 		},
 
 		{
-			a: []int{34,23,1,24,75,33,54, 8},
-			k : 1,
+			a:    []int{34, 23, 1, 24, 75, 33, 54, 8},
+			k:    1,
 			want: -1,
 		},
 	}

@@ -34,4 +34,3 @@ func Test_countBinarySubstrings(t *testing.T) {
 		})
 	}
 }
-

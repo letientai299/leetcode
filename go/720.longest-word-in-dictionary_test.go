@@ -12,7 +12,7 @@ func Test_longestWord(t *testing.T) {
 	}{
 		{
 			words: []string{"w", "wo", "wor", "wos", "word"},
-			want: "word",
+			want:  "word",
 		},
 	}
 	for _, tt := range tests {

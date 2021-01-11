@@ -12,8 +12,7 @@ const (
 )
 
 func newTrie() *trieNode {
-	return &trieNode{
-	}
+	return &trieNode{}
 }
 
 // trieNode support lower case english letters only.

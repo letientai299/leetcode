@@ -52,7 +52,7 @@ package main
 func uniqueOccurrences(arr []int) bool {
 	m := make(map[int]int)
 	for _, x := range arr {
-		m[x] ++
+		m[x]++
 	}
 
 	m2 := make(map[int]bool)

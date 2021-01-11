@@ -19,8 +19,7 @@ func Test_oddEvenList(t *testing.T) {
 		{head: nil, want: nil},
 
 		{
-			head:
-			newList(1, 2, 3, 4, 5),
+			head: newList(1, 2, 3, 4, 5),
 			want: newList(1, 3, 5, 2, 4),
 		},
 	}

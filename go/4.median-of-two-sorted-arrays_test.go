@@ -59,7 +59,6 @@ func Test_findMedianSortedArrays(t *testing.T) {
 			want: 1,
 		},
 
-
 		{
 			A:    []int{1, 3},
 			B:    []int{},

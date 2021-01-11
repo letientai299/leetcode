@@ -78,7 +78,6 @@ func findContentChildren(g []int, s []int) int {
 			kid--
 		}
 
-
 		for kid >= 0 && assigned[kid] {
 			kid--
 		}

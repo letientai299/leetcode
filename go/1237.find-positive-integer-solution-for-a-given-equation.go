@@ -23,7 +23,7 @@ package main
  * f(x, y) < f(x, y + 1)
  *
  *
- * The function interface is defined like this: 
+ * The function interface is defined like this:
  *
  *
  * interface CustomFunction {
@@ -36,7 +36,7 @@ package main
  *
  * For custom testing purposes you're given an integer function_id and a target
  * z as input, where function_id represent one function from an secret internal
- * list, on the examples you'll know only two functions from the list.  
+ * list, on the examples you'll know only two functions from the list.
  *
  * You may return the solutions in any order.
  *

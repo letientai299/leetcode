@@ -87,7 +87,7 @@ func majorityElement(nums []int) []int {
 		if x == marjors[0] {
 			cnt[0]++
 		} else if x == marjors[1] {
-			cnt[1] ++
+			cnt[1]++
 		}
 	}
 

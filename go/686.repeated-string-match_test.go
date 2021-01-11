@@ -59,7 +59,6 @@ func Test_repeatedStringMatch(t *testing.T) {
 			want: 2,
 		},
 
-
 		{
 			A:    "ab",
 			B:    "abaabab",

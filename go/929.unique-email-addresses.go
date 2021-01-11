@@ -35,7 +35,7 @@ package main
  * It is possible to use both of these rules at the same time.
  *
  * Given a list of emails, we send one email to each address in the list.  How
- * many different addresses actually receive mails? 
+ * many different addresses actually receive mails?
  *
  *
  *

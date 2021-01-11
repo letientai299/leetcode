@@ -64,7 +64,7 @@ func countAndSay(n int) string {
 		sb := strings.Builder{}
 		for j := 1; j < len(s); j++ {
 			if s[j] == c {
-				count ++
+				count++
 				continue
 			}
 

@@ -51,4 +51,3 @@ func multiply(a string, b string) string {
 
 	return string(res)
 }
-

@@ -22,7 +22,6 @@ func Test_printTree(t *testing.T) {
 			},
 		},
 
-
 		{
 			root: treeFromLevelOrder(1, 2, 5, 3, NA, NA, NA, 4),
 			want: [][]string{

@@ -43,4 +43,3 @@ func _reverseStr(someString string) string {
 	}
 	return reverseString
 }
-

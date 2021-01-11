@@ -12,11 +12,15 @@ build() {
   ls -lah -d $target
 }
 
-build_all() {
+build_dir() {
+  dir=$1
   # Build
-  for cmd_package in $(find ./cmd -type d); do
-    # skip the folder if there's no go file in it
-    ls "$cmd_package"/*.go >/dev/null 2>&1 || continue
+  for cmd_package in $(find $dir -type d); do
+    # skip the folder if there's no go file in it, or the package is not "main"
+    if ! grep "package main" "$cmd_package"/*.go >/dev/null 2>&1; then
+      continue
+    fi
+
     # build the cmd
     build "$cmd_package"
   done
@@ -31,7 +35,7 @@ check_target() {
 
   target="./cmd/$cmd"
   if [ -d "$target" ]; then
-    build "$target"
+    build_dir "$target"
   else
     echo_warn "$cmd is not exists under 'cmd'! Here's how to use build script"
     echo
@@ -67,18 +71,19 @@ EOF
 cd "$PROJECT_DIR" || exit 1
 
 case "$1" in
-all)
-  build_all
-  exit
-  ;;
--h | --help)
-  usage
-  exit
-  ;;
-*)
-  check_target "$@"
-  exit
-  ;;
+  all)
+    build_dir ./cmd
+    exit
+    ;;
+  -h | --help)
+    usage
+    exit
+    ;;
+  *)
+    check_target "$@"
+    exit
+    ;;
 esac
 
 cd "$WORKING_DIR" || exit 1
+

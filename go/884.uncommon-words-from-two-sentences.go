@@ -21,7 +21,7 @@ import "strings"
  * A word is uncommon if it appears exactly once in one of the sentences, and
  * does not appear in the other sentence.
  *
- * Return a list of all uncommon words. 
+ * Return a list of all uncommon words.
  *
  * You may return the list in any order.
  *

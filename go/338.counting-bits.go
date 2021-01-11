@@ -56,4 +56,3 @@ func countBits(n int) []int {
 
 	return r
 }
-

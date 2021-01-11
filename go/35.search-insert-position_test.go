@@ -16,11 +16,9 @@ func Test_searchInsert(t *testing.T) {
 			want: 2,
 		},
 
-
 		{
 			args: args{[]int{1, 3, 5, 6}, 2},
-			want: 1,},
-
+			want: 1},
 
 		{
 			args: args{[]int{1, 3, 5, 6}, 7},

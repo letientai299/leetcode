@@ -21,7 +21,6 @@ func Test_sortColors(t *testing.T) {
 			want: []int{0, 1, 2},
 		},
 
-
 		{
 			nums: []int{1, 0, 0},
 			want: []int{0, 0, 1},

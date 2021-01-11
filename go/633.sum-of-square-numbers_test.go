@@ -46,4 +46,3 @@ func Test_judgeSquareSum(t *testing.T) {
 		})
 	}
 }
-

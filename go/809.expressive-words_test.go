@@ -21,7 +21,6 @@ func Test_expressiveWords(t *testing.T) {
 			want:  1,
 		},
 
-
 		{
 			s:     "sass",
 			words: []string{"sa"},

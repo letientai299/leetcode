@@ -17,7 +17,6 @@ func Test_rotateRight(t *testing.T) {
 			want: newList(1, 2, 3, 4, 5),
 		},
 
-
 		{
 			head: newList(1, 2, 3, 4, 5),
 			k:    3,

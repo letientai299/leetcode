@@ -12,8 +12,7 @@ func Test_updateMatrix(t *testing.T) {
 		want [][]int
 	}{
 		{
-			mat:
-			[][]int{
+			mat: [][]int{
 				{0, 0, 0},
 				{0, 1, 0},
 				{0, 0, 0},
@@ -43,8 +42,7 @@ func Test_updateMatrix(t *testing.T) {
 		},
 
 		{
-			mat:
-			[][]int{
+			mat: [][]int{
 				{0, 0, 0},
 				{1, 0, 0},
 				{0, 0, 0},

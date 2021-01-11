@@ -133,4 +133,3 @@ func Test_nextPotentialPalindromeNum(t *testing.T) {
 		fmt.Println(ds)
 	}
 }
-

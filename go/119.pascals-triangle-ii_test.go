@@ -22,7 +22,7 @@ func Test_getRow(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			got := getRow(tt.n);
+			got := getRow(tt.n)
 			assert.Equal(t, got, tt.want)
 		})
 	}

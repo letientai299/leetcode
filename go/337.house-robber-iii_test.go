@@ -10,10 +10,10 @@ func Test_rob(t *testing.T) {
 	}{
 		{
 			/*
-					 3
-			  2    3
-			 * 3  * 1
-			 */
+						 3
+				  2    3
+				 * 3  * 1
+			*/
 			root: treeFromLevelOrder(3, 2, 3, NA, 3, NA, 1),
 			want: 7,
 		},

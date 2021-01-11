@@ -82,7 +82,7 @@ func largeGroupPositions(s string) [][]int {
 		}
 
 		if n >= 3 {
-			res = append(res, []int{i - n, i-1})
+			res = append(res, []int{i - n, i - 1})
 		}
 
 		prev = c
@@ -90,7 +90,7 @@ func largeGroupPositions(s string) [][]int {
 	}
 
 	if n >= 3 {
-		res = append(res, []int{len(s) - n, len(s)-1})
+		res = append(res, []int{len(s) - n, len(s) - 1})
 	}
 
 	return res

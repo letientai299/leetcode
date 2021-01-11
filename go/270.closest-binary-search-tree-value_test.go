@@ -9,9 +9,9 @@ func Test_closestValue(t *testing.T) {
 		want   int
 	}{
 		{
-			root: treeFromLevelOrder(5, 3, 6, 2, 4, NA, NA, 1),
+			root:   treeFromLevelOrder(5, 3, 6, 2, 4, NA, NA, 1),
 			target: 2.85,
-			want: 3,
+			want:   3,
 		},
 	}
 	for _, tt := range tests {

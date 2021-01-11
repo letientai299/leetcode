@@ -22,20 +22,17 @@ func Test_checkSubarraySum(t *testing.T) {
 			want: false,
 		},
 
-
 		{
 			nums: []int{1, 0, 0},
 			k:    -1,
 			want: true,
 		},
 
-
 		{
 			nums: []int{0, 0},
 			k:    -1,
 			want: true,
 		},
-
 
 		{
 			nums: []int{23, 2, 4, 6, 7},
@@ -48,7 +45,6 @@ func Test_checkSubarraySum(t *testing.T) {
 			k:    0,
 			want: true,
 		},
-
 
 		{
 			nums: []int{0, 1, 0},

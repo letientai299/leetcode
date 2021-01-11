@@ -147,4 +147,3 @@ func nextPotentialPalindromeNum(ds []int) []int {
 	}
 	return ds
 }
-

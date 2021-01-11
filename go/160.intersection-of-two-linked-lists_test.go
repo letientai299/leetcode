@@ -25,7 +25,6 @@ func Test_getIntersectionNode(t *testing.T) {
 			b: newList(5, 6),
 		},
 
-
 		{
 			a: newList(1),
 			b: newList(5),
@@ -78,7 +77,6 @@ func Test_getIntersectionNode_no_intersection(t *testing.T) {
 			a: newList(1, 2, 3, 4, 5),
 			b: newList(5, 6),
 		},
-
 
 		{
 			a: newList(),

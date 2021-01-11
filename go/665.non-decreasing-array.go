@@ -66,5 +66,5 @@ func checkPossibility(nums []int) bool {
 		return true
 	}
 
-	return nums[peakId-1] <= nums[peakId+1] || nums[peakId ] <= nums[peakId+2]
+	return nums[peakId-1] <= nums[peakId+1] || nums[peakId] <= nums[peakId+2]
 }

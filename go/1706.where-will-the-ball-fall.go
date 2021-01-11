@@ -30,7 +30,7 @@ func findBall(grid [][]int) []int {
 			direction := grid[y][x]
 			if direction == 1 {
 				if x != n-1 && grid[y][x+1] != -1 {
-					b[1] ++
+					b[1]++
 				} else {
 					b[2] = -1
 				}

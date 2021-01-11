@@ -12,7 +12,6 @@ func Test_isValidSerialization(t *testing.T) {
 			want:     false,
 		},
 
-
 		{
 			preorder: "9,3,4,#,#,1,#,#,2,#,6,#,#,#",
 			want:     false,

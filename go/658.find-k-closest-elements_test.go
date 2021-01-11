@@ -31,7 +31,6 @@ func Test_findClosestElements(t *testing.T) {
 			want: []int{2, 3, 4},
 		},
 
-
 		{
 			args: args{arr: []int{1, 2, 3, 4, 5, 60}, k: 3, x: 11},
 			want: []int{3, 4, 5},

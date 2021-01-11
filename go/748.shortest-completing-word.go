@@ -90,7 +90,7 @@ func shortestCompletingWord(licensePlate string, words []string) string {
 				continue
 			}
 
-			ws[w-'a'] ++
+			ws[w-'a']++
 		}
 
 		ok := true

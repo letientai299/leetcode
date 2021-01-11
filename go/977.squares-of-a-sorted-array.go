@@ -78,7 +78,7 @@ func sortedSquares(a []int) []int {
 	}
 
 	j := i - 1
-	for ; j >= 0 && i < n; {
+	for j >= 0 && i < n {
 		if -a[j] == a[i] {
 			res = append(res, a[j]*a[j], a[i]*a[i])
 			j--

@@ -13,7 +13,7 @@ package main
  * Total Submissions: 25.7K
  * Testcase Example:  '[1,2,3,4,5]\n1\n3\n3'
  *
- * A dieter consumes calories[i] calories on the i-th day. 
+ * A dieter consumes calories[i] calories on the i-th day.
  *
  * Given an integer k, for every consecutive sequence of k days (calories[i],
  * calories[i+1], ..., calories[i+k-1] for all 0 <= i <= n-k), they look at T,
@@ -21,7 +21,7 @@ package main
  * calories[i+1] + ... + calories[i+k-1]):
  *
  *
- * If T < lower, they performed poorly on their diet and lose 1 point; 
+ * If T < lower, they performed poorly on their diet and lose 1 point;
  * If T > upper, they performed well on their diet and gain 1 point;
  * Otherwise, they performed normally and there is no change in points.
  *

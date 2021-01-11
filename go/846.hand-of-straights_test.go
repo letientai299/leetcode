@@ -33,7 +33,6 @@ func Test_isNStraightHand(t *testing.T) {
 			want: true,
 		},
 
-
 		{
 			hand: []int{3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11},
 			k:    3,

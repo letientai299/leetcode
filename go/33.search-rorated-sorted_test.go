@@ -20,7 +20,6 @@ func Test_search(t *testing.T) {
 			want:   2,
 		},
 
-
 		{
 			nums:   []int{3, 1},
 			target: 0,

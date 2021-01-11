@@ -55,8 +55,8 @@ func nextGreaterElement(n int) int {
 		return -1
 	}
 
-	j := len(ds)-1
-	for j>i && ds[j] <=ds[i] {
+	j := len(ds) - 1
+	for j > i && ds[j] <= ds[i] {
 		j--
 	}
 

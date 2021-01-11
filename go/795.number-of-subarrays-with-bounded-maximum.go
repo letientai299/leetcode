@@ -66,7 +66,7 @@ func numSubarrayBoundedMax(a []int, l int, r int) int {
 		dp[i] = [3]int{0, x}
 		if ok {
 			res++
-			dp[i][0] ++
+			dp[i][0]++
 			dp[i][2] = 1
 		} else if x > prev[1] {
 			continue

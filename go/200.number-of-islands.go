@@ -102,7 +102,7 @@ func numIslands(grid [][]byte) int {
 
 		connected := make(map[int]int)
 		c, p := 0, 0
-		for ; c < len(segs) && p < len(prevSegs); {
+		for c < len(segs) && p < len(prevSegs) {
 			prev := prevSegs[p]
 			cur = segs[c]
 

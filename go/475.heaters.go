@@ -74,7 +74,7 @@ func findRadius(houses []int, heaters []int) int {
 		left := int(math.MaxInt32)
 		right := left
 		if loc >= len(heaters) {
-			left = h - heaters [len(heaters)-1]
+			left = h - heaters[len(heaters)-1]
 		} else if heaters[loc] == h {
 			continue
 		} else if loc == 0 {
