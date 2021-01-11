@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# shellcheck source=../common.sh
+. "$(git rev-parse --show-toplevel || echo ".")/go/scripts/common.sh"
+
+cd "$PROJECT_DIR" || true
+has_go_files_changed="false"
+
+for file in $(git diff --cached --name-only | grep -E '\.(go)$'); do
+  # check if file exits, to not format deleted files
+  if [ ! -f $file ]; then
+    continue
+  fi
+
+  has_go_files_changed="true"
+
+  echo_info "goimports: $file"
+  goimports -e -w $file
+  if [ $? -ne 0 ]; then
+    echo "goimports failed on staged file '$file'. Please check your code and try again."
+    exit 1 # exit with failure status
+  fi
+  git add $file
+done
+
+# Only run tidy go mod if any change in go files is committed
+if [[ $has_go_files_changed == "true" ]]; then
+  echo_info "Tidy go mod"
+  go mod tidy || exit 1
+  git add go.mod go.sum
+fi
+
+# keep generated file up to date if there's any templates change
+if (git diff --cached --name-only | grep -E '\.(tpl|tmpl)$'); then
+  make gen
+  git add ./internal/kit/packrd
+fi
