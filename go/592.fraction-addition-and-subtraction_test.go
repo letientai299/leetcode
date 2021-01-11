@@ -7,10 +7,10 @@ func Test_fractionAddition(t *testing.T) {
 		expression string
 		want       string
 	}{
-		{expression: "-5/3+5/3", want: "0/1"},
-		{expression: "-5/3+1/4", want: "-17/12"},
 		{expression: "-5/3+1/3", want: "-4/3"},
 		{expression: "-5/3-1/3", want: "-2/1"},
+		{expression: "-5/3+5/3", want: "0/1"},
+		{expression: "-5/3+1/4", want: "-17/12"},
 		{expression: "5/3-1/3", want: "4/3"},
 		{expression: "5/3+1/3", want: "2/1"},
 		{expression: "-1/2+1/2+3/3", want: "1/1"},

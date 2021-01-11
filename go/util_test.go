@@ -49,18 +49,6 @@ func Benchmark_gcd(b *testing.B) {
 	}
 }
 
-func gcdEuler(a, b int) int {
-	for a != 0 && a != 1 {
-		a, b = b%a, a
-	}
-
-	if a == 0 {
-		return b
-	}
-
-	return 1
-}
-
 func gcdEulerRecursive(a, b int) int {
 	if a == 1 {
 		return 1

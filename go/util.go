@@ -344,3 +344,16 @@ func printMat(mat [][]int) {
 
 	fmt.Println(sb.String())
 }
+
+func gcdEuler(a, b int) int {
+	for a != 0 && a != 1 {
+		a, b = b%a, a
+	}
+
+	if a == 0 {
+		return b
+	}
+
+	return 1
+}
+

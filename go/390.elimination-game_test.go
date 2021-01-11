@@ -8,7 +8,7 @@ func Test_lastRemaining(t *testing.T) {
 		n    int
 		want int
 	}{
-		{n: 12, want: 8},
+		{n: 12, want: 6},
 		{n: 10, want: 8},
 		{n: 9, want: 6},
 	}

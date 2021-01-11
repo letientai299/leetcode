@@ -72,7 +72,7 @@ func fractionAddition(expression string) string {
 	p := '/'
 	add := func(a, b int) {
 		n, d = n*b+d*a, d*b
-		if x := gcd(n, d); x != 1 {
+		if x := gcdEuler(n, d); x != 1 {
 			n, d = n/x, d/x
 		}
 	}
