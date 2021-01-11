@@ -85,6 +85,7 @@ func (l leetcode) prepareComment(problem Problem, url string) (strings.Builder, 
 	l.cmtLine(&sb, problem.Title)
 	l.cmtLine(&sb, "")
 	l.cmtLine(&sb, problem.Difficulty)
+	l.cmtLine(&sb, "")
 	l.cmtLine(&sb, url)
 	l.cmtLine(&sb, "")
 
@@ -94,7 +95,7 @@ func (l leetcode) prepareComment(problem Problem, url string) (strings.Builder, 
 		return sb, err
 	}
 
-	rep := strings.NewReplacer("\n", "\n// ")
+	rep := strings.NewReplacer("\n", "\n// ", " ", " ")
 	for _, s := range strings.Split(content, "\n") {
 		s = wordwrap.WrapString(s, contentWidth)
 		s = rep.Replace(s)
