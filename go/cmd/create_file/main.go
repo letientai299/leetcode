@@ -7,14 +7,16 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path"
+	"syscall"
 
 	"github.com/spf13/pflag"
 )
 
 func main() {
 	ops, args := getOps()
-	if ops.help {
-		usage()
+	if ops.help || len(args) == 0 {
+		usage(ops)
 		return
 	}
 
@@ -24,8 +26,9 @@ func main() {
 	}
 }
 
-func usage() {
-	fmt.Println("Usage: <cmd> <leetcode_problem_url>")
+func usage(o *option) {
+	fmt.Println("Usage: <cmd> <leetcode_problem_url> [-l lang] [-o]")
+	fmt.Println(o.fs.FlagUsagesWrapped(80))
 }
 
 func getOps() (*option, []string) {
@@ -36,13 +39,16 @@ func getOps() (*option, []string) {
 type option struct {
 	help     bool
 	openWith string
+	fs       *pflag.FlagSet
 }
 
 func (o *option) bindFlags() []string {
 	fs := pflag.NewFlagSet("cli", pflag.ContinueOnError)
 	fs.BoolVarP(&o.help, "help", "h", o.help, "show help")
-	fs.StringVarP(&o.openWith, "open", "o", o.openWith, "open created file with given application, default is 'goland'")
+	fs.StringVarP(&o.openWith, "open", "o", o.openWith,
+		"open created file with given command, if empty, use 'vim'")
 	_ = fs.Parse(os.Args)
+	o.fs = fs
 	return fs.Args()[1:]
 }
 
@@ -71,9 +77,36 @@ func (a *application) run(args []string) error {
 	if !needOpen {
 		return nil
 	}
+
+	return a.open(file)
+}
+
+func (a *application) open(file string) error {
 	openCmd := a.ops.openWith
 	if openCmd == "" {
-		openCmd = "goland"
+		openCmd = "vim"
 	}
-	return exec.Command(openCmd, file).Run()
+
+	wd, err := os.Getwd()
+	if err != nil {
+		log.Printf("fail to get working dir, err=%v", err)
+		return err
+	}
+	file = path.Join(wd, file)
+
+	cmd := exec.Command("sh", "-c", openCmd+" "+file)
+	log.Println("starting", cmd)
+
+	cmd.Env = os.Environ()
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+	cred := syscall.Credential{
+		Uid:         uint32(os.Getuid()),
+		Gid:         uint32(os.Getgid()),
+		NoSetGroups: true,
+	}
+	cmd.SysProcAttr = &syscall.SysProcAttr{Credential: &cred}
+
+	return cmd.Run()
 }
