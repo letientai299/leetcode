@@ -356,4 +356,3 @@ func gcdEuler(a, b int) int {
 
 	return 1
 }
-

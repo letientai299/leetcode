@@ -33,5 +33,5 @@ fi
 # keep generated file up to date if there's any templates change
 if (git diff --cached --name-only | grep -E '\.(tpl|tmpl)$'); then
   make gen
-  git add ./internal/kit/packrd
+  git add ./cmd/create_file/lc/packrd/
 fi

@@ -29,6 +29,8 @@ func (p Problem) FileName(lang Lang) string {
 	switch lang {
 	case Go:
 		return p.goFileName()
+	case C:
+		return p.cFileName()
 	}
 	return ""
 }
@@ -49,4 +51,10 @@ func (p Problem) goFileName() string {
 	s = s[:len(s)-1]
 	s += ".go"
 	return s
+}
+
+func (p Problem) cFileName() string {
+	goName := p.goFileName()
+	n := len(goName)
+	return goName[:n-3] + ".c"
 }

@@ -15,6 +15,9 @@ import (
 	wordwrap "github.com/mitchellh/go-wordwrap"
 )
 
+//go:generate packr2 clean
+//go:generate packr2
+
 const (
 	graphqlURL      = "https://leetcode.com/graphql"
 	jsonContentType = "application/json"
@@ -160,12 +163,7 @@ func (l leetcode) cmtLine(sb *strings.Builder, s string) {
 }
 
 func (l leetcode) loadTplByLang(lang Lang) (*template.Template, error) {
-	var name string
-	switch lang {
-	case Go:
-		name = tplGoFile
-	}
-
+	name := string(lang) + "_file.tpl"
 	return l.loadTemplate(name)
 }
 
@@ -189,7 +187,6 @@ func getDefaultBox() *packr.Box {
 	// this must be string literal, can't use string constant, as the packr2 tool
 	// won't be able to recognize it
 	// also, the packr2 tool must be executed within this folder,
-	// i.e: "$PROJECT_DIR/internal/kit"
 	return packr.New("default box", "./tpl")
 }
 

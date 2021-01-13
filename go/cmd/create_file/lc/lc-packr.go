@@ -5,4 +5,4 @@
 // and any other packr generated files.
 package lc
 
-import _ "leetcode/cmd/create_file/packrd"
+import _ "leetcode/cmd/create_file/lc/packrd"
