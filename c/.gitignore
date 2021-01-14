@@ -1,0 +1,11 @@
+bin/
+cmake-build-debug/
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
+Testing/
+*.cbp
+Makefile
+_deps/
+CPM_modules/
+*.cmake
