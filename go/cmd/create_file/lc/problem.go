@@ -1,6 +1,10 @@
 package lc
 
-import "strings"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 type Problem struct {
 	FrontendID string        `json:"questionFrontendId"`
@@ -31,6 +35,8 @@ func (p Problem) FileName(lang Lang) string {
 		return p.goFileName()
 	case C:
 		return p.cFileName()
+	case Java:
+		return p.javaFileName()
 	}
 	return ""
 }
@@ -57,4 +63,18 @@ func (p Problem) cFileName() string {
 	goName := p.goFileName()
 	n := len(goName)
 	return goName[:n-3] + ".c"
+}
+
+func (p Problem) javaFileName() string {
+	return p.PackageName(Java) + "/Solution.java"
+}
+
+func (p Problem) PackageName(lang Lang) string {
+	switch lang {
+	case Java:
+		id, _ := strconv.Atoi(p.FrontendID)
+		return fmt.Sprintf("p%04d", id)
+	default:
+		return ""
+	}
 }

@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 	"text/template"
 	"time"
@@ -51,7 +52,7 @@ func (l leetcode) Prepare(url string, lang Lang) (string, error) {
 		return outFileName, nil
 	}
 
-	out, err := os.Create(outFileName)
+	out, err := l.create(outFileName)
 	if err != nil {
 		log.Printf("fail to crate, file=%v, err=%v", outFileName, err)
 		return "", err
@@ -68,6 +69,7 @@ func (l leetcode) Prepare(url string, lang Lang) (string, error) {
 	data := map[string]string{
 		"comment": cmt.String(),
 		"code":    code,
+		"package": problem.PackageName(lang),
 	}
 
 	tpl, err := l.loadTplByLang(lang)
@@ -193,4 +195,13 @@ func getDefaultBox() *packr.Box {
 func (l leetcode) fileExist(s string) bool {
 	_, err := os.Open(s)
 	return !os.IsNotExist(err)
+}
+
+func (l leetcode) create(name string) (*os.File, error) {
+	parent := filepath.Dir(name)
+	if err := os.MkdirAll(parent, os.ModePerm); err != nil {
+		return nil, err
+	}
+
+	return os.Create(name)
 }

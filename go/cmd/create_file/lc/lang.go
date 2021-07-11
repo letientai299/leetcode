@@ -5,6 +5,7 @@ import "strings"
 type Lang string
 
 const (
+	Java    Lang = "java"
 	C       Lang = "c"
 	CPP     Lang = "cpp"
 	Go      Lang = "golang"
@@ -20,6 +21,8 @@ func ValidateLang(s string) (Lang, bool) {
 		return Go, true
 	case s == string(C):
 		return C, true
+	case s == string(Java):
+		return Java, true
 	}
 
 	return "", false
