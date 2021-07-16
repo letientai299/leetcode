@@ -47,7 +47,7 @@ package main
 //
 // - `1 <= s.length <= 104`
 // - `s[i]` is either `'0'` or `'1'`.
-func minOperations(s string) int {
+func minOperations1758(s string) int {
 	a, b := 0, 0
 	for i, c := range s {
 		v := int(c - '0')
