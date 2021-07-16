@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_buildArray(t *testing.T) {
+func Test_buildArray_1441(t *testing.T) {
 	tests := []struct {
 		target []int
 		n      int
@@ -18,7 +18,7 @@ func Test_buildArray(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := buildArray(tt.target, tt.n); !reflect.DeepEqual(got, tt.want) {
+			if got := buildarray1441(tt.target, tt.n); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("buildArray() = %v, want %v", got, tt.want)
 			}
 		})

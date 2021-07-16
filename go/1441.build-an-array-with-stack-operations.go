@@ -1,6 +1,6 @@
 package main
 
-func buildArray(target []int, n int) []string {
+func buildarray1441(target []int, n int) []string {
 	res := make([]string, 0, n-len(target))
 	last := 0
 	for _, x := range target {
