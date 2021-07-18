@@ -92,3 +92,5 @@ func canBeIncreasing(nums []int) bool {
 
 	return true
 }
+
+// Good for interview
