@@ -9,7 +9,7 @@ type CustomStack struct {
 	i     int
 }
 
-func Constructor(maxSize int) CustomStack {
+func ConstructorCustomStack(maxSize int) CustomStack {
 	return CustomStack{
 		store: make([]int, maxSize),
 		incs:  make([]int, maxSize),
