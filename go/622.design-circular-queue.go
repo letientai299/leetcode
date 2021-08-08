@@ -73,7 +73,7 @@ type MyCircularQueue struct {
 	rear   int
 }
 
-func Constructor(k int) MyCircularQueue {
+func ConstructorCircularQueue(k int) MyCircularQueue {
 	return MyCircularQueue{
 		stores: make([]int, k+1),
 		k:      k + 1,

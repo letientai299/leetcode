@@ -8,7 +8,7 @@ import (
 
 func TestMyCircularQueue(t *testing.T) {
 	k := 3
-	q := Constructor(k)
+	q := ConstructorCircularQueue(k)
 	assert.True(t, q.IsEmpty())
 
 	for i := 0; i < k; i++ {
