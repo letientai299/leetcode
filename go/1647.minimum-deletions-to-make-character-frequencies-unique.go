@@ -73,3 +73,5 @@ func minDeletions(s string) int {
 
 	return res
 }
+
+// Good for interview
