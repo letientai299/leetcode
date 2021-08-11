@@ -54,11 +54,20 @@ package main
 // - `1 <= arr[i] <= 104`
 func prevPermOpt1(arr []int) []int {
 	n := len(arr)
-	for i := n - 1; i > 0; i-- {
-		if arr[i] < arr[i-1] {
-			arr[i], arr[i-1] = arr[i-1], arr[i]
-			break
-		}
+	i := n - 1
+	for ; i > 0 && arr[i] >= arr[i-1]; i-- {
 	}
+
+	if i == 0 {
+		return arr
+	}
+
+	i-- // first value to swap
+	j := n - 1
+	for j > i+1 && (arr[j] >= arr[i] || arr[j] == arr[j-1]) {
+		j--
+	}
+
+	arr[i], arr[j] = arr[j], arr[i]
 	return arr
 }
