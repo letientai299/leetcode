@@ -65,7 +65,7 @@ type SeatManager struct {
 	seats *IntHeap
 }
 
-func Constructor(n int) SeatManager {
+func Constructor_1845(n int) SeatManager {
 	arr := make([]int, n)
 	for i := 0; i < n; i++ {
 		arr[i] = i + 1
