@@ -53,7 +53,7 @@ type WordDictionary struct {
 	end  bool
 }
 
-func Constructor() WordDictionary {
+func Constructor211() WordDictionary {
 	return WordDictionary{}
 }
 
@@ -69,7 +69,7 @@ func (t *WordDictionary) AddWord(word string) {
 
 	c := int(word[0] - 'a')
 	if t.kids[c] == nil {
-		kid := Constructor()
+		kid := Constructor211()
 		t.kids[c] = &kid
 	}
 
