@@ -72,7 +72,7 @@ type BrowserHistory struct {
 	id    int
 }
 
-func Constructor(homepage string) BrowserHistory {
+func Constructor1472(homepage string) BrowserHistory {
 	bh := BrowserHistory{
 		stack: make([]string, 0, 5000),
 	}
