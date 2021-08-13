@@ -65,7 +65,7 @@ type MyCircularDeque struct {
 	end    int   // after the last element
 }
 
-func Constructor(k int) MyCircularDeque {
+func Constructor641(k int) MyCircularDeque {
 	return MyCircularDeque{
 		stores: make([]int, k+1),
 	}
