@@ -52,7 +52,7 @@ type MapSum struct {
 	val       int
 }
 
-func Constructor() MapSum {
+func Constructor677() MapSum {
 	return MapSum{}
 }
 

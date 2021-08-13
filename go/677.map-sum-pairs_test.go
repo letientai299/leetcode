@@ -7,7 +7,7 @@ import (
 )
 
 func TestMapSum(t *testing.T) {
-	ms := Constructor()
+	ms := Constructor677()
 	ms.Insert("apple", 3)
 	assert.Equal(t, ms.Sum("apple"), 3)
 	assert.Equal(t, ms.Sum("appl"), 3)
