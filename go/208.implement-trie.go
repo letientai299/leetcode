@@ -56,7 +56,7 @@ type Trie struct {
 	end  bool
 }
 
-func Constructor() Trie {
+func Constructor208() Trie {
 	return Trie{}
 }
 
@@ -72,7 +72,7 @@ func (t *Trie) Insert(word string) {
 
 	c := int(word[0] - 'a')
 	if t.kids[c] == nil {
-		kid := Constructor()
+		kid := Constructor208()
 		t.kids[c] = &kid
 	}
 
