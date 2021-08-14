@@ -52,7 +52,7 @@ import "sort"
  *
  *
  */
-func maxProduct(words []string) int {
+func maxProduct318(words []string) int {
 	if len(words) < 2 {
 		return 0
 	}

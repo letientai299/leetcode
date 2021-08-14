@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_maxProduct(t *testing.T) {
+func Test_maxProduct318(t *testing.T) {
 	tests := []struct {
 		name  string
 		words []string
@@ -15,7 +15,7 @@ func Test_maxProduct(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := maxProduct(tt.words); got != tt.want {
+			if got := maxProduct318(tt.words); got != tt.want {
 				t.Errorf("maxProduct() = %v, want %v", got, tt.want)
 			}
 		})
