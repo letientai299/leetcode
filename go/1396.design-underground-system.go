@@ -118,7 +118,7 @@ type UndergroundSystemCustomer struct {
 	time    int
 }
 
-func Constructor() UndergroundSystem {
+func Constructor1396() UndergroundSystem {
 	return UndergroundSystem{
 		stores:  make(map[string]map[string][]int),
 		pending: make(map[int]UndergroundSystemCustomer),
