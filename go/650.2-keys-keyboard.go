@@ -56,7 +56,7 @@ import (
  *
  */
 
-func minSteps(n int) int {
+func minSteps650(n int) int {
 	if n < 2 {
 		return 0
 	}
