@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_minOperations(t *testing.T) {
+func Test_minOperations1827(t *testing.T) {
 	tests := []struct {
 		name string
 		nums []int
@@ -14,7 +14,7 @@ func Test_minOperations(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := minOperations(tt.nums); got != tt.want {
+			if got := minOperations1827(tt.nums); got != tt.want {
 				t.Errorf("minOperations() = %v, want %v", got, tt.want)
 			}
 		})

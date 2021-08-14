@@ -51,7 +51,7 @@ package main
 //
 // - `1 <= nums.length <= 5000`
 // - `1 <= nums[i] <= 104`
-func minOperations(nums []int) int {
+func minOperations1827(nums []int) int {
 	res := 0
 	for i := 1; i < len(nums); i++ {
 		a := nums[i-1]
