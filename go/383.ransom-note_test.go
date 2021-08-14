@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_canConstruct(t *testing.T) {
+func Test_canConstruct383(t *testing.T) {
 	tests := []struct {
 		ransomNote string
 		magazine   string
@@ -42,7 +42,7 @@ func Test_canConstruct(t *testing.T) {
 			tt.ransomNote, tt.magazine,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := canConstruct(tt.ransomNote, tt.magazine)
+			got := canConstruct383(tt.ransomNote, tt.magazine)
 			if got != tt.want {
 				t.Errorf("canConstruct(%v, %v) = %v, want %v", tt.ransomNote, tt.magazine, got, tt.want)
 			}

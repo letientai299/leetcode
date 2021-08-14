@@ -36,7 +36,7 @@ package main
  *
  *
  */
-func canConstruct(note string, magazine string) bool {
+func canConstruct383(note string, magazine string) bool {
 	m := make(map[int32]int, 128)
 	for _, c := range magazine {
 		m[c]++
@@ -51,3 +51,5 @@ func canConstruct(note string, magazine string) bool {
 
 	return true
 }
+
+// Good for interview
