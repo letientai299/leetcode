@@ -43,7 +43,7 @@ package main
 // - `encoded.length == n - 1`
 // - `0 <= encoded[i] <= 105`
 // - `0 <= first <= 105`
-func decode(encoded []int, first int) []int {
+func decode1720(encoded []int, first int) []int {
 	res := make([]int, len(encoded)+1)
 	res[0] = first
 	for i, v := range encoded {
