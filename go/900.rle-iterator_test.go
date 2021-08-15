@@ -7,7 +7,7 @@ import (
 )
 
 func TestRLEIterator_Next(t *testing.T) {
-	it := Constructor([]int{3, 8, 0, 9, 2, 5})
+	it := Constructor900([]int{3, 8, 0, 9, 2, 5})
 	assert.Equal(t, 8, it.Next(2))
 	assert.Equal(t, 8, it.Next(1))
 	assert.Equal(t, 5, it.Next(1))

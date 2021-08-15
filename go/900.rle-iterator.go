@@ -65,7 +65,7 @@ type RLEIterator struct {
 	i   int
 }
 
-func Constructor(encoding []int) RLEIterator {
+func Constructor900(encoding []int) RLEIterator {
 	return RLEIterator{
 		enc: encoding,
 	}
