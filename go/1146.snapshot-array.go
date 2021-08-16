@@ -49,7 +49,7 @@ type SnapshotArray struct {
 	versions [][]int
 }
 
-func Constructor(n int) SnapshotArray {
+func Constructor1146(n int) SnapshotArray {
 	return SnapshotArray{
 		ver:      -1,
 		mem:      make([]int, n),

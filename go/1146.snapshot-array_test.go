@@ -7,7 +7,7 @@ import (
 )
 
 func TestSnapshotArray(t *testing.T) {
-	sa := Constructor(1)
+	sa := Constructor1146(1)
 	assert.Equal(t, 0, sa.Snap())
 	assert.Equal(t, 1, sa.Snap())
 	sa.Set(0, 4)
