@@ -1,10 +1,12 @@
 # Leetcode solutions
 
-## Self note
+## Note
 
 - Grep `faster` or `TODO` for those problem that I didn't achieve 100% time or has
   something else to do.
 - Review and filter the list of interesting problems.
+- To other people, most of the code here is ugly, especially for those
+  uninteresting problems to me.
 
 ## Interesting problems
 
