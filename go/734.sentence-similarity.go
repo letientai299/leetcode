@@ -1,7 +1,7 @@
 package main
 
 // https://leetcode.com/problems/sentence-similarity/
-func areSentencesSimilar(a []string, b []string, pairs [][]string) bool {
+func areSentencesSimilar734(a []string, b []string, pairs [][]string) bool {
 	if len(a) != len(b) {
 		return false
 	}

@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func Test_areSentencesSimilar(t *testing.T) {
+func Test_areSentencesSimilar734(t *testing.T) {
 	tests := []struct {
 		a     []string
 		b     []string
@@ -59,7 +59,7 @@ func Test_areSentencesSimilar(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := areSentencesSimilar(tt.a, tt.b, tt.pairs); got != tt.want {
+			if got := areSentencesSimilar734(tt.a, tt.b, tt.pairs); got != tt.want {
 				t.Errorf("areSentencesSimilar() = %v, want %v", got, tt.want)
 			}
 		})
