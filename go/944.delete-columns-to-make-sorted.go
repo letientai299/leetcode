@@ -68,7 +68,7 @@ package main
  *
  */
 
-func minDeletionSize(a []string) int {
+func minDeletionSize944(a []string) int {
 	m := len(a)
 	if m < 2 {
 		return 0
