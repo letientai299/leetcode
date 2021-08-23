@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_findDiagonalOrder(t *testing.T) {
+func Test_findDiagonalOrder498(t *testing.T) {
 	tests := []struct {
 		name string
 		mat  [][]int
@@ -40,7 +40,7 @@ func Test_findDiagonalOrder(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := findDiagonalOrder(tt.mat); !reflect.DeepEqual(got, tt.want) {
+			if got := findDiagonalOrder498(tt.mat); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("findDiagonalOrder() = %v, want %v", got, tt.want)
 			}
 		})

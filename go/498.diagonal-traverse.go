@@ -42,7 +42,7 @@ package main
  *
  */
 
-func findDiagonalOrder(mat [][]int) []int {
+func findDiagonalOrder498(mat [][]int) []int {
 	m := len(mat)
 	if m == 0 {
 		return nil
