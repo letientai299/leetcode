@@ -1,6 +1,6 @@
 package main
 
-func maxArea(height []int) int {
+func maxArea11(height []int) int {
 	n := len(height)
 	best := 0
 	for i, j := 0, n-1; i < j; {
