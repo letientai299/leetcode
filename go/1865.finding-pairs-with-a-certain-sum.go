@@ -46,7 +46,7 @@ type FindSumPairs struct {
 	nums1 map[int]int
 }
 
-func Constructor(nums1 []int, nums2 []int) FindSumPairs {
+func Constructor1865(nums1 []int, nums2 []int) FindSumPairs {
 	sp := FindSumPairs{
 		m:     make(map[int]int, len(nums2)),
 		nums1: make(map[int]int, len(nums1)),
