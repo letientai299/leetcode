@@ -65,7 +65,7 @@ type CBTInserter struct {
 	root     *TreeNode
 }
 
-func Constructor(root *TreeNode) CBTInserter {
+func Constructor919(root *TreeNode) CBTInserter {
 	cb := CBTInserter{
 		root:     root,
 		height:   1,
@@ -73,7 +73,7 @@ func Constructor(root *TreeNode) CBTInserter {
 	}
 
 	if root.Left != nil {
-		child := Constructor(root.Left)
+		child := Constructor919(root.Left)
 		cb.left = &child
 		if child.height >= cb.height {
 			cb.height = child.height + 1
@@ -81,7 +81,7 @@ func Constructor(root *TreeNode) CBTInserter {
 	}
 
 	if root.Right != nil {
-		child := Constructor(root.Right)
+		child := Constructor919(root.Right)
 		cb.right = &child
 		if child.height >= cb.height {
 			cb.height = child.height + 1
@@ -118,7 +118,7 @@ func (cb *CBTInserter) Insert(val int) int {
 
 	if cb.left == nil || cb.right == nil {
 		n := &TreeNode{Val: val}
-		child := Constructor(n)
+		child := Constructor919(n)
 
 		if cb.left == nil {
 			cb.root.Left = n
