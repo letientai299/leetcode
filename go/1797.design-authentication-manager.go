@@ -56,7 +56,7 @@ type AuthenticationManager struct {
 	m       map[string]int
 }
 
-func Constructor(timeToLive int) AuthenticationManager {
+func Constructor1797(timeToLive int) AuthenticationManager {
 	return AuthenticationManager{
 		ttl: timeToLive,
 		m:   make(map[string]int),

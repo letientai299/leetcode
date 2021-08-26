@@ -7,7 +7,7 @@ import (
 )
 
 func TestAuthenticationManager_CountUnexpiredTokens(t *testing.T) {
-	am := Constructor(13)
+	am := Constructor1797(13)
 
 	am.Renew("ajvy", 1)
 	assert.Equal(t, 0, am.CountUnexpiredTokens(3))
