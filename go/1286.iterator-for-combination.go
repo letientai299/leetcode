@@ -50,7 +50,7 @@ type CombinationIterator struct {
 	all int
 }
 
-func Constructor(s string, n int) CombinationIterator {
+func Constructor1286(s string, n int) CombinationIterator {
 	com := make([]int, n)
 	for i := range com {
 		com[i] = i
