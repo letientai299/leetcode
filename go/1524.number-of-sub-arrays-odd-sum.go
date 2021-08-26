@@ -3,7 +3,7 @@ package main
 // medium
 // https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/
 
-func numOfSubarrays(arr []int) int {
+func numOfSubarrays1524(arr []int) int {
 	n := len(arr)
 
 	// dp[x][i] means number of sub-array end at i that has even/odd sum

@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_numOfSubarrays(t *testing.T) {
+func Test_numOfSubarrays1524(t *testing.T) {
 	tests := []struct {
 		name string
 		arr  []int
@@ -15,7 +15,7 @@ func Test_numOfSubarrays(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := numOfSubarrays(tt.arr); got != tt.want {
+			if got := numOfSubarrays1524(tt.arr); got != tt.want {
 				t.Errorf("numOfSubarrays() = %v, want %v", got, tt.want)
 			}
 		})
