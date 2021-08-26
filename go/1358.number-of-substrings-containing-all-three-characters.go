@@ -85,3 +85,5 @@ func numberOfSubstrings(s string) int {
 
 	return n*(n+1)/2 - invalids
 }
+
+// Good for interview
