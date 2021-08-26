@@ -60,7 +60,7 @@ type ExamRoom struct {
 	stores []int
 }
 
-func Constructor(n int) ExamRoom {
+func Constructor855(n int) ExamRoom {
 	return ExamRoom{n: n}
 }
 

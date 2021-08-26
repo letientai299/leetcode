@@ -7,7 +7,7 @@ import (
 )
 
 func TestExamRoom(t *testing.T) {
-	e := Constructor(10)
+	e := Constructor855(10)
 	tests := []int{0, 9, 4, 2}
 
 	for _, want := range tests {
@@ -26,7 +26,7 @@ func TestExamRoom(t *testing.T) {
 }
 
 func TestExamRoom_2(t *testing.T) {
-	e := Constructor(10)
+	e := Constructor855(10)
 	assert.Equal(t, 0, e.Seat())
 	assert.Equal(t, 9, e.Seat())
 	assert.Equal(t, 4, e.Seat())
