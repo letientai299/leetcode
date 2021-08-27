@@ -5,7 +5,7 @@ import (
 )
 
 func TestTweetCounts(t *testing.T) {
-	tw := Constructor()
+	tw := Constructor1348()
 	const s = "a"
 	tw.RecordTweet(s, 857105800)
 	//tw.RecordTweet(s, 89)

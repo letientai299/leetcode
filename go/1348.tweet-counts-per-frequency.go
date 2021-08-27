@@ -81,7 +81,7 @@ type TweetCounts struct {
 	m map[string][]int
 }
 
-func Constructor() TweetCounts {
+func Constructor1348() TweetCounts {
 	return TweetCounts{
 		m: make(map[string][]int),
 	}
