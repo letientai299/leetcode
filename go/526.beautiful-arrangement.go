@@ -57,7 +57,40 @@ package main
  *
  */
 
-// TODO (tai): solve this
 func countArrangement(n int) int {
-	return 0
+	count := 0
+	used := 0
+	candidates := make([][]int, n)
+	for i := range candidates {
+		x := i + 1
+		candidates[i] = append(candidates[i], x)
+
+		for k := x + 1; k <= n; k++ {
+			if k%x == 0 {
+				candidates[i] = append(candidates[i], k)
+				candidates[k-1] = append(candidates[k-1], x)
+			}
+		}
+	}
+
+	var walk func(i int)
+	walk = func(i int) {
+		where := i + 1
+		if where > n {
+			count++
+			return
+		}
+
+		for _, k := range candidates[i] {
+			mask := 1 << (k - 1)
+			if used&mask == 0 {
+				used |= mask
+				walk(i + 1)
+				used &= ^mask
+			}
+		}
+	}
+
+	walk(0)
+	return count
 }

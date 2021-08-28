@@ -11,8 +11,8 @@ func Test_countArrangement(t *testing.T) {
 		n    int
 		want int
 	}{
-		{n: 1, want: 1},
 		{n: 2, want: 2},
+		{n: 1, want: 1},
 		{n: 3, want: 3},
 		{n: 4, want: 8},
 		{n: 5, want: 10},
