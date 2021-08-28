@@ -94,7 +94,7 @@ type Cashier struct {
 	cur      int
 }
 
-func Constructor(n int, discount int, products []int, prices []int) Cashier {
+func Constructor1357(n int, discount int, products []int, prices []int) Cashier {
 	m := make([]int, 201)
 	for i, id := range products {
 		m[id] = prices[i]
