@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_maxPoints(t *testing.T) {
+func Test_maxPoints1937(t *testing.T) {
 	tests := []struct {
 		name   string
 		points [][]int
@@ -24,7 +24,7 @@ func Test_maxPoints(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := maxPoints(tt.points); got != tt.want {
+			if got := maxPoints1937(tt.points); got != tt.want {
 				t.Errorf("maxPoints() = %v, want %v", got, tt.want)
 			}
 		})

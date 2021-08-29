@@ -68,7 +68,7 @@ import (
 // - `1 <= m, n <= 105`
 // - `1 <= m * n <= 105`
 // - `0 <= points[r][c] <= 105`
-func maxPoints(points [][]int) int64 {
+func maxPoints1937(points [][]int) int64 {
 	dp := make([][]int64, 2)
 	dp[0] = make([]int64, len(points[0]))
 	dp[1] = make([]int64, len(points[0]))
