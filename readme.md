@@ -10,4 +10,5 @@
 
 ## Interesting problems
 
+- [932 - Beautiful array](./go/932.beautiful-array.go)
 - [1823 - Josepush generic problem](./go/1823.find-the-winner-of-the-circular-game.go)
