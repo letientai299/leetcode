@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_removeDuplicates(t *testing.T) {
+func Test_removeDuplicates80(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -17,8 +17,8 @@ func Test_removeDuplicates(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run("", func(t *testing.T) {
-			if got := removeDuplicates(tt.nums); got != tt.want {
-				t.Errorf("removeDuplicates() = %v, want %v, arr=%v", got, tt.want, tt.nums[:got])
+			if got := removeDuplicates80(tt.nums); got != tt.want {
+				t.Errorf("removeDuplicates80() = %v, want %v, arr=%v", got, tt.want, tt.nums[:got])
 			}
 		})
 	}

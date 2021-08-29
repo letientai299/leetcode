@@ -1,6 +1,6 @@
 package main
 
-func removeDuplicates(nums []int) int {
+func removeDuplicates80(nums []int) int {
 	n := len(nums)
 	if n < 3 {
 		return n
