@@ -57,8 +57,8 @@ func validateStackSequences(pushed []int, popped []int) bool {
 		j++
 	}
 
-	for k := len(stack) - 1; k >= 0 && j < n; k-- {
-		if stack[k] != popped[j] {
+	for k := len(stack) - 1; k >= 0 && j < n; k--{
+		if stack[k]	 != popped[j] {
 			return false
 		}
 		j++
@@ -66,3 +66,5 @@ func validateStackSequences(pushed []int, popped []int) bool {
 
 	return true
 }
+
+// Good for interview
