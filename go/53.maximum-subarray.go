@@ -51,3 +51,5 @@ func maxSubArray(nums []int) int {
 	}
 	return max
 }
+
+// Good for interview
