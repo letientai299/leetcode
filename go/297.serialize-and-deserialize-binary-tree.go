@@ -70,7 +70,7 @@ import (
 
 type Codec struct{}
 
-func Constructor() Codec { return Codec{} }
+func Constructor297() Codec { return Codec{} }
 
 func (cx *Codec) serialize(root *TreeNode) string {
 	if root == nil {
