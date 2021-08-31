@@ -57,14 +57,14 @@ import (
  * }
  */
 
-type Codec struct{}
+type Codec449 struct{}
 
-func Constructor449() Codec {
-	return Codec{}
+func Constructor449() Codec449 {
+	return Codec449{}
 }
 
 // Serializes a tree to a single string.
-func (c *Codec) serialize(root *TreeNode) string {
+func (c *Codec449) serialize(root *TreeNode) string {
 	if root == nil {
 		return ""
 	}
@@ -98,7 +98,7 @@ func (c *Codec) serialize(root *TreeNode) string {
 }
 
 // Deserializes your encoded data to tree.
-func (c *Codec) deserialize(data string) *TreeNode {
+func (c *Codec449) deserialize(data string) *TreeNode {
 	if data == "" {
 		return nil
 	}
