@@ -95,7 +95,7 @@ package main
 
 type FindElements struct{ root *TreeNode }
 
-func Constructor(root *TreeNode) FindElements { return FindElements{root: root} }
+func Constructor1261(root *TreeNode) FindElements { return FindElements{root: root} }
 
 func (fe *FindElements) Find(target int) bool {
 	var directions []bool
