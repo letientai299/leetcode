@@ -61,7 +61,7 @@ package main
  *
  *
  */
-func isValid(s string) bool {
+func isValid20(s string) bool {
 	stack := make([]int32, len(s))
 	top := 0
 
