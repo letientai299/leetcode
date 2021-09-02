@@ -1,6 +1,6 @@
 package main
 
-func maxScore(s string) int {
+func maxScore1422(s string) int {
 	l := 0
 	left := make([]int, len(s))
 	for i := range s {
