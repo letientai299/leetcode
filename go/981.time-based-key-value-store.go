@@ -81,7 +81,7 @@ func (v *TimeMapVal) get(time int) string {
 	return v.values[i]
 }
 
-func Constructor() TimeMap {
+func Constructor981() TimeMap {
 	return TimeMap{
 		stores: make(map[string]*TimeMapVal, 100),
 	}
