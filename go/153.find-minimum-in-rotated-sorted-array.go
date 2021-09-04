@@ -67,6 +67,6 @@ package main
  *
  *
  */
-func findMin(nums []int) int {
+func findMin153(nums []int) int {
 	return quickSelect(nums, 0)
 }
