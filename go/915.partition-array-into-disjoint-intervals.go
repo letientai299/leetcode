@@ -1,7 +1,5 @@
 package main
 
-import "math"
-
 // Partition Array into Disjoint Intervals
 //
 // Medium
@@ -43,32 +41,20 @@ import "math"
 // - `0 <= nums[i] <= 106`
 // - There is at least one valid answer for the given input.
 func partitionDisjoint(nums []int) int {
-	n := len(nums)
-	max := make([]int, n)
-	max[0] = nums[0]
+	leftMax := nums[0]
+	curMax := nums[0]
+	left := 0
 	for i := 1; i < len(nums); i++ {
-		if nums[i] > max[i-1] {
-			max[i] = nums[i]
-		} else {
-			max[i] = max[i-1]
+		v := nums[i]
+		if v > curMax {
+			curMax = v
+		} else if v < leftMax {
+			leftMax = curMax
+			left = i
 		}
 	}
 
-	best := math.MaxInt32
-	min := nums[n-1]
-	for i := n - 2; i >= 0; i-- {
-		if min >= max[i] {
-			if best > i+1 {
-				best = i + 1
-			}
-		}
-
-		if min > nums[i] {
-			min = nums[i]
-		}
-	}
-
-	return best
+	return left + 1
 }
 
-// TODO (tai): slow, 9%, 2 passes. This can be done with 1 pass, O(1) space
+// Good for interview
