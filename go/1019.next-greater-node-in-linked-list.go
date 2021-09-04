@@ -1,9 +1,5 @@
 package main
 
-import (
-	"sort"
-)
-
 /*
  * @lc app=leetcode id=1019 lang=golang
  *
@@ -78,28 +74,38 @@ import (
  * }
  */
 
-// TODO (tai): can be faster
+// NOTE: solution is straightforward, speed improvement come from knowing the
+// size of the list and pre-allocate necessary memory.
 func nextLargerNodes(head *ListNode) []int {
 	if head == nil {
 		return nil
 	}
 
-	var res []int
-	var q []int
-	q = append(q, head.Val, 0)
-	res = append(res, 0)
+	var nums []int
+	for n := head; n != nil; n = n.Next {
+		nums = append(nums, n.Val)
+	}
 
-	for n := head.Next; n != nil; n = n.Next {
-		i := 2 * sort.Search(len(q)/2, func(i int) bool {
-			return q[i*2] < n.Val
-		})
+	res := make([]int, len(nums))
+	// pre allocate the index and self-manage the length for max speed
+	index := make([]int, len(nums))
+	indexLen := 0
 
-		for j := i; j < len(q)-1; j += 2 {
-			res[q[j+1]] = n.Val
+	for h := 0; h < len(nums); h++ {
+		v := nums[h]
+
+		i := indexLen - 1
+		for ; i >= 0; i-- {
+			if nums[index[i]] >= v {
+				break
+			}
+
+			res[index[i]] = v
 		}
 
-		q = append(q[:i], n.Val, len(res))
-		res = append(res, 0)
+		indexLen = i + 1
+		index[indexLen] = h
+		indexLen++
 	}
 
 	return res
