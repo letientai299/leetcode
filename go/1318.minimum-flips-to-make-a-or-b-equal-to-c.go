@@ -42,7 +42,7 @@ package main
 // - `1 <= a <= 10^9`
 // - `1 <= b <= 10^9`
 // - `1 <= c <= 10^9`
-func minFlips(a int, b int, c int) int {
+func minFlips1318(a int, b int, c int) int {
 	r := 0
 	for a != 0 || b != 0 || c != 0 {
 		x := a & 1
