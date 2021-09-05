@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_countPairs(t *testing.T) {
+func Test_countPairs1711(t *testing.T) {
 	tests := []struct {
 		name          string
 		deliciousness []int
@@ -15,8 +15,8 @@ func Test_countPairs(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := countPairs(tt.deliciousness); got != tt.want {
-				t.Errorf("countPairs() = %v, want %v", got, tt.want)
+			if got := countPairs1711(tt.deliciousness); got != tt.want {
+				t.Errorf("countPairs1711() = %v, want %v", got, tt.want)
 			}
 		})
 	}

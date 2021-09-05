@@ -2,7 +2,7 @@ package main
 
 // medium
 // 1711. Count Good Meals
-func countPairs(deliciousness []int) int {
+func countPairs1711(deliciousness []int) int {
 	m := make(map[int]int)
 	for _, d := range deliciousness {
 		m[d]++
