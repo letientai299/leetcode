@@ -42,7 +42,7 @@ package main
  */
 
 func convertBST(root *TreeNode) *TreeNode {
-	// 1028 is same with this. And I found a better solution than this one,
+	// 1038 is same with this. And I found a better solution than this one,
 	// after 2 years
 
 	var leftLeaf func(root *TreeNode) *TreeNode
