@@ -96,7 +96,7 @@ type SubrectangleQueries struct {
 	layers [][]int // each row is 5 values: r1, c1, r2, c2, v
 }
 
-func Constructor(rectangle [][]int) SubrectangleQueries {
+func Constructor1476(rectangle [][]int) SubrectangleQueries {
 	return SubrectangleQueries{
 		base: rectangle,
 	}
