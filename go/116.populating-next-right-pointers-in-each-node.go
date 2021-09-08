@@ -72,6 +72,8 @@ type Node struct {
 	Random    *Node
 	Neighbors []*Node
 	Children  []*Node
+	Child     *Node
+	Prev      *Node
 
 	IsLeaf      bool
 	TopLeft     *Node

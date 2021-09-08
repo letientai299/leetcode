@@ -52,7 +52,7 @@ import "fmt"
  *     Right *TreeNode
  * }
  */
-func flatten(root *TreeNode) {
+func flatten114(root *TreeNode) {
 	var flat func(node *TreeNode) (head, tail *TreeNode)
 	flat = func(node *TreeNode) (head, tail *TreeNode) {
 		if node == nil {

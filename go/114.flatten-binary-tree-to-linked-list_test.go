@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_flatten(t *testing.T) {
+func Test_flatten114(t *testing.T) {
 	tests := []struct {
 		name string
 		root *TreeNode
@@ -21,7 +21,7 @@ func Test_flatten(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			flatten(tt.root)
+			flatten114(tt.root)
 			if assert.Equal(t, tt.root, tt.want) {
 				t.Logf("got=%v, want=%v", tt.root, tt.want)
 			}
