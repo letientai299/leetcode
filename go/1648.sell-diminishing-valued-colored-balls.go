@@ -8,7 +8,7 @@ import (
 // medium
 
 // TODO (tai): slow, 48.39%, 168ms
-func maxProfit(inventory []int, orders int) int {
+func maxProfit1648(inventory []int, orders int) int {
 	m := make(map[int]int)
 	k := 0
 	for _, v := range inventory {
