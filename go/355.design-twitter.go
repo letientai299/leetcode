@@ -77,7 +77,7 @@ type tweet struct {
 	next *tweet
 }
 
-func Constructor() Twitter {
+func Constructor355() Twitter {
 	return Twitter{
 		users: make(map[int]*twitterUser),
 	}

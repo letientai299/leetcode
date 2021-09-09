@@ -6,7 +6,7 @@ import (
 )
 
 func TestTwitter(t *testing.T) {
-	tw := Constructor()
+	tw := Constructor355()
 	tw.PostTweet(1, 5)
 	fmt.Println(tw.GetNewsFeed(1))
 	tw.Follow(1, 2)
