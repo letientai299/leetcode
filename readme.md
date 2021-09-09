@@ -11,6 +11,9 @@
 ## Interesting problems
 
 - [5 - Longest Palindromic Subtring](./go/5.longest-palindromic-substring.go)
+- [355 - Design Twitter](./go/355.design-twitter.go): cool data structure
+  problems, can be followed up with many system design topics for real life
+  implementation.
 - [866 - Prime Palindrome](./go/866.prime-palindrome.go), see also [my benchmark
   on the fastest solutions for it](https://github.com/letientai299/leetcode-prime-palindrome)
 - [932 - Beautiful array](./go/932.beautiful-array.go)

@@ -8,7 +8,7 @@ import (
 )
 
 func TestFrontMiddleBackQueue(t *testing.T) {
-	q := Constructor()
+	q := Constructor1670()
 
 	n := q.head
 	for n != nil {

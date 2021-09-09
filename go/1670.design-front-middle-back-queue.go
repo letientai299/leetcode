@@ -71,7 +71,7 @@ type FMBNode struct {
 	next *FMBNode
 }
 
-func Constructor() FrontMiddleBackQueue { return FrontMiddleBackQueue{} }
+func Constructor1670() FrontMiddleBackQueue { return FrontMiddleBackQueue{} }
 
 func (q *FrontMiddleBackQueue) PushFront(val int) {
 	node := &FMBNode{val: val}
