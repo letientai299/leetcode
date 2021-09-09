@@ -4,7 +4,6 @@ import (
 	"sort"
 )
 
-// It can be faster! This is 8ms. Best is 0ms
 func fourSum(nums []int, target int) [][]int {
 	n := len(nums)
 	if n < 4 {
