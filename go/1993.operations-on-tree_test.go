@@ -8,7 +8,7 @@ import (
 
 func Test_LockingTree(t *testing.T) {
 	parent := []int{-1, 0, 0, 1, 1, 2, 2}
-	lt := Constructor(parent)
+	lt := Constructor1993(parent)
 
 	assert.Equal(t, true, lt.Lock(2, 2))
 	assert.Equal(t, false, lt.Unlock(2, 3))

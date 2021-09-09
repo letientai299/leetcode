@@ -89,7 +89,7 @@ type LockingTree struct {
 	kids   map[int][]int
 }
 
-func Constructor(parent []int) LockingTree {
+func Constructor1993(parent []int) LockingTree {
 	tree := LockingTree{
 		nodes:  make(map[int]int),
 		parent: parent,
