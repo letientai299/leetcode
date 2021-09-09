@@ -72,7 +72,7 @@ type MyLinkedListNode struct {
 	next *MyLinkedListNode
 }
 
-func Constructor() MyLinkedList {
+func Constructor707() MyLinkedList {
 	return MyLinkedList{}
 }
 
