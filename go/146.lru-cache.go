@@ -67,7 +67,7 @@ type LRUNode struct {
 	prev, next *LRUNode
 }
 
-func Constructor(capacity int) LRUCache {
+func Constructor146(capacity int) LRUCache {
 	return LRUCache{
 		m:   make(map[int]*LRUNode, capacity),
 		cap: capacity,

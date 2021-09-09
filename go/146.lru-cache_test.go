@@ -7,7 +7,7 @@ import (
 )
 
 func TestLRUCache(t *testing.T) {
-	c := Constructor(2)
+	c := Constructor146(2)
 	c.Put(1, 1)
 	c.Put(2, 2)
 	/*
