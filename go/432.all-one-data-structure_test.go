@@ -6,7 +6,7 @@ import (
 )
 
 func TestAllOne(t *testing.T) {
-	a := Constructor()
+	a := Constructor432()
 	a.Inc("hello")
 	a.Inc("hello")
 	fmt.Println(a.GetMaxKey())

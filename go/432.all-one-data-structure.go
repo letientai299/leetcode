@@ -65,7 +65,7 @@ type AOLevel struct {
 	values   map[string]struct{}
 }
 
-func Constructor() AllOne {
+func Constructor432() AllOne {
 	return AllOne{
 		m: make(map[string]*AOLevel),
 	}
