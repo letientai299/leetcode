@@ -43,7 +43,7 @@ package main
  *
  *
  */
-func numWays(n int, k int) int {
+func numWays276(n int, k int) int {
 	dp1 := k
 	dp2 := k * k
 

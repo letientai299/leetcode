@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_numWays(t *testing.T) {
+func Test_numWays276(t *testing.T) {
 	tests := []struct {
 		n    int
 		k    int
@@ -52,9 +52,9 @@ func Test_numWays(t *testing.T) {
 			tt.n, tt.k,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := numWays(tt.n, tt.k)
+			got := numWays276(tt.n, tt.k)
 			if got != tt.want {
-				t.Errorf("numWays(%v, %v) = %v, want %v", tt.n, tt.k, got, tt.want)
+				t.Errorf("numWays276(%v, %v) = %v, want %v", tt.n, tt.k, got, tt.want)
 			}
 		})
 	}
