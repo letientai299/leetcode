@@ -37,7 +37,7 @@ package main
  *
  *
  */
-func minCost(costs [][]int) int {
+func minCost256(costs [][]int) int {
 	n := len(costs)
 	if n == 0 {
 		return 0

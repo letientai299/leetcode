@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_minCost(t *testing.T) {
+func Test_minCost256(t *testing.T) {
 	tests := []struct {
 		costs [][]int
 		want  int
@@ -24,9 +24,9 @@ func Test_minCost(t *testing.T) {
 			tt.costs,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := minCost(tt.costs)
+			got := minCost256(tt.costs)
 			if got != tt.want {
-				t.Errorf("minCost(%v) = %v, want %v", tt.costs, got, tt.want)
+				t.Errorf("minCost256(%v) = %v, want %v", tt.costs, got, tt.want)
 			}
 		})
 	}
