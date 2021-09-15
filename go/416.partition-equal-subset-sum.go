@@ -36,11 +36,29 @@ func canPartition(nums []int) bool {
 	// like 473, this could be solved by using the general algorithm in 698,
 	// however, the range of nums length hints that 698 solution will get TLE
 	// for this problem. There must be a better way to solve this.
+	all := 0
+	for _, v := range nums {
+		all += v
+	}
 
-	// TODO: find the bitwise solution, or at least the knapshack one
-	return false
+	if all%2 != 0 {
+		return false
+	}
+
+	half := all / 2
+
+	dp := make([]int, half+1)
+	dp[0] = 1
+	for _, v := range nums {
+		for j := half; j >= v; j-- {
+			dp[j] |= dp[j-v]
+		}
+	}
+
+	return dp[half] != 0
 }
 
 // Oohhh shit: https://leetcode.com/problems/partition-equal-subset-sum/discuss/462699/Whiteboard-Editorial.-All-Approaches-explained.
 // https://leetcode.com/problems/partition-equal-subset-sum/discuss/1385473/Python-1-liner-100
-//
+// This is mentioned in the first problem in The Hitchhiker's Guide to the Programming Contest
+// https://comscigate.com/Books/contests/icpc.pdf
