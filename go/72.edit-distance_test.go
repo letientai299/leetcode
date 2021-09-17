@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_minDistance(t *testing.T) {
+func Test_minDistance72(t *testing.T) {
 	tests := []struct {
 		a    string
 		b    string
@@ -16,7 +16,7 @@ func Test_minDistance(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.a+":"+tt.b, func(t *testing.T) {
-			if got := minDistance(tt.a, tt.b); got != tt.want {
+			if got := minDistance72(tt.a, tt.b); got != tt.want {
 				t.Errorf("minDistance() = %v, want %v", got, tt.want)
 			}
 		})

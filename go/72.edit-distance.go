@@ -45,7 +45,7 @@ package main
 //
 // - `0 <= word1.length, word2.length <= 500`
 // - `word1` and `word2` consist of lowercase English letters.
-func minDistance(a string, b string) int {
+func minDistance72(a string, b string) int {
 	m := len(a)
 	n := len(b)
 	if m == 0 {
