@@ -72,7 +72,7 @@ import "math/bits"
 //
 // - `1 <= nums.length <= 10^5`
 // - `0 <= nums[i] <= 10^9`
-func minOperations(nums []int) int {
+func minOperations1558(nums []int) int {
 	oneCount := 0
 	maxLen := 0
 	for _, n := range nums {

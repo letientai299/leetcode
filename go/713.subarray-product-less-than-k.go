@@ -66,3 +66,5 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 
 	return r
 }
+
+// TODO (tai): slow
