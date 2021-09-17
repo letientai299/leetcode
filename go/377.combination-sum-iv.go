@@ -1,9 +1,5 @@
 package main
 
-import (
-	"sort"
-)
-
 // Combination Sum IV
 //
 // Medium
@@ -52,47 +48,18 @@ import (
 // does it change the problem? What limitation we need to add to the question to
 // allow negative numbers?
 func combinationSum4(nums []int, target int) int {
-	sort.Sort(sort.Reverse(sort.IntSlice(nums)))
-
-	calc := func(takes []int) int {
-		r := 1
-		i := 1
-		for _, v := range takes {
-			if v == 0 {
-				continue
-			}
-			for j := 1; j <= v; j++ {
-				r *= i
-				i++
-				r /= j
-			}
-		}
-		return r
+	if target == 0 {
+		return 0
 	}
 
-	var walk func(i, cur int, takes []int) int
-	walk = func(i, cur int, takes []int) int {
-		if cur == 0 {
-			return calc(takes)
+	dp := make([]int, target+1)
+	dp[0] = 1
+	for t := 1; t <= target; t++ {
+		for _, v := range nums {
+			if t >= v {
+				dp[t] += dp[t-v]
+			}
 		}
-
-		if i >= len(nums) {
-			return 0
-		}
-
-		total := 0
-		step := cur / nums[i]
-		for j := 0; j <= step; j++ {
-			rem := cur - j*nums[i]
-			takes[i] = j
-			total += walk(i+1, rem, takes)
-		}
-
-		takes[i] = 0
-		return total
 	}
-
-	takes := make([]int, len(nums))
-	return walk(0, target, takes)
-	// TODO (tai): TLE
+	return dp[target]
 }
