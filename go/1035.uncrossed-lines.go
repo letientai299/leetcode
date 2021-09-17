@@ -55,40 +55,24 @@ package main
 //
 // - `1 <= nums1.length, nums2.length <= 500`
 // - `1 <= nums1[i], nums2[j] <= 2000`
-func maxUncrossedLines(nums1 []int, nums2 []int) int {
-	best := 0
-	var walk func(x, y int, count int)
-
-	walk = func(x, y int, count int) {
-		for x < len(nums1) && y < len(nums2) && nums1[x] == nums2[y] {
-			count++
-			x++
-			y++
-		}
-
-		if x >= len(nums1) || y >= len(nums2) {
-			if best < count {
-				best = count
+func maxUncrossedLines(a []int, b []int) int {
+	// This is The Longest common subsequence problem.
+	m := len(a)
+	dp := make([][]int, 2)
+	dp[0] = make([]int, m+1)
+	dp[1] = make([]int, m+1)
+	for _, y := range b {
+		for i, x := range a {
+			if x == y {
+				dp[1][i+1] = dp[0][i] + 1
+			} else {
+				dp[1][i+1] = dp[0][i+1]
+				if dp[1][i+1] < dp[1][i] {
+					dp[1][i+1] = dp[1][i]
+				}
 			}
-			return
 		}
-
-		a, b := x+1, y+1
-		for a < len(nums1) && nums1[a] != nums2[y] {
-			a++
-		}
-		walk(a, y, count)
-
-		for b < len(nums2) && nums2[b] != nums1[x] {
-			b++
-		}
-
-		walk(x, b, count)
-		walk(x+1, y+1, count)
+		dp[0], dp[1] = dp[1], dp[0]
 	}
-
-	walk(0, 0, 0)
-	return best
+	return dp[0][m]
 }
-
-// TODO (tai): TLE
