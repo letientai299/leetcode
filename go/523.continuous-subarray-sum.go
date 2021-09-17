@@ -2,7 +2,7 @@ package main
 
 // medium
 
-// TODO (tai): can be faster, 30%
+// TODO (tai): can be faster, 6.5%
 func checkSubarraySum(nums []int, k int) bool {
 	n := len(nums)
 	if n < 2 {
@@ -15,20 +15,14 @@ func checkSubarraySum(nums []int, k int) bool {
 		}
 	}
 
-	if k == 0 {
-		return false
-	}
-
-	if k < 0 {
-		k = -k
-	}
-
 	m := make(map[int]int)
 
 	s := 0
 	for i := 0; i < n; i++ {
 		s += nums[i]
-		m[s] = i
+		if _, ok := m[s]; !ok {
+			m[s] = i
+		}
 	}
 
 	if k == s || s == 0 || k == 1 {
