@@ -1,5 +1,9 @@
 package main
 
+import (
+	"sort"
+)
+
 /*
  * @lc app=leetcode id=300 lang=golang
  *
@@ -62,7 +66,23 @@ package main
  *
  */
 
-// TODO (tai): can be faster
+func lengthOfLIS(nums []int) int {
+	var seq []int
+	// I can't think of this on my own, got the solution from
+	// The Hitchhiker’s Guide to the Programming Contests
+	for _, v := range nums {
+		i := sort.SearchInts(seq, v)
+		if i >= len(seq) {
+			seq = append(seq, v)
+		} else {
+			seq[i] = v
+		}
+	}
+
+	return len(seq)
+}
+
+/*
 func lengthOfLIS(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -70,7 +90,6 @@ func lengthOfLIS(nums []int) int {
 
 	dp := make([]int, len(nums))
 	dp[0] = 1
-	best := 1
 	for i := 1; i < len(nums); i++ {
 		dp[i] = 1
 		for j := 0; j < i; j++ {
@@ -78,9 +97,14 @@ func lengthOfLIS(nums []int) int {
 				dp[i] = dp[j] + 1
 			}
 		}
-		if dp[i] > best {
-			best = dp[i]
+	}
+
+	best := 1
+	for _, v := range dp {
+		if best < v {
+			best = v
 		}
 	}
 	return best
 }
+*/

@@ -19,7 +19,16 @@
 - [932 - Beautiful array](./go/932.beautiful-array.go)
 - [1143 - Longest Common Subsequence](./go/1143.longest-common-subsequence.go): classic DP problem
 - [1823 - Josepush generic problem](./go/1823.find-the-winner-of-the-circular-game.go)
-- Following problem use almost same DP algorithms:
+
+- Following problem use almost same DP algorithms, which is described:
+
   - 322. Coin change
   - 518. Coin change 2
   - 377. Combination Sum IV
+
+- Longest increasing subsequence
+  - 300. Longest Increasing Subsequence
+
+## Resources
+
+- [The Hitchhiker’s Guide to the Programming Contests (PDF)](https://comscigate.com/Books/contests/icpc.pdf)
