@@ -70,3 +70,5 @@ func findPeakElement(nums []int) int {
 
 	return 0
 }
+
+// TODO (tai): try again with binary search
