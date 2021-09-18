@@ -1,7 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"math/rand"
 	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_singleNumber(t *testing.T) {
@@ -22,20 +27,22 @@ func Test_singleNumber(t *testing.T) {
 		})
 	}
 
-	/*
-		rand.Seed(time.Now().Unix())
-		n := rand.Int() % 10
-		arr := make([]int, 0, 3*n+1)
-		for i := 0; i < n; i++ {
-			r := rand.Int() % 100
-			arr = append(arr, r, r, r)
-		}
+	for i := 0; i < 100; i++ {
+		t.Run(fmt.Sprintf("rand-%d", i), func(t *testing.T) {
+			rand.Seed(time.Now().Unix())
+			n := rand.Int() % 10
+			arr := make([]int, 0, 3*n+1)
+			for i := 0; i < n; i++ {
+				r := rand.Int() % 100
+				arr = append(arr, r, r, r)
+			}
 
-		r := rand.Int() % 1000
-		arr = append(arr, r)
-		rand.Shuffle(len(arr), func(i, j int) { arr[i], arr[j] = arr[j], arr[i] })
+			r := rand.Int() % 1000
+			arr = append(arr, r)
+			rand.Shuffle(len(arr), func(i, j int) { arr[i], arr[j] = arr[j], arr[i] })
 
-		got := singleNumber(arr)
-		assert.Equalf(t, got, r, "arr=%v, want=%v", arr, r)
-	*/
+			got := singleNumber(arr)
+			assert.Equalf(t, got, r, "arr=%v, want=%v", arr, r)
+		})
+	}
 }

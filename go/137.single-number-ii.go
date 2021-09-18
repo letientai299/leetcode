@@ -36,6 +36,13 @@ package main
 // - Each element in `nums` appears exactly **three times** except for one
 // element which appears **once**.
 func singleNumber(nums []int) int {
-	// TODO (tai): read the answer several time, almost remember or figured it out, try again.
-	return 0
+	once, twice := 0, 0
+	for _, v := range nums {
+		once = (once ^ v) & (^twice)
+		twice = (twice ^ v) & (^once)
+	}
+
+	return once
 }
+
+// See: https://leetcode.com/problems/single-number-ii/discuss/43295/Detailed-explanation-and-generalization-of-the-bitwise-operation-method-for-single-numbers
