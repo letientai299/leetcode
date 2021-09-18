@@ -10,6 +10,7 @@ func Test_countPrimes(t *testing.T) {
 		n    int
 		want int
 	}{
+		{5000000, 348513},
 		{1, 0},
 		{2, 0},
 		{3, 1},

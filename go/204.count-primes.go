@@ -1,7 +1,5 @@
 package main
 
-import "sort"
-
 /*
  * @lc app=leetcode id=204 lang=golang
  *
@@ -26,35 +24,29 @@ import "sort"
  *
  *
  */
-var knowns = []int{2}
 
 func countPrimes(n int) int {
-	if n < 3 {
+	if n <= 2 {
 		return 0
 	}
 
-	max := sort.Search(len(knowns), func(i int) bool { return knowns[i] >= n })
-	if max < len(knowns) {
-		return max
+	if n <= 3 {
+		return 1
 	}
 
-	for i := knowns[len(knowns)-1] + 1; i < n; i++ {
-		isPrime := true
-		for _, x := range knowns {
-			if x*x > i {
-				break
-			}
+	notPrimes := make([]bool, n)
+	notPrimes[2] = false
 
-			if i%x == 0 {
-				isPrime = false
-				break
+	r := 1
+	for i := 3; i < n; i += 2 {
+		if !notPrimes[i] {
+			r++
+			// 3 9 15
+			for j := 3 * i; j < n; j += 2 * i {
+				notPrimes[j] = true
 			}
-		}
-
-		if isPrime {
-			knowns = append(knowns, i)
 		}
 	}
 
-	return len(knowns)
+	return r
 }
