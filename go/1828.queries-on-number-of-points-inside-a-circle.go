@@ -61,7 +61,7 @@ package main
 //
 // **Follow up:** Could you find the answer for each query in better complexity
 // than `O(n)`?
-func countPoints(points [][]int, queries [][]int) []int {
+func countPoints1828(points [][]int, queries [][]int) []int {
 	sqrt := func(x int) int {
 		return x * x
 	}
