@@ -75,7 +75,7 @@ package main
  *     Right *TreeNode
  * }
  */
-func countPairs(root *TreeNode, distance int) int {
+func countPairs1530(root *TreeNode, distance int) int {
 	leafMap := map[int]int{0: 1}
 
 	var numPairs func(n *TreeNode) (int, map[int]int)
@@ -93,7 +93,7 @@ func countPairs(root *TreeNode, distance int) int {
 
 		total := leftPairs + rightPairs
 
-		leaves := make(map[int]int, len(leftLeaves) + len(rightLeaves))
+		leaves := make(map[int]int, len(leftLeaves)+len(rightLeaves))
 
 		if leftLeaves == nil || rightLeaves == nil {
 			if leftLeaves == nil {

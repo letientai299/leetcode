@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func Test_countPairs(t *testing.T) {
+func Test_countPairs1530(t *testing.T) {
 	tests := []struct {
 		name     string
 		root     *TreeNode
@@ -53,7 +53,7 @@ func Test_countPairs(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := countPairs(tt.root, tt.distance); got != tt.want {
+			if got := countPairs1530(tt.root, tt.distance); got != tt.want {
 				t.Errorf("countPairs() = %v, want %v", got, tt.want)
 			}
 		})
