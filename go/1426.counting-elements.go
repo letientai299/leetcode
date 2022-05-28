@@ -2,7 +2,7 @@ package main
 
 import "sort"
 
-func countElements(arr []int) int {
+func countElements1426(arr []int) int {
 	if len(arr) < 2 {
 		return 0
 	}
