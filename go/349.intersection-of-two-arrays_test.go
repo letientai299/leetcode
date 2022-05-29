@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_intersection(t *testing.T) {
+func Test_intersection349(t *testing.T) {
 	tests := []struct {
 		nums1 []int
 		nums2 []int
@@ -36,7 +36,7 @@ func Test_intersection(t *testing.T) {
 			tt.nums1, tt.nums2,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := intersection(tt.nums1, tt.nums2)
+			got := intersection349(tt.nums1, tt.nums2)
 			assert.ElementsMatchf(t, got, tt.want, "intersection(%v, %v) = %v, want %v", tt.nums1, tt.nums2, got, tt.want)
 		})
 	}

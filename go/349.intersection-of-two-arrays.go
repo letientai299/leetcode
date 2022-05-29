@@ -40,7 +40,7 @@ package main
  *
  *
  */
-func intersection(nums1 []int, nums2 []int) []int {
+func intersection349(nums1 []int, nums2 []int) []int {
 	distinct := make(map[int]bool, len(nums1))
 	for _, n := range nums1 {
 		distinct[n] = true
