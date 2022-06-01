@@ -22,7 +22,7 @@ func TestCodec_deserialize(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cx := &Codec{}
+			cx := &Codec297{}
 			data := cx.serialize(tt.root)
 			got := cx.deserialize(data)
 			if !reflect.DeepEqual(got, tt.root) {
@@ -51,7 +51,7 @@ func TestCodec_serialize(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cx := &Codec{}
+			cx := &Codec297{}
 			if got := cx.serialize(tt.root); got != tt.want {
 				t.Errorf("serialize() = %v, want %v", got, tt.want)
 			}

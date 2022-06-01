@@ -68,11 +68,11 @@ import (
 // Apparently my generic solution for 449 (same problem but with BST instead
 // of generic tree) doesn't work. So here my second try.
 
-type Codec struct{}
+type Codec297 struct{}
 
 func Constructor297() Codec { return Codec{} }
 
-func (cx *Codec) serialize(root *TreeNode) string {
+func (cx *Codec297) serialize(root *TreeNode) string {
 	if root == nil {
 		return ""
 	}
@@ -122,7 +122,7 @@ func (cx *Codec) serialize(root *TreeNode) string {
 	return s[:n+1]
 }
 
-func (cx *Codec) deserialize(data string) *TreeNode {
+func (cx *Codec297) deserialize(data string) *TreeNode {
 	if data == "" {
 		return nil
 	}
