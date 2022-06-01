@@ -33,7 +33,7 @@ package main
  *
  *
  */
-func findMaxConsecutiveOnes(nums []int) int {
+func findMaxConsecutiveOnes485(nums []int) int {
 	max := 0
 	cur := 0
 	for _, i := range nums {

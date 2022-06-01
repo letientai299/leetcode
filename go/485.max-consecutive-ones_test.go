@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_findMaxConsecutiveOnes(t *testing.T) {
+func Test_findMaxConsecutiveOnes485(t *testing.T) {
 	tests := []struct {
 		nums []int
 		want int
@@ -23,7 +23,7 @@ func Test_findMaxConsecutiveOnes(t *testing.T) {
 			tt.nums,
 		)
 		t.Run(testName, func(t *testing.T) {
-			got := findMaxConsecutiveOnes(tt.nums)
+			got := findMaxConsecutiveOnes485(tt.nums)
 			if got != tt.want {
 				t.Errorf("findMaxConsecutiveOnes(%v) = %v, want %v", tt.nums, got, tt.want)
 			}
