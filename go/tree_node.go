@@ -22,6 +22,15 @@ func (t *TreeNode) String() string {
 	return strings.ReplaceAll(s, strconv.Itoa(NA), "_")
 }
 
+func (t *TreeNode) preOrder() []int {
+	if t == nil {
+		return nil
+	}
+
+	result := append([]int{t.Val}, t.Left.preOrder()...)
+	return append(result, t.Right.preOrder()...)
+}
+
 func (t *TreeNode) inOrder() []int {
 	if t == nil {
 		return nil
