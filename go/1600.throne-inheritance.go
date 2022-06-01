@@ -130,7 +130,7 @@ func (n *TINode) list(res *[]string) {
 	}
 }
 
-func Constructor(kingName string) ThroneInheritance {
+func Constructor1600(kingName string) ThroneInheritance {
 	root := &TINode{name: kingName}
 	m := map[string]*TINode{kingName: root}
 	return ThroneInheritance{m: m, root: root}
