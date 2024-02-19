@@ -1,0 +1,5 @@
+tab_spaces = 2
+reorder_imports = true
+max_width = 80
+spaces_around_ranges = true
+wrap_comments = true
