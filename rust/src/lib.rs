@@ -1,3 +1,5 @@
+#![allow(dead_code)] 
+
 mod p_2164_sort_even_and_odd_indices;
 mod p_2293_min_max_game;
 mod p_2299_strong_password_checker_ii;
