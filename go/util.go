@@ -13,26 +13,6 @@ func init() {
 	rand.Seed(int64(time.Now().Nanosecond()))
 }
 
-func max(a int, arr ...int) int {
-	for _, v := range arr {
-		if a < v {
-			a = v
-		}
-	}
-
-	return a
-}
-
-func min(a int, arr ...int) int {
-	for _, v := range arr {
-		if a > v {
-			a = v
-		}
-	}
-
-	return a
-}
-
 // binary gcd
 func gcd(a, b int) int {
 	if a == b {
