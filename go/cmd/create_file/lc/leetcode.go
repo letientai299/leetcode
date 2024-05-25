@@ -13,7 +13,7 @@ import (
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/gobuffalo/packr/v2"
-	wordwrap "github.com/mitchellh/go-wordwrap"
+	"github.com/mitchellh/go-wordwrap"
 )
 
 //go:generate packr2 clean
@@ -41,6 +41,7 @@ type leetcode struct {
 }
 
 func (l leetcode) Prepare(url string, lang Lang) (string, error) {
+	url = strings.TrimSuffix(url, "/description/")
 	problem, err := l.downloadProblem(url)
 	if err != nil {
 		return "", err
