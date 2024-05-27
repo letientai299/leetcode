@@ -6,7 +6,7 @@ import (
 
 // Unique Word Abbreviation
 //
-// Medium
+// # Medium
 //
 // https://leetcode.com/problems/unique-word-abbreviation/
 type ValidWordAbbr struct {
@@ -14,7 +14,7 @@ type ValidWordAbbr struct {
 	dict map[string]bool
 }
 
-func Constructor(dict []string) ValidWordAbbr {
+func Constructor288(dict []string) ValidWordAbbr {
 	vw := ValidWordAbbr{
 		m:    make(map[string]int),
 		dict: make(map[string]bool),
