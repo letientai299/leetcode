@@ -10,7 +10,7 @@ type WordDistance struct {
 	max int
 }
 
-func Constructor(wordsDict []string) WordDistance {
+func Constructor244(wordsDict []string) WordDistance {
 	d := WordDistance{
 		m:   make(map[string][]int),
 		max: len(wordsDict),
