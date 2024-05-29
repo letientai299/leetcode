@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "sort"
 
 // Split With Minimum Sum
 //
@@ -69,6 +69,5 @@ func splitNum(num int) int {
 		b /= 10
 	}
 
-	fmt.Println(a, b, ds)
 	return a + b
 }

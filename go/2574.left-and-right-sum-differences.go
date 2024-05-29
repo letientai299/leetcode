@@ -49,7 +49,7 @@ package main
 func leftRightDifference(nums []int) []int {
 	n := len(nums)
 	right := 0
-	for i, v := range nums {
+	for _, v := range nums {
 		right += v
 	}
 
