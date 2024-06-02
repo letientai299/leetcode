@@ -68,6 +68,7 @@ type Node struct {
 	Val       int
 	Left      *Node
 	Right     *Node
+	Parent    *Node
 	Next      *Node
 	Random    *Node
 	Neighbors []*Node

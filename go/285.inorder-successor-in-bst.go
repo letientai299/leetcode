@@ -5,7 +5,7 @@ package main
 // # Medium
 //
 // https://leetcode.com/problems/inorder-successor-in-bst
-func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
+func inorderSuccessor285(root *TreeNode, p *TreeNode) *TreeNode {
 	var res *TreeNode
 	for root != nil {
 		if root.Val <= p.Val {
