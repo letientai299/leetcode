@@ -11,7 +11,7 @@ type Vector2D struct {
 	c    int
 }
 
-func Constructor(vec [][]int) Vector2D {
+func Constructor251(vec [][]int) Vector2D {
 	end := 0
 	for i, v := range vec {
 		if len(vec[i]) != 0 {

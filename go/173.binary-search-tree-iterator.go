@@ -85,27 +85,27 @@ package main
  *     Right *TreeNode
  * }
  */
-type BSTIterator struct {
+type BSTIterator173 struct {
 	root *TreeNode
 	list []int
 	cur  int
 }
 
-func Constructor173(root *TreeNode) BSTIterator {
-	return BSTIterator{
+func Constructor173(root *TreeNode) BSTIterator173 {
+	return BSTIterator173{
 		root: root,
 		list: inorderTraversal(root),
 		cur:  0,
 	}
 }
 
-func (b *BSTIterator) Next() int {
+func (b *BSTIterator173) Next() int {
 	v := b.list[b.cur]
 	b.cur++
 	return v
 }
 
-func (b *BSTIterator) HasNext() bool {
+func (b *BSTIterator173) HasNext() bool {
 	return b.cur < len(b.list)
 }
 
