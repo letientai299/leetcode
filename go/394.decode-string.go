@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"bytes"
+	"strings"
+)
 
 /*
  * @lc app=leetcode id=394 lang=golang
@@ -55,6 +58,40 @@ import "strings"
  *
  */
 func decodeString(s string) string {
+	var dec func(s string) ([]byte, int)
+	dec = func(s string) ([]byte, int) {
+		mul := 0
+		var res []byte
+
+		for i := 0; i < len(s); i++ {
+			c := s[i]
+			switch {
+			case '0' <= c && c <= '9':
+				mul = 10*mul + int(c-'0')
+
+			case c == '[':
+				sub, steps := dec(s[i+1:])
+				res = append(res, bytes.Repeat(sub, mul)...)
+				mul = 0
+				i += steps + 1
+
+			case c == ']':
+				return res, i
+
+			default: // letter
+				res = append(res, c)
+				continue
+			}
+		}
+
+		return res, len(s)
+	}
+
+	r, _ := dec(s)
+	return string(r)
+}
+
+func decodeString_v1(s string) string {
 	var dec func(i int) (string, int)
 
 	dec = func(i int) (string, int) {
