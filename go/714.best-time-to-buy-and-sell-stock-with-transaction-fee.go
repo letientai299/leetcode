@@ -1,8 +1,10 @@
 package main
 
+import "math"
+
 // Best Time to Buy and Sell Stock with Transaction Fee
 //
-// Medium
+// # Medium
 //
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
 //
@@ -44,34 +46,14 @@ package main
 // - `1 <= prices[i] < 5 * 104`
 // - `0 <= fee < 5 * 104`
 func maxProfit(prices []int, fee int) int {
-	r := 0
-	n := len(prices)
-	down := prices[0]
-	up := down
-	for i := 1; i < n; i++ {
-		v := prices[i]
-		if v > up {
-			up = v
-			continue
-		}
-
-		if v <= down {
-			if up-down > fee {
-				r += up - down - fee
-			}
-			up, down = v, v
-			continue
-		}
-
-		if (up - v) > fee {
-			r += up - down - fee
-			down = v
-			up = v
-		}
+	profit := 0
+	cost := math.MinInt32
+	for _, p := range prices {
+		profit = max(cost+p-fee, profit)
+		cost = max(profit-p, cost)
 	}
-
-	if up-down > fee {
-		r += up - down - fee
-	}
-	return r
+	return profit
 }
+
+// TODO (tai): solve this and other buy and sell problems again to make sure I
+//  understand the general idea correctly.
