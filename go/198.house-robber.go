@@ -44,48 +44,10 @@ package main
  *
  */
 func rob198(nums []int) int {
-	n := len(nums)
-	if n == 0 {
-		return 0
+	pre, cur := 0, nums[0]
+	for _, c := range nums[1:] {
+		pre, cur = cur, max(pre+c, cur)
 	}
 
-	if n == 1 {
-		return nums[0]
-	}
-
-	dp := make([]int, n)
-	robs := make([]int, n)
-	dp[0] = nums[0]
-	robs[0] = 0
-
-	dp[1] = nums[1]
-	robs[1] = 1
-	if nums[0] > nums[1] {
-		dp[1] = nums[0]
-		robs[1] = 0
-	}
-
-	for i := 2; i < n; i++ {
-
-		get := nums[i] + dp[i-2]
-
-		if robs[i-1] != i-1 && dp[i-1] > dp[i-2] {
-			get = nums[i] + dp[i-1]
-			dp[i] = get
-			robs[i] = i
-			continue
-		}
-
-		// maintain current profit
-		if get < dp[i-1] {
-			dp[i] = dp[i-1]
-			robs[i] = robs[i-1]
-			continue
-		}
-
-		dp[i] = get
-		robs[i] = i
-	}
-
-	return dp[n-1]
+	return max(pre, cur)
 }
