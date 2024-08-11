@@ -1,22 +1,14 @@
-using System;
-using System.Collections.Generic;
 using NUnit.Framework;
+
+namespace Test;
 
 public partial class SolutionTest
 {
-    [Test]
-    public void TestTwoSum()
-    {
-        var sln = new Solution();
-        var tests = new List<Tuple<int[], int, int[]>>
-        {
-            new Tuple<int[], int, int[]>(new[] {1, 2, 3}, 4, new[] {0, 2}),
-        };
-
-        foreach (var (nums, k, expected) in tests)
-        {
-            var got = sln.TwoSum(nums, k);
-            Assert.That(got, Is.EquivalentTo(expected));
-        }
-    }
+  [TestCase(new[] { 1, 2, 3 }, 4, new[] { 0, 2 })]
+  [TestCase(new[] { 2, 7, 11, 15 }, 9, new[] { 0, 1 })]
+  public void TestTwoSum(int[] nums, int k, int[] expected)
+  {
+    var got = new Solution().TwoSum(nums, k);
+    Assert.That(got, Is.EquivalentTo(expected));
+  }
 }

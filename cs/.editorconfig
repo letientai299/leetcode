@@ -1,0 +1,11 @@
+[GlobalUsings.cs]
+# trick VS to not reformat this file and remove all the unused `using`.
+generated_code = true
+
+[*.cs]
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = none
+
+[test/*.cs]
+dotnet_diagnostic.CA1861.severity = none

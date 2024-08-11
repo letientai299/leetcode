@@ -1,10 +1,3 @@
-public class ListNode
-{
-    public int val;
-    public ListNode next;
+namespace Src;
 
-    public ListNode(int x)
-    {
-        val = x;
-    }
-}
+public record ListNode(int Val, ListNode? Next);
