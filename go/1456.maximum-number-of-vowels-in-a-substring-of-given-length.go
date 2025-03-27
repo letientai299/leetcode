@@ -63,41 +63,33 @@ package main
 // - `s` consists of lowercase English letters.
 // - `1 <= k <= s.length`
 func maxVowels(s string, k int) int {
-	mem := make([]int, k)
+  mem := make([]int, k)
 
-	isVowel := func(c byte) bool {
-		return c == 'a' ||
-			c == 'e' ||
-			c == 'i' ||
-			c == 'o' ||
-			c == 'u'
-	}
+  cnt := 0
+  i := 0
+  for i < len(s) && i < k {
+    if isVowel(s[i]) {
+      cnt++
+    }
+    mem[i] = cnt
+    i++
+  }
 
-	cnt := 0
-	i := 0
-	for i < len(s) && i < k {
-		if isVowel(s[i]) {
-			cnt++
-		}
-		mem[i] = cnt
-		i++
-	}
+  best := cnt
 
-	best := cnt
+  j := 0
+  for ; i < len(s) && best < k; i++ {
+    if isVowel(s[i]) {
+      cnt++
+    }
 
-	j := 0
-	for ; i < len(s) && best < k; i++ {
-		if isVowel(s[i]) {
-			cnt++
-		}
+    v := cnt - mem[j]
+    if v > best {
+      best = v
+    }
+    mem[j] = cnt
+    j = (j + 1) % k
+  }
 
-		v := cnt - mem[j]
-		if v > best {
-			best = v
-		}
-		mem[j] = cnt
-		j = (j + 1) % k
-	}
-
-	return best
+  return best
 }
