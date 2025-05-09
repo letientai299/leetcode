@@ -1,5 +1,4 @@
 import { describe, expect, test } from 'bun:test';
-import './2677.chunk-array';
 import { chunk } from './2677.chunk-array';
 
 describe('chunk', () => {
