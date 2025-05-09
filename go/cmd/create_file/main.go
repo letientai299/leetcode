@@ -96,7 +96,7 @@ func (a *application) run(args []string) error {
 func (a *application) open(file string) error {
 	openCmd := a.ops.openWith
 	if openCmd == "" {
-		openCmd = "vim"
+		openCmd = "nvim"
 	}
 
 	wd, err := os.Getwd()
