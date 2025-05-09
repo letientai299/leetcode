@@ -1,29 +1,48 @@
 package lc
 
-import "strings"
-
-type Lang string
-
-const (
-	Java    Lang = "java"
-	C       Lang = "c"
-	CPP     Lang = "cpp"
-	Go      Lang = "golang"
-	JS      Lang = "javascript"
-	Python  Lang = "python"
-	Python3 Lang = "python3"
+import (
+	"embed"
+	"fmt"
+	"path/filepath"
+	"strings"
 )
 
-func ValidateLang(s string) (Lang, bool) {
+type Lang struct {
+	ext          string
+	name         string
+	aliases      []string
+	templateName string
+}
+
+var langConfigs = []Lang{
+	{ext: "c", name: "c", aliases: []string{"c"}, templateName: "c.tpl"},
+	{ext: "java", name: "java", aliases: []string{"java"}, templateName: "java.tpl"},
+	{ext: "go", name: "golang", aliases: []string{"go", "golang"}, templateName: "go.tpl"},
+	{ext: "js", name: "javascript", aliases: []string{"js"}, templateName: "js.tpl"},
+	{ext: "ts", name: "typescript", aliases: []string{"ts"}, templateName: "ts.tpl"},
+	{ext: "py", name: "python3", aliases: []string{"py"}, templateName: "py.tpl"},
+}
+
+//go:embed tpl/*
+var templates embed.FS
+
+func loadEmbeddedTemplate(name string) (string, error) {
+	bs, err := templates.ReadFile(filepath.Join("tpl", name))
+	return string(bs), err
+}
+
+func ValidateLang(s string) (Lang, error) {
 	s = strings.ToLower(s)
-	switch {
-	case s == string(Go) || s == "go":
-		return Go, true
-	case s == string(C):
-		return C, true
-	case s == string(Java):
-		return Java, true
+	available := make([]string, 0, len(langConfigs))
+
+	for _, cfg := range langConfigs {
+		available = append(available, cfg.ext)
+		for _, alias := range cfg.aliases {
+			if s == alias {
+				return cfg, nil
+			}
+		}
 	}
 
-	return "", false
+	return Lang{}, fmt.Errorf("invalid language, must be one of [%s], got %s", available, s)
 }

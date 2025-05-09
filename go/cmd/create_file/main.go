@@ -34,7 +34,7 @@ func usage(o *option) {
 
 func getOps() (*option, []string) {
 	ops := &option{
-		lang: string(lc.Go),
+		lang: "go",
 	}
 	return ops, ops.bindFlags()
 }
@@ -44,6 +44,7 @@ type option struct {
 	openWith string
 	fs       *pflag.FlagSet
 	lang     string
+	force    bool
 }
 
 func (o *option) bindFlags() []string {
@@ -52,6 +53,7 @@ func (o *option) bindFlags() []string {
 	fs.StringVarP(&o.lang, "lang", "l", o.lang, "language to generate")
 	fs.StringVarP(&o.openWith, "open", "o", o.openWith,
 		"open created file with given command, if empty, use 'vim'")
+	fs.BoolVarP(&o.force, "force", "f", o.force, "force create file, even if it exists")
 	_ = fs.Parse(os.Args)
 	o.fs = fs
 	return fs.Args()[1:]
@@ -66,13 +68,13 @@ func (a *application) run(args []string) error {
 		return errors.New("not enough argument, need an URL")
 	}
 
-	lang, ok := lc.ValidateLang(a.ops.lang)
-	if !ok {
-		return errors.New("invalid language")
+	lang, err := lc.ValidateLang(a.ops.lang)
+	if err != nil {
+		return err
 	}
 
-	file, err := lc.New().Prepare(args[0], lang)
-	if err != nil && err != lc.ErrExist {
+	file, err := lc.New().Prepare(args[0], lang, a.ops.force)
+	if err != nil && !errors.Is(err, lc.ErrExist) {
 		return err
 	}
 

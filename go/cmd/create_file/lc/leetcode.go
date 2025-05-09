@@ -12,12 +12,9 @@ import (
 	"time"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
-	"github.com/gobuffalo/packr/v2"
 	"github.com/mitchellh/go-wordwrap"
+	"github.com/pkg/errors"
 )
-
-//go:generate packr2 clean
-//go:generate packr2
 
 const (
 	graphqlURL      = "https://leetcode.com/graphql"
@@ -26,7 +23,7 @@ const (
 )
 
 type Leetcode interface {
-	Prepare(url string, lang Lang) (string, error)
+	Prepare(url string, lang Lang, force bool) (string, error)
 }
 
 func New() Leetcode {
@@ -40,7 +37,7 @@ type leetcode struct {
 	http *http.Client
 }
 
-func (l leetcode) Prepare(url string, lang Lang) (string, error) {
+func (l leetcode) Prepare(url string, lang Lang, force bool) (string, error) {
 	url = strings.TrimSuffix(url, "/description/")
 	problem, err := l.downloadProblem(url)
 	if err != nil {
@@ -48,14 +45,14 @@ func (l leetcode) Prepare(url string, lang Lang) (string, error) {
 	}
 
 	outFileName := problem.FileName(lang)
-	if l.fileExist(outFileName) {
+	if l.fileExist(outFileName) && !force {
 		log.Println("file exist: ", outFileName)
 		return outFileName, nil
 	}
 
 	out, err := l.create(outFileName)
 	if err != nil {
-		log.Printf("fail to crate, file=%v, err=%v", outFileName, err)
+		log.Printf("fail to create, file=%v, err=%v", outFileName, err)
 		return "", err
 	}
 
@@ -73,7 +70,7 @@ func (l leetcode) Prepare(url string, lang Lang) (string, error) {
 		"package": problem.PackageName(lang),
 	}
 
-	tpl, err := l.loadTplByLang(lang)
+	tpl, err := l.loadTemplate(lang.templateName)
 	if err != nil {
 		return "", err
 	}
@@ -165,13 +162,8 @@ func (l leetcode) cmtLine(sb *strings.Builder, s string) {
 	sb.WriteString("\n")
 }
 
-func (l leetcode) loadTplByLang(lang Lang) (*template.Template, error) {
-	name := string(lang) + "_file.tpl"
-	return l.loadTemplate(name)
-}
-
 func (l leetcode) loadTemplate(name string) (*template.Template, error) {
-	tplContent, err := getDefaultBox().FindString(name)
+	tplContent, err := loadEmbeddedTemplate(name)
 	if err != nil {
 		log.Printf("fail to load %v, err=%v", name, err)
 		return nil, err
@@ -186,13 +178,6 @@ func (l leetcode) loadTemplate(name string) (*template.Template, error) {
 	return tpl, nil
 }
 
-func getDefaultBox() *packr.Box {
-	// this must be string literal, can't use string constant, as the packr2 tool
-	// won't be able to recognize it
-	// also, the packr2 tool must be executed within this folder,
-	return packr.New("default box", "./tpl")
-}
-
 func (l leetcode) fileExist(s string) bool {
 	_, err := os.Open(s)
 	return !os.IsNotExist(err)
@@ -201,7 +186,7 @@ func (l leetcode) fileExist(s string) bool {
 func (l leetcode) create(name string) (*os.File, error) {
 	parent := filepath.Dir(name)
 	if err := os.MkdirAll(parent, os.ModePerm); err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "fail to create dir: %v", parent)
 	}
 
 	return os.Create(name)

@@ -16,7 +16,7 @@ type Problem struct {
 
 func (p Problem) GetCodeSnippet(lang Lang) string {
 	for _, sp := range p.Snippets {
-		if sp.LangSlug == string(lang) {
+		if sp.LangSlug == lang.name {
 			return sp.Code
 		}
 	}
@@ -30,15 +30,14 @@ type CodeSnippet struct {
 }
 
 func (p Problem) FileName(lang Lang) string {
-	switch lang {
-	case Go:
+	switch lang.ext {
+	case "go":
 		return p.goFileName()
-	case C:
-		return p.cFileName()
-	case Java:
+	case "java":
 		return p.javaFileName()
+	default:
+		return p.scriptableFileName(lang.ext)
 	}
-	return ""
 }
 
 func (p Problem) goFileName() string {
@@ -59,19 +58,20 @@ func (p Problem) goFileName() string {
 	return s
 }
 
-func (p Problem) cFileName() string {
+func (p Problem) scriptableFileName(ext string) string {
 	goName := p.goFileName()
 	n := len(goName)
-	return goName[:n-3] + ".c"
+	return goName[:n-3] + "." + ext
 }
 
 func (p Problem) javaFileName() string {
-	return p.PackageName(Java) + "/Solution.java"
+	id, _ := strconv.Atoi(p.FrontendID)
+	return fmt.Sprintf("p%04d", id) + "/Solution.java"
 }
 
 func (p Problem) PackageName(lang Lang) string {
-	switch lang {
-	case Java:
+	switch lang.ext {
+	case "java":
 		id, _ := strconv.Atoi(p.FrontendID)
 		return fmt.Sprintf("p%04d", id)
 	default:
