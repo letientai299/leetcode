@@ -155,6 +155,7 @@ func (l leetcode) prepareComment(problem Problem, u *url.URL) (strings.Builder, 
     langs = append(langs, snip.LangSlug)
   }
 
+  l.cmtLine(&sb, "")
   l.cmtLine(&sb, "Langs: "+strings.Join(langs, ", "))
   return sb, nil
 }
