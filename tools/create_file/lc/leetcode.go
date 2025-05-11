@@ -9,6 +9,7 @@ import (
   "net/url"
   "os"
   "path/filepath"
+  "slices"
   "strings"
   "text/template"
   "time"
@@ -66,8 +67,10 @@ func (l leetcode) parseURL(raw string) (*url.URL, error) {
     return nil, err
   }
 
-  pathNoQuery := strings.TrimSuffix(u.Path, "/description/")
-  return url.Parse(pathNoQuery)
+  u.RawPath = strings.TrimSuffix(u.Path, "/description/")
+  u.Path = u.RawPath
+  u.RawQuery = ""
+  return u, nil
 }
 
 func (l leetcode) Prepare(raw string, lang Lang, force bool) (string, error) {
@@ -123,7 +126,7 @@ func (l leetcode) Prepare(raw string, lang Lang, force bool) (string, error) {
 func (l leetcode) prepareComment(problem Problem, u *url.URL) (strings.Builder, error) {
   var sb strings.Builder
   l.cmtLine(&sb, problem.Title+" ("+problem.Difficulty+")")
-  l.cmtLine(&sb, u.Path)
+  l.cmtLine(&sb, u.String())
   l.cmtLine(&sb, "")
 
   content, err := md.ConvertString(problem.Content)
@@ -132,12 +135,19 @@ func (l leetcode) prepareComment(problem Problem, u *url.URL) (strings.Builder, 
   }
 
   rep := strings.NewReplacer("\n", "\n// ", " ", " ")
-  for _, s := range strings.Split(content, "\n") {
+  ss := strings.Split(content, "\n")
+  lines := make([]string, 0, len(ss))
+
+  for _, s := range ss {
     s = wordwrap.WrapString(s, contentWidth)
     s = strings.TrimSpace(rep.Replace(s))
-    if len(s) != 0 {
-      l.cmtLine(&sb, s)
-    }
+    lines = append(lines, s)
+  }
+
+  lines = slices.Compact(lines)
+
+  for _, s := range lines {
+    l.cmtLine(&sb, s)
   }
 
   langs := make([]string, 0, len(problem.Snippets))
