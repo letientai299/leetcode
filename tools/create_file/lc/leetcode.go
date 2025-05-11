@@ -6,6 +6,7 @@ import (
   "fmt"
   "log"
   "net/http"
+  "net/url"
   "os"
   "path/filepath"
   "strings"
@@ -39,14 +40,17 @@ type leetcode struct {
   http *http.Client
 }
 
-func (l leetcode) Read(url string) error {
-  url = strings.TrimSuffix(url, "/description/")
-  problem, err := l.downloadProblem(url)
+func (l leetcode) Read(raw string) error {
+  u, err := l.parseURL(raw)
+  if err != nil {
+    return err
+  }
+  problem, err := l.downloadProblem(u)
   if err != nil {
     return err
   }
 
-  cmt, err := l.prepareComment(problem, url)
+  cmt, err := l.prepareComment(problem, u)
   if err != nil {
     return err
   }
@@ -55,9 +59,24 @@ func (l leetcode) Read(url string) error {
   return nil
 }
 
-func (l leetcode) Prepare(url string, lang Lang, force bool) (string, error) {
-  url = strings.TrimSuffix(url, "/description/")
-  problem, err := l.downloadProblem(url)
+func (l leetcode) parseURL(raw string) (*url.URL, error) {
+  u, err := url.Parse(raw)
+  if err != nil {
+    log.Printf("fail to parse url, raw=%v, err=%v", raw, err)
+    return nil, err
+  }
+
+  pathNoQuery := strings.TrimSuffix(u.Path, "/description/")
+  return url.Parse(pathNoQuery)
+}
+
+func (l leetcode) Prepare(raw string, lang Lang, force bool) (string, error) {
+  u, err := l.parseURL(raw)
+  if err != nil {
+    return "", err
+  }
+
+  problem, err := l.downloadProblem(u)
   if err != nil {
     return "", err
   }
@@ -76,7 +95,7 @@ func (l leetcode) Prepare(url string, lang Lang, force bool) (string, error) {
 
   defer func() { _ = out.Close() }()
 
-  cmt, err := l.prepareComment(problem, url)
+  cmt, err := l.prepareComment(problem, u)
   if err != nil {
     return "", err
   }
@@ -101,10 +120,10 @@ func (l leetcode) Prepare(url string, lang Lang, force bool) (string, error) {
   return outFileName, nil
 }
 
-func (l leetcode) prepareComment(problem Problem, url string) (strings.Builder, error) {
+func (l leetcode) prepareComment(problem Problem, u *url.URL) (strings.Builder, error) {
   var sb strings.Builder
   l.cmtLine(&sb, problem.Title+" ("+problem.Difficulty+")")
-  l.cmtLine(&sb, url)
+  l.cmtLine(&sb, u.Path)
   l.cmtLine(&sb, "")
 
   content, err := md.ConvertString(problem.Content)
@@ -130,24 +149,24 @@ func (l leetcode) prepareComment(problem Problem, url string) (strings.Builder, 
   return sb, nil
 }
 
-func (l leetcode) extractTitleSlug(url string) string {
-  url = strings.TrimSpace(url)
-  n := len(url)
-  if url[n-1] == '/' {
+func (l leetcode) extractTitleSlug(u *url.URL) string {
+  s := strings.TrimSpace(u.Path)
+  n := len(s)
+  if s[n-1] == '/' {
     n--
-    url = url[:n]
+    s = s[:n]
   }
-  slug := url[strings.LastIndexByte(url, '/')+1:]
+  slug := s[strings.LastIndexByte(s, '/')+1:]
   return slug
 }
 
-func (l leetcode) downloadProblem(url string) (Problem, error) {
+func (l leetcode) downloadProblem(u *url.URL) (Problem, error) {
   tpl, err := l.loadTemplate(tplQuestionData)
   if err != nil {
     return Problem{}, err
   }
 
-  titleSlug := l.extractTitleSlug(url)
+  titleSlug := l.extractTitleSlug(u)
   tplData := map[string]string{
     varTitleSlug: titleSlug,
   }

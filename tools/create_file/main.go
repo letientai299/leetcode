@@ -9,20 +9,20 @@ import (
   "path"
   "syscall"
 
-  "leetcode/cmd/create_file/lc"
+  "leetcode/create_file/lc"
 
   "github.com/spf13/pflag"
 )
 
 func main() {
-  ops, args := getOps()
-  if ops.help || len(args) == 0 {
+  ops := getOps()
+  if ops.help || len(ops.url) == 0 {
     usage(ops)
     return
   }
 
   app := &application{ops: ops}
-  if err := app.run(args); err != nil {
+  if err := app.run(); err != nil {
     log.Fatalf("err=%v", err)
   }
 }
@@ -32,15 +32,30 @@ func usage(o *option) {
   fmt.Println(o.fs.FlagUsagesWrapped(80))
 }
 
-func getOps() (*option, []string) {
+func getOps() *option {
   ops := &option{
     lang: "go",
   }
-  return ops, ops.bindFlags()
+
+  remainArgs := ops.bindFlags()
+  if len(remainArgs) > 0 {
+    ops.url = remainArgs[0]
+  }
+
+  for _, s := range remainArgs {
+    if s == "-o" || s == "--open" {
+      ops.open = true
+      break
+    }
+  }
+
+  return ops
 }
 
 type option struct {
   help     bool
+  url      string
+  open     bool
   openWith string
   fs       *pflag.FlagSet
   lang     string
@@ -68,13 +83,10 @@ type application struct {
   ops *option
 }
 
-func (a *application) run(args []string) error {
-  if len(args) == 0 {
-    return errors.New("not enough argument, need an URL")
-  }
-
+func (a *application) run() error {
+  url := a.ops.url
   if a.ops.read {
-    return lc.New().Read(args[0])
+    return lc.New().Read(url)
   }
 
   lang, err := lc.ValidateLang(a.ops.lang)
@@ -82,7 +94,7 @@ func (a *application) run(args []string) error {
     return err
   }
 
-  file, err := lc.New().Prepare(args[0], lang, a.ops.force)
+  file, err := lc.New().Prepare(url, lang, a.ops.force)
   if err != nil && !errors.Is(err, lc.ErrExist) {
     return err
   }
@@ -105,7 +117,11 @@ func (a *application) run(args []string) error {
 func (a *application) open(file string) error {
   openCmd := a.ops.openWith
   if openCmd == "" {
-    openCmd = "nvim"
+    editor, ok := os.LookupEnv("EDITOR")
+    if !ok {
+      editor = "nvim"
+    }
+    openCmd = editor
   }
 
   wd, err := os.Getwd()
