@@ -3,8 +3,15 @@ name = "lc_rust"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = ["bench"]
+bench = ["dep:divan"]
+
+[dependencies]
+divan = { version = "0.1.21", optional = true }
+
 [dev-dependencies]
-divan = "0.1.14"
+divan = "0.1.21"
 test-case = "3.3.1"
 
 [[bench]]

@@ -60,3 +60,19 @@ mod tests {
         );
     }
 }
+
+#[cfg(feature = "bench")]
+mod benches {
+    use super::*;
+    use crate::util::vec_of;
+
+    #[divan::bench]
+    fn find_the_prefix_common_array() -> Vec<i32> {
+        let a = vec_of::<i32>("[1,3,2,4]");
+        let b = vec_of::<i32>("[3,1,2,4]");
+        Solution::find_the_prefix_common_array(
+            divan::black_box(a),
+            divan::black_box(b),
+        )
+    }
+}
