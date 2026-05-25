@@ -30,14 +30,18 @@ type Vec2<T> = Vec<Vec<T>>;
 /// assert_eq!(vec2d_of::<String>("[[ab, cd], [e, f]]"), vec![vec!["ab","cd"], vec!["e","f"]]);
 /// ```
 pub fn vec2d_of<T: FromStr>(s: &str) -> Vec2<T> {
-    let s = s.trim();
-    s[1..s.len() - 1]
-        .split("],")
-        .map(|sub| {
-            let inner = sub.trim().trim_matches(|c| c == '[' || c == ']');
-            vec_of::<T>(&format!("[{inner}]"))
-        })
-        .collect()
+    let s = &s.trim()[1..s.len() - 1];
+    let bs = s.as_bytes();
+    let mut res: Vec2<T> = Vec::new();
+    let mut last = 0;
+    for (i, &b) in bs.iter().enumerate() {
+        if b == b'[' {
+            last = i;
+        } else if b == b']' {
+            res.push(vec_of::<T>(&s[last..=i]));
+        }
+    }
+    res
 }
 
 #[cfg(test)]
@@ -74,5 +78,30 @@ mod tests {
     #[test_case("[[ab, cd], [e, f]]", vec![vec!["ab","cd"], vec!["e","f"]])]
     fn vec2d_of_string(input: &str, want: Vec<Vec<&str>>) {
         assert_eq!(vec2d_of::<String>(input), want);
+    }
+}
+
+#[cfg(feature = "bench")]
+mod benches {
+    use super::*;
+
+    struct Named(&'static str, &'static str);
+
+    impl std::fmt::Display for Named {
+        fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+            f.write_str(self.0)
+        }
+    }
+
+    const VEC2D_INPUTS: [Named; 4] = [
+        Named("2x2", "[[1,2],[3,4]]"),
+        Named("3_ragged", "[[1,2,3],[4],[5,6]]"),
+        Named("3x2", "[[3,50],[7,10],[12,25]]"),
+        Named("7x2", "[[2,7],[3,17],[4,37],[7,6],[9,83],[16,67],[19,29]]"),
+    ];
+
+    #[divan::bench(args = VEC2D_INPUTS)]
+    fn vec2d_of_bench(input: &Named) -> Vec<Vec<i32>> {
+        vec2d_of::<i32>(divan::black_box(input.1))
     }
 }
