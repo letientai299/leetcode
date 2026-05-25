@@ -24,7 +24,7 @@ impl Solution {
         let mut x = nums[i];
         let y = nums[j];
         while x / 10 > 0  {
-          x = x / 10
+          x /= 10
         }
         if util::gcd(x, y % 10) == 1 {
           n += 1
