@@ -5,7 +5,8 @@
 When creating a new Rust file for a LeetCode problem:
 
 1. File naming: `p_{number}_{snake_case_title}.rs` ( e.g.,
-   `p_2733_neither_minimum_nor_maximum.rs`).
+   `p_2733_neither_minimum_nor_maximum.rs`). The file should contain `struct
+   Solution` and the function should belong to an `impl Solution` block.
 2. Register the module `src/lib.rs`.
 3. Function body: Use `todo!()` — do NOT include the solution.
 4. Problem description: Add the problem description as Rust doc comments (
