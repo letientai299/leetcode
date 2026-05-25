@@ -18,7 +18,9 @@ impl Solution {
     if nums.len() < 3 {
       return -1;
     }
-    0
+    let mut tri = nums[..3].to_vec();
+    tri.sort();
+    tri[1]
   }
 }
 
