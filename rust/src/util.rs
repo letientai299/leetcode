@@ -48,6 +48,13 @@ pub fn vec2d_of<T: FromStr>(s: &str) -> Vec2<T> {
   res
 }
 
+pub fn gcd(a: i32, b: i32) -> i32 {
+  match a {
+    0 => b,
+    _ => gcd(b % a, a),
+  }
+}
+
 #[cfg(test)]
 mod tests {
   use super::*;
@@ -82,6 +89,16 @@ mod tests {
   #[test_case("[[ab, cd], [e, f]]", vec![vec!["ab","cd"], vec!["e","f"]])]
   fn vec2d_of_string(input: &str, want: Vec<Vec<&str>>) {
     assert_eq!(vec2d_of::<String>(input), want);
+  }
+
+  #[test_case(1, 2, 1)]
+  #[test_case(2, 2, 2)]
+  #[test_case(2, 6, 2)]
+  #[test_case(6, 3, 3)]
+  #[test_case(12, 8, 4)]
+  fn gcd(a: i32, b: i32, want: i32) {
+    let got = super::gcd(a, b);
+    assert_eq!(got, want);
   }
 }
 
