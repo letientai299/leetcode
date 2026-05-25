@@ -12,10 +12,14 @@ use std::str::FromStr;
 /// ```
 pub fn vec_of<T: FromStr>(s: &str) -> Vec<T> {
     let s = &s[1..s.len() - 1];
-    s.split(',')
-        .map(|sub| sub.trim().parse::<T>())
-        .collect::<Result<Vec<T>, _>>()
-        .unwrap_or_else(|_| panic!("Failed to parse '{}'", s))
+    let mut res = Vec::new();
+    for sub in s.split(',') {
+        match sub.trim().parse::<T>() {
+            Ok(v) => res.push(v),
+            Err(_) => panic!("Failed to parse '{}'", s),
+        }
+    }
+    res
 }
 
 type Vec2<T> = Vec<Vec<T>>;
@@ -99,6 +103,17 @@ mod benches {
         Named("3x2", "[[3,50],[7,10],[12,25]]"),
         Named("7x2", "[[2,7],[3,17],[4,37],[7,6],[9,83],[16,67],[19,29]]"),
     ];
+
+    const VEC1D_INPUTS: [Named; 3] = [
+        Named("3_elem", "[1,2,3]"),
+        Named("3_spaced", "[1, 2, 3]"),
+        Named("7_elem", "[2,7,3,17,4,37,7]"),
+    ];
+
+    #[divan::bench(args = VEC1D_INPUTS)]
+    fn vec_of_bench(input: &Named) -> Vec<i32> {
+        vec_of::<i32>(divan::black_box(input.1))
+    }
 
     #[divan::bench(args = VEC2D_INPUTS)]
     fn vec2d_of_bench(input: &Named) -> Vec<Vec<i32>> {
