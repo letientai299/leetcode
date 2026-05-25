@@ -13,3 +13,4 @@ When creating a new Rust file for a LeetCode problem:
    `///`) with Markdown formatting above the function signature.
 5. Tests: Include a `#[cfg(test)]` module with sample test cases from the
    problem.
+6. Tests should be parameterized via `#[test_case(...)`
